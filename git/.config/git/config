@@ -1,0 +1,10 @@
+[user]
+  name = Guzman Zugnoni
+  email = guzmanzs33@gmail.com
+
+[core]
+  editor = nvim
+
+[alias]
+  c = commit
+  s = status
