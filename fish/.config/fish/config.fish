@@ -174,5 +174,9 @@ function fish_greeting
 	set_color normal
 end
 
+if status --is-interactive
+  if test -z "$DISPLAY" -a $XDG_VTNR = 1
+    exec startx -- -keeptty
+  end
+end
 
-[ "(tty)" = "/dev/tty1" ] && ! pidof Xorg >/dev/null 2>&1  && exec startx
