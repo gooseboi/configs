@@ -4,6 +4,7 @@ set -x BROWSER firefox
 set -x EDITOR nvim
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
+set -x FZF_DEFAULT_COMMAND "fd --type file --follow -H --exclude .git"
 fish_vi_key_bindings
 
 abbr -a fcfg 'nvim ~/.config/fish/config.fish'
