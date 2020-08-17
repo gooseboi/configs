@@ -1,6 +1,6 @@
 #!/bin/bash
 
-xwallpaper --zoom ~/.config/wall.jpg
+xwallpaper --zoom ~/.config/wall.png
 
 xcompmgr &
 xset r rate 300 50 &

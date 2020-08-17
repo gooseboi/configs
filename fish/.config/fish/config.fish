@@ -1,9 +1,12 @@
-abbr -a yr 'cal -y'
-
-set -U fish_user_paths /usr/local/sbin /usr/local/bin /usr/bin /bin ~/.cargo/bin
+set -U fish_user_paths /usr/local/sbin /usr/local/bin /usr/bin /bin ~/.cargo/bin ~/.local/bin
 
 set -x BROWSER firefox
 set -x EDITOR nvim
+set -x XDG_CONFIG_HOME $HOME/.config
+set -x XDG_CACHE_HOME $HOME/.cache
+fish_vi_key_bindings
+
+abbr -a fcfg 'nvim ~/.config/fish/config.fish'
 
 if command -v exa > /dev/null
 	abbr -a l 'exa'
@@ -162,8 +165,11 @@ function fish_greeting
 	# urgent, so prompt always
 	set_color red
 	# echo "  [project] <description>"
-
-	echo
+	echo " [dwm] internet statusbar"
+	echo " [dwm] volume statusbar"
+	echo " [dwm] battery statusbar"
+	echo " [dwm] layouts"
+	echo " [bspwm] get bspwm nob"
 
 	if test -s ~/todo
 		set_color magenta
@@ -178,5 +184,6 @@ if status --is-interactive
   if test -z "$DISPLAY" -a $XDG_VTNR = 1
     exec startx -- -keeptty
   end
+  #  tmux ^ /dev/null
 end
 
