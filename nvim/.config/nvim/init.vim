@@ -123,7 +123,7 @@ nmap <leader>; :Buffers<CR>
 
 " Quick-save
 nmap <leader>w :w<CR>
-nmap <leader>q :wq<CR>
+nmap <leader>q :q<CR>
 
 " Don't confirm .lvimrc
 let g:localvimrc_ask = 0
