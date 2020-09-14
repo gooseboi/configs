@@ -4,7 +4,6 @@ set -x BROWSER firefox
 set -x EDITOR nvim
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
-set -x FZF_DEFAULT_COMMAND "fd --type file --follow -H --exclude .git"
 fish_vi_key_bindings
 
 abbr -a fcfg 'nvim ~/.config/fish/config.fish'
@@ -57,7 +56,7 @@ setenv LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 setenv LD_LIBRARY_PATH (rustc +nightly --print sysroot)"/lib:$LD_LIBRARY_PATH"
 setenv RUST_SRC_PATH (rustc --print sysroot)"/lib/rustlib/src/rust/src"
 
-setenv FZF_DEFAULT_COMMAND 'fd --type file --follow'
+setenv FZF_DEFAULT_COMMAND "fd --type file --follow -H --exclude .git"
 setenv FZF_CTRL_T_COMMAND 'fd --type file --follow'
 setenv FZF_DEFAULT_OPTS '--height 20%'
 
@@ -166,10 +165,6 @@ function fish_greeting
 	# urgent, so prompt always
 	set_color red
 	# echo "  [project] <description>"
-	echo " [dwm] internet statusbar"
-	echo " [dwm] volume statusbar"
-	echo " [dwm] battery statusbar"
-	echo " [dwm] layouts"
 	echo " [bspwm] get bspwm nob"
 
 	if test -s ~/todo
