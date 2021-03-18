@@ -1,6 +1,6 @@
 set -U fish_user_paths /usr/local/sbin /usr/local/bin /usr/bin /bin ~/.cargo/bin ~/.local/bin
 
-set -x BROWSER firefox
+set -x BROWSER brave
 set -x EDITOR nvim
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
@@ -11,11 +11,11 @@ abbr -a fcfg 'nvim ~/.config/fish/config.fish'
 if command -v exa > /dev/null
 	abbr -a l 'exa'
 	abbr -a ll 'exa -l'
-	abbr -a lll 'exa -la'
+	abbr -a la 'exa -la'
 else
 	abbr -a l 'ls'
 	abbr -a ll 'ls -l'
-	abbr -a lll 'ls -la'
+	abbr -a la 'ls -al'
 end
 
 if test -f /usr/share/autojump/autojump.fish;
@@ -28,10 +28,6 @@ function sudo --description "Replacement for Bash 'sudo !!' command to run last 
 else
     command sudo $argv
     end
-end
-
-function initnvim 
-	nvm install node && nvm alias default node
 end
 
 # Fish git prompt
@@ -176,10 +172,10 @@ function fish_greeting
 	set_color normal
 end
 
-if status --is-interactive
-  if test -z "$DISPLAY" -a $XDG_VTNR = 1
-    exec startx -- -keeptty
-  end
-  #  tmux ^ /dev/null
-end
+#if status --is-interactive
+#  if test -z "$DISPLAY" -a $XDG_VTNR = 1
+#    exec startx -- -keeptty
+#  end
+# tmux > /dev/null
+#end
 
