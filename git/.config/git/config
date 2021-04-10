@@ -1,11 +1,15 @@
 [user]
-  name = Guzman Zugnoni
-  email = gooseiman@protonmail.com
-
+	name = Guzman Zugnoni
+	email = gooseiman@protonmail.com
+[color]
+	ui = true
 [core]
-  editor = nvim
-
+	editor = nvim
+	autocrlf = input
+	safecrlf = true
+[merge]
+	tool = nvim -d
 [alias]
-  c = commit
-  s = status
-  d = diff
+	c = commit
+	s = status
+	d = diff
