@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# Common commands
+alias \
+	cp="cp -iv"
+	mv="mv -iv"
+	rm="rm -vI"
+	mkd="mkdir -pv" 
+
+# ls commands
+if command -v exa &> /dev/null 
+then
+	alias \
+		l="exa" \
+		la="exa -a" \
+		ll="exa -l" \
+		lla="exa -la"
+
+else
+	alias \
+		l="ls" \
+		la="ls -a" \
+		ll="ls -l" \
+		lla="ls -la"
+
+fi
+
