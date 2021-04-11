@@ -1,5 +1,3 @@
-" Fish doesn't play all that well with others
-set shell=/bin/bash
 let mapleader = "\<Space>"
 
 " =============================================================================
@@ -45,16 +43,11 @@ call plug#end()
 if has('nvim')
     set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
     set inccommand=nosplit
-    noremap <C-q> :confirm qall<CR>
 end
 
 " deal with colors
 if !has('gui_running')
   set t_Co=256
-endif
-if (match($TERM, "-256color") != -1) && (match($TERM, "screen-256color") == -1)
-  " screen does not (yet) support truecolor
-  set termguicolors
 endif
 set background=dark
 let base16colorspace=256
@@ -64,47 +57,6 @@ syntax on
 hi Normal ctermbg=NONE
 " Brighter comments
 call Base16hi("Comment", g:base16_gui09, "", g:base16_cterm09, "", "", "")
-
-" Plugin settings
-let g:secure_modelines_allowed_items = [
-                \ "textwidth",   "tw",
-                \ "softtabstop", "sts",
-                \ "tabstop",     "ts",
-                \ "shiftwidth",  "sw",
-                \ "expandtab",   "et",   "noexpandtab", "noet",
-                \ "filetype",    "ft",
-                \ "foldmethod",  "fdm",
-                \ "readonly",    "ro",   "noreadonly", "noro",
-                \ "rightleft",   "rl",   "norightleft", "norl",
-                \ "colorcolumn"
-                \ ]
-
-" Lightline
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \   'cocstatus': 'coc#status'
-      \ },
-      \ }
-function! LightlineFilename()
-  return expand('%:t') !=# '' ? @% : '[No Name]'
-endfunction
-
-" Use auocmd to force lightline update.
-autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
-
-" from http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
-if executable('ag')
-	set grepprg=ag\ --nogroup\ --nocolor
-endif
-if executable('rg')
-	set grepprg=rg\ --no-heading\ --vimgrep
-	set grepformat=%f:%l:%c:%m
-endif
 
 " Javascript
 let javaScript_fold=0
@@ -128,16 +80,6 @@ nmap <leader>q :q<CR>
 " Don't confirm .lvimrc
 let g:localvimrc_ask = 0
 
-" racer + rust
-" https://github.com/rust-lang/rust.vim/issues/192
-let g:rustfmt_autosave = 1
-let g:rustfmt_emit_files = 1
-let g:rustfmt_fail_silently = 0
-let g:rust_clip_command = 'xclip -selection clipboard'
-"let g:racer_cmd = "/usr/bin/racer"
-"let g:racer_experimental_completer = 1
-let $RUST_SRC_PATH = systemlist("rustc --print sysroot")[0] . "/lib/rustlib/src/rust/src"
-
 " Completion
 " Better display for messages
 set cmdheight=2
@@ -153,14 +95,15 @@ let g:go_bin_path = expand("~/dev/go/bin")
 " =============================================================================
 " # Editor settings
 " =============================================================================
-filetype plugin indent on
-set autoindent
+filetype plugin indent on " Load plugin and indent settings based on filetype
+set autoindent " copy indent from previous line
 set timeoutlen=300 " http://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
-set encoding=utf-8
-set scrolloff=2
+set encoding=utf-8 " Use UTF-8 encoding
+set scrolloff=3 " Keep 3 lines above and below the cursor when scrolling
+set sidescrolloff=7 " Keep 7 lines to both sides when scrolling
 set noshowmode
-set hidden
-set nowrap
+set hidden " Allow unsaved buffers to be hidden
+set nowrap " No line wrapping
 set nojoinspaces
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_auto_insert_bullets = 0
@@ -168,8 +111,6 @@ let g:vim_markdown_frontmatter = 1
 set printfont=:h10
 set printencoding=utf-8
 set printoptions=paper:letter
-" Always draw sign column. Prevent buffer moving when adding/deleting sign.
-set signcolumn=yes
 
 " Settings needed for .lvimrc
 set exrc
@@ -233,11 +174,11 @@ set synmaxcol=500
 set laststatus=2
 set relativenumber " Relative line numbers
 set number " Also show current absolute line
+set ruler
 set diffopt+=iwhite " No whitespace in vimdiff
 " Make diffing better: https://vimways.org/2018/the-power-of-diff/
 set diffopt+=algorithm:patience
 set diffopt+=indent-heuristic
-set colorcolumn=80 " and give me a colored column
 set showcmd " Show (partial) command in status line.
 set mouse=a " Enable mouse usage (all modes) in terminals
 set shortmess+=c " don't give |ins-completion-menu| messages.
