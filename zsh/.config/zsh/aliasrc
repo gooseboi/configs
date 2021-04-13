@@ -2,9 +2,9 @@
 
 # Common commands
 alias \
-	cp="cp -iv"
-	mv="mv -iv"
-	rm="rm -vI"
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
 	mkd="mkdir -pv" 
 
 # ls commands
