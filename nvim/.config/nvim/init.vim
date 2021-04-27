@@ -1,4 +1,5 @@
 let mapleader = " "
+nnoremap <space> <nop>
 
 " =============================================================================
 " # PLUGINS
@@ -8,6 +9,7 @@ let mapleader = " "
 set nocompatible
 filetype off
 set rtp+=~/dev/others/base16/templates/vim/
+
 call plug#begin('~/.config/nvim/plugged')
 
 " Load plugins
@@ -19,14 +21,18 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
+Plug 'jremmen/vim-ripgrep'
 
 " Fuzzy finder
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Semantic language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'
+Plug 'pechorin/any-jump.vim'
 
 " Syntactic language support
 Plug 'cespare/vim-toml'
@@ -67,15 +73,17 @@ let g:latex_indent_enabled = 1
 let g:latex_fold_envs = 0
 let g:latex_fold_sections = []
 
-" Open hotkeys
-map <C-p> :Files<CR>
-nmap <leader>; :Buffers<CR>
+" File navigation hotkeys
+map <leader>jf :Files<CR>
+nnoremap <leader>; :Buffers<CR>
+nmap <leader>ca <c-w>v<CR>
+nmap <leader>cq <c-w>q<CR>
+nmap <leader>cc :w \| %bd \| e#<CR>
 
 " Quick-save
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 
-" Completion
 " Better display for messages
 set cmdheight=2
 " You will have bad experience for diagnostic messages when it's default 4000.
@@ -107,6 +115,9 @@ set printfont=:h10
 set printencoding=utf-8
 set printoptions=paper:letter
 
+" restore last line position when opening file
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
 " Sane splits
 set splitright
 set splitbelow
@@ -125,6 +136,10 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 set noexpandtab
+
+" x and X don't change clipboard
+nnoremap x "_x
+nnoremap X "_X
 
 " Wrapping options
 set formatoptions=tc " wrap text and comments using textwidth
@@ -183,13 +198,17 @@ set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 " ; as :
 nnoremap ; :
 
+" Stop searching
+vnoremap <C-h> :nohlsearch<cr>
+nnoremap <C-h> :nohlsearch<cr>
+
 " Jump to start and end of line using the home row keys
 map H ^
 map L $
 
 " Neat X clipboard integration
-" ,p will paste clipboard into buffer
-" ,c will copy entire buffer into clipboard
+" <Space>p will paste clipboard into buffer
+" <Space>c will copy entire buffer into clipboard
 noremap <leader>p :read !xsel --clipboard --output<cr>
 noremap <leader>c :w !xsel -ib<cr><cr>
 
@@ -219,6 +238,10 @@ nnoremap <right> :bn<CR>
 nnoremap j gj
 nnoremap k gk
 
+" Move line mappings
+nnoremap <c-j> :m .+1<CR>==
+nnoremap <c-k> :m .-2<CR>==
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " GoTo code navigation.
@@ -244,9 +267,13 @@ noremap <leader>m ct_
 map <F1> <Esc>
 imap <F1> <Esc>
 
-" =============================================================================
-" # Autocommands
-" =============================================================================
+" Auto format code
+au BufWrite *.rs, *.c, *.h, *.cpp, *.hpp, *.js :ALEFix
+let g:ale_linters = { 'c': ['clangd'], 'cpp': ['clangd'] }
+let g:ale_fixers = { 'c': ['clang-format'], 'cpp': ['clang-format'], 'javascript': ['prettier'] }
+let g:ale_ruby_rubocop_executable = "bundle"
+let g:ale_ruby_standardrb_executable = "bundle"
+let g:prettier#exec_cmd_async = 1
 
 " Prevent accidental writes to buffers that shouldn't be edited
 autocmd BufRead *.orig set readonly
@@ -254,10 +281,6 @@ autocmd BufRead *.pacnew set readonly
 
 " Leave paste mode when leaving insert mode
 autocmd InsertLeave * set nopaste
-
-" Follow Rust code style rules
-au Filetype rust source ~/.config/nvim/scripts/spacetab.vim
-au Filetype rust set colorcolumn=100
 
 " Help filetype detection
 autocmd BufRead *.plot set filetype=gnuplot
