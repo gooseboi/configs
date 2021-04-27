@@ -1,5 +1,8 @@
 # Based on LukeSmiths and Brodies zshrcs
 
+# Start tmux
+[[ $- == *i* ]] && [[ "$TMUX" = "" ]] && tmux
+
 # Flex on the ubuntu users
 neofetch
 
