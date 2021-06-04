@@ -3,9 +3,6 @@
 # Start tmux
 [[ $- == *i* ]] && [[ "$TMUX" = "" ]] && tmux
 
-# Flex on the ubuntu users
-neofetch
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
