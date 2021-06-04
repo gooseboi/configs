@@ -12,7 +12,7 @@ if command -v exa &> /dev/null
 then
 	alias \
 		l="exa" \
-		ls="exa" \ 
+		ls="exa" \
 		la="exa -a" \
 		ll="exa -l" \
 		lla="exa -la"
