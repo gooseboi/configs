@@ -27,7 +27,6 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 
 " Semantic language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -37,11 +36,9 @@ Plug 'pechorin/any-jump.vim'
 " Syntactic language support
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
-Plug 'rust-lang/rust.vim'
-Plug 'rhysd/vim-clang-format'
-Plug 'dag/vim-fish'
-Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'rust-lang/rust.vim'
+Plug 'godlygeek/tabular'
 
 Plug 'chriskempson/base16-vim'
 
@@ -207,8 +204,8 @@ map H ^
 map L $
 
 " Neat X clipboard integration
-" <Space>p will paste clipboard into buffer
-" <Space>c will copy entire buffer into clipboard
+" <leader>p will paste clipboard into buffer
+" <leader>c will copy entire buffer into clipboard
 noremap <leader>p :read !xsel --clipboard --output<cr>
 noremap <leader>c :w !xsel -ib<cr><cr>
 
@@ -253,16 +250,12 @@ nmap <silent> gr <Plug>(coc-references)
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
 " Use <TAB> for selections ranges.
 nmap <silent> <TAB> <Plug>(coc-range-select)
 xmap <silent> <TAB> <Plug>(coc-range-select)
 
 " Keymap for replacing up to next _ or -
 noremap <leader>m ct_
-
 " I can type :help on my own, thanks.
 map <F1> <Esc>
 imap <F1> <Esc>
