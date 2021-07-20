@@ -5,6 +5,14 @@ nnoremap <space> <nop>
 " # PLUGINS
 " =============================================================================
 
+" Download plugin manager if not present
+if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
+	echo "Downloading junegunn/vim-plug to manage plugins..."
+	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+	autocmd VimEnter * PlugInstall
+endif
+
 " Load vundle
 set nocompatible
 filetype off
@@ -59,12 +67,6 @@ hi Normal ctermbg=NONE
 " Brighter comments
 call Base16hi("Comment", g:base16_gui09, "", g:base16_cterm09, "", "", "")
 
-" Javascript
-let javaScript_fold=0
-
-" Java
-let java_ignore_javadoc=1
-
 " Latex
 let g:latex_indent_enabled = 1
 let g:latex_fold_envs = 0
@@ -85,12 +87,6 @@ nmap <leader>q :q<CR>
 set cmdheight=2
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
-
-" Golang
-let g:go_play_open_browser = 0
-let g:go_fmt_fail_silently = 1
-let g:go_fmt_command = "goimports"
-let g:go_bin_path = expand("~/dev/go/bin")
 
 " =============================================================================
 " # Editor settings
@@ -128,15 +124,16 @@ set wildmenu
 set wildmode=list:longest
 set wildignore=.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor
 
-" Use wide tabs
+" Tab settings
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 set noexpandtab
 
-" x and X don't change clipboard
+" Change and delete do not change clipboard
 nnoremap x "_x
 nnoremap X "_X
+nnoremap c "_c
 
 " Wrapping options
 set formatoptions=tc " wrap text and comments using textwidth
@@ -227,13 +224,17 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-" Left and right can switch buffers
+" Left and right switch buffers
 nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
 
 " Move by line
 nnoremap j gj
 nnoremap k gk
+
+" Bindings for quick movement
+nnoremap J 10j
+nnoremap K 10k
 
 " Move line mappings
 nnoremap <c-j> :m .+1<CR>==
@@ -267,18 +268,3 @@ let g:ale_fixers = { 'c': ['clang-format'], 'cpp': ['clang-format'], 'javascript
 let g:ale_ruby_rubocop_executable = "bundle"
 let g:ale_ruby_standardrb_executable = "bundle"
 let g:prettier#exec_cmd_async = 1
-
-" Prevent accidental writes to buffers that shouldn't be edited
-autocmd BufRead *.orig set readonly
-autocmd BufRead *.pacnew set readonly
-
-" Leave paste mode when leaving insert mode
-autocmd InsertLeave * set nopaste
-
-" Help filetype detection
-autocmd BufRead *.plot set filetype=gnuplot
-autocmd BufRead *.md set filetype=markdown
-autocmd BufRead *.lds set filetype=ld
-autocmd BufRead *.tex set filetype=tex
-autocmd BufRead *.trm set filetype=c
-autocmd BufRead *.xlsx.axlsx set filetype=ruby
