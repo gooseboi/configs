@@ -28,8 +28,6 @@ Plug 'editorconfig/editorconfig-vim'
 " GUI enhancements
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'andymass/vim-matchup'
-Plug 'jremmen/vim-ripgrep'
 
 " Fuzzy finder
 Plug 'airblade/vim-rooter'
@@ -38,16 +36,14 @@ Plug 'junegunn/fzf.vim'
 
 " Semantic language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dense-analysis/ale'
-Plug 'pechorin/any-jump.vim'
 
 " Syntactic language support
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
 Plug 'plasticboy/vim-markdown'
-Plug 'rust-lang/rust.vim'
 Plug 'godlygeek/tabular'
 
+" Colour scheme
 Plug 'chriskempson/base16-vim'
 
 call plug#end()
@@ -67,14 +63,30 @@ hi Normal ctermbg=NONE
 " Brighter comments
 call Base16hi("Comment", g:base16_gui09, "", g:base16_cterm09, "", "", "")
 
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileencoding', 'filetype' ] ],
+      \ },
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename'
+      \ },
+      \ }
+
+function! LightlineFilename()
+  return expand('%:t') !=# '' ? @% : '[No Name]'
+endfunction
+
 " Latex
 let g:latex_indent_enabled = 1
 let g:latex_fold_envs = 0
 let g:latex_fold_sections = []
 
 " File navigation hotkeys
-map <leader>jf :Files<CR>
-nnoremap <leader>; :Buffers<CR>
+nnoremap <leader>jf :Files<CR>
 nmap <leader>ca <c-w>v<CR>
 nmap <leader>cq <c-w>q<CR>
 nmap <leader>cc :w \| %bd \| e#<CR>
@@ -101,6 +113,7 @@ set noshowmode
 set hidden " Allow unsaved buffers to be hidden
 set nowrap " No line wrapping
 set nojoinspaces
+set colorcolumn=80
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_frontmatter = 1
@@ -163,7 +176,7 @@ cnoremap %s/ %sm/
 " # GUI settings
 " =============================================================================
 set guioptions-=T " Remove toolbar
-set vb t_vb= " No more beeps
+set noerrorbells " No more beeps
 set backspace=2 " Backspace over newlines
 set nofoldenable
 set ttyfast
@@ -240,17 +253,6 @@ nnoremap K 10k
 nnoremap <c-j> :m .+1<CR>==
 nnoremap <c-k> :m .-2<CR>==
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
 " Use <TAB> for selections ranges.
 nmap <silent> <TAB> <Plug>(coc-range-select)
 xmap <silent> <TAB> <Plug>(coc-range-select)
@@ -260,11 +262,3 @@ noremap <leader>m ct_
 " I can type :help on my own, thanks.
 map <F1> <Esc>
 imap <F1> <Esc>
-
-" Auto format code
-au BufWrite *.rs, *.c, *.h, *.cpp, *.hpp, *.js :ALEFix
-let g:ale_linters = { 'c': ['clangd'], 'cpp': ['clangd'] }
-let g:ale_fixers = { 'c': ['clang-format'], 'cpp': ['clang-format'], 'javascript': ['prettier'] }
-let g:ale_ruby_rubocop_executable = "bundle"
-let g:ale_ruby_standardrb_executable = "bundle"
-let g:prettier#exec_cmd_async = 1
