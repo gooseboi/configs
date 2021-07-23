@@ -87,6 +87,7 @@ let g:latex_fold_sections = []
 
 " File navigation hotkeys
 nnoremap <leader>jf :Files<CR>
+nnoremap <leader>; :Buffers<CR>
 nmap <leader>ca <c-w>v<CR>
 nmap <leader>cq <c-w>q<CR>
 nmap <leader>cc :w \| %bd \| e#<CR>
