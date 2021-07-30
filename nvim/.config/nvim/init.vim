@@ -27,6 +27,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 
+" Vimwiki
+Plug 'vimwiki/vimwiki'
+
 " GUI enhancements
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -135,6 +138,11 @@ set noexpandtab
 nnoremap x "_x
 nnoremap X "_X
 nnoremap c "_c
+
+" Vimwiki settings
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown' }
+let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': 'md' }]
+let g:vimwiki_markdown_link_ext = 1
 
 " Wrapping options
 set formatoptions=tc " wrap text and comments using textwidth
