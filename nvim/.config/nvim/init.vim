@@ -25,6 +25,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'ciaranm/securemodelines'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-surround'
+Plug 'alvan/vim-closetag'
 
 " GUI enhancements
 Plug 'vim-airline/vim-airline'
