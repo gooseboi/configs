@@ -1,8 +1,5 @@
 # Based on LukeSmiths and Brodies zshrcs
 
-# Start tmux
-[[ $- == *i* ]] && [[ "$TMUX" = "" ]] && tmux
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
