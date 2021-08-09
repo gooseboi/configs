@@ -9,9 +9,13 @@ super + Return
 super + d
 	rofi -show run	
 
+super + shift + d
+	rofi -show drun	
+
 super + l
 	slock
 
+# Media control
 super + ctrl + {j,k}
 	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 {-,+}3%
 
