@@ -5,6 +5,7 @@ bspc rule -r "*"
 nm-applet &
 sxhkd &
 nitrogen --restore &
+dunst &
 [ -x ~/.config/polybar/launch.sh ] && ~/.config/polybar/launch.sh &
 picom -b --experimental-backends &
 flameshot &
