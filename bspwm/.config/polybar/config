@@ -125,9 +125,9 @@ label = %date% %time%
 
 [module/weather]
 type = custom/script
-exec = curl -s 'wttr.in?format=3'
+exec = curl -s 'wttr.in/Montevideo?format=3'
 label = "%output%"
-click-left = $TERMINAL -e w3m wttr.in/Adelaide &
+click-left = $TERMINAL -e w3m wttr.in/Montevideo &
 interval = 900
 
 format-underline = #7f0707
