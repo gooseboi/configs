@@ -43,7 +43,7 @@ Print
 	flameshot full -p ~/pix/screenshots -c
 
 Print + shift
-	flameshot gui
+	flameshot gui -p ~/pix/screenshots 
 
 #
 # bspwm hotkeys
