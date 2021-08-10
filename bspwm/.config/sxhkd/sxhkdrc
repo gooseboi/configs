@@ -17,19 +17,19 @@ super + l
 
 # Media control
 super + ctrl + {j,k}
-	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 {-,+}3%
+	~/.config/polybar/polysetvol.sh -i {-,+}3%
 
 super + m
-	pactl set-sink-mute 0 true	
+	~/.config/polybar/polysetvol.sh -m
 
 super + p
-	playerctl -p "quodlibet" play-pause
+	playerctl -p "mpd" play-pause
 
 super + i
-	playerctl -p "quodlibet" next
+	playerctl -p "mpd" next
 
 super + u
-	playerctl -p "quodlibet" previous
+	playerctl -p "mpd" previous
 
 # make sxhkd reload its configuration files:
 super + shift + x
