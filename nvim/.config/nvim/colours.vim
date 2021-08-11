@@ -1,5 +1,6 @@
 set background=dark
 let base16colorspace=256
+set termguicolors
 let g:base16_shell_path="~/dev/others/base16/templates/shell/scripts/"
 colorscheme base16-gruvbox-dark-hard
 let g:airline_theme='base16_gruvbox_dark_hard'

@@ -30,6 +30,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'machakann/vim-highlightedyank'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " Fuzzy finder
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
