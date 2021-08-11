@@ -143,5 +143,11 @@ initial = 1
 
 format-underline = #a8e3f1
 
+[module/battery]
+type = custom/script
+exec = ~/.config/polybar/polygetbat.sh
+label = "%output%"
+interval = 20
+
 [settings]
 screenchange-reload = true
