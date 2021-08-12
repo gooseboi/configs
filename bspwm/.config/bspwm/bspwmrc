@@ -13,6 +13,7 @@ fcitx -d &
 xsetroot -cursor_name left_ptr &
 setxkbmap -option compose:rctrl
 xmodmap ~/.Xmodmap
+xset -b &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
