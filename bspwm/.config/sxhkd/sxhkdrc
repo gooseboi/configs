@@ -13,7 +13,13 @@ super + shift + d
 	rofi -show drun	
 
 super + shift + e
-	slock
+	betterlockscreen -e
+
+super + alt + {k, g, b, d, f}
+	{kdenlive, gimp, $BROWSER, discord, pcmanfm}
+
+super + alt + {n, c, h}
+	$TERMINAL -e {nvim, calcurse, htop}
 
 # Media control
 super + ctrl + {u,i}
