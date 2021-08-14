@@ -16,7 +16,7 @@ super + shift + e
 	betterlockscreen -e
 
 super + alt + {k, g, b, d, f}
-	{kdenlive, gimp, $BROWSER, discord, pcmanfm}
+	{kdenlive, gimp, $BROWSER, discord, spacefm}
 
 super + alt + {n, c, h}
 	$TERMINAL -e {nvim, calcurse, htop}
