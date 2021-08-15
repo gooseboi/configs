@@ -6,14 +6,15 @@ nm-applet &
 sxhkd &
 nitrogen --restore &
 dunst &
-[ -x ~/.config/polybar/launch.sh ] && ~/.config/polybar/launch.sh &
+xrdb ~/.Xresources &
 picom -b --experimental-backends &
 flameshot &
 fcitx -d &
 xsetroot -cursor_name left_ptr &
 setxkbmap -option compose:rctrl
-xmodmap ~/.Xmodmap
+xmodmap ~/.Xmodmap &
 xset -b &
+[ -x ~/.config/polybar/launch.sh ] && ~/.config/polybar/launch.sh &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
