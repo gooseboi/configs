@@ -15,10 +15,10 @@ super + shift + d
 super + shift + e
 	betterlockscreen -e
 
-super + alt + {k, g, b, d, f}
+ctrl + alt + {e, g, b, d, f}
 	{kdenlive, gimp, $BROWSER, discord, spacefm}
 
-super + alt + {n, c, h}
+ctrl + alt + {n, c, h}
 	$TERMINAL -e {nvim, calcurse, htop}
 
 # Media control
