@@ -136,3 +136,7 @@ super + shift + {Left,Down,Up,Right}
 # small move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-10 0,0 10,0 -10,10 0}
+
+# Balance nodes
+super + e
+	bspc node @/ -B
