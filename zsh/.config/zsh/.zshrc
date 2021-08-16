@@ -133,3 +133,6 @@ SPACESHIP_JOBS_SHOW=false
 autoload -U promptinit; promptinit
 eval "$(starship init zsh)"
 #source $HOME/.zshenv
+
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
