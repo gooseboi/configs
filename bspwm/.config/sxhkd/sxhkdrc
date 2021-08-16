@@ -18,8 +18,8 @@ super + shift + e
 ctrl + alt + {e, g, b, d, f}
 	{kdenlive, gimp, $BROWSER, discord, spacefm}
 
-ctrl + alt + {n, c, h}
-	$TERMINAL -e {nvim, calcurse, htop}
+ctrl + alt + {n, c, h, r}
+	$TERMINAL -e {nvim, calcurse, htop, newsboat}
 
 # Media control
 super + ctrl + {u,i}
