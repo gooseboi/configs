@@ -6,6 +6,7 @@ nm-applet &
 sxhkd &
 nitrogen --restore &
 dunst &
+lxsession &
 xrdb ~/.Xresources &
 picom -b --experimental-backends &
 flameshot &
