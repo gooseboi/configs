@@ -13,3 +13,4 @@
 	c = commit
 	s = status
 	d = diff
+	ap = add -p
