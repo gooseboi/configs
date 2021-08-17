@@ -48,6 +48,11 @@ Print
 Print + shift
 	flameshot gui -p ~/pix/screenshots 
 
+# Reboot and poweroff
+super + shift + {r,s}
+	prompt_user {"Are you sure you would like to reboot?" "sudo reboot", "Are you sure you would like to shutdown" "sudo shutdown"}
+
+
 #
 # bspwm hotkeys
 #
