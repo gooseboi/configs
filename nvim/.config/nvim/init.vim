@@ -1,5 +1,5 @@
-let mapleader = " "
-nnoremap <space> <nop>
+let mapleader = ","
+" nnoremap <space> <nop>
 
 " =============================================================================
 " # PLUGINS
