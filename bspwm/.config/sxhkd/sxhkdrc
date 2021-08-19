@@ -13,7 +13,7 @@ super + shift + d
 	rofi -show drun	
 
 super + shift + e
-	betterlockscreen -e
+	betterlockscreen -l
 
 ctrl + alt + {e, g, b, d, f}
 	{kdenlive, gimp, $BROWSER, discord, spacefm}
