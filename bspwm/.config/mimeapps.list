@@ -42,3 +42,4 @@ image/webp=sxiv.desktop
 image/gif=sxiv.desktop
 image/svg+xml=gimp.desktop
 text/plain=nvim.desktop
+application/json=nvim.desktop
