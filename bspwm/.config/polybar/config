@@ -153,10 +153,10 @@ interval = 20
 type = custom/ipc
 hook-0 = light -G | sed 's/\.[0-9]*//'
 format-prefix = "💡: "
-scroll-up = light -A 10 && polybar-msg hook brightness 1
-scroll-down = light -U 10 && polybar-msg hook brightness 1
-click-left = light -A 5 && polybar-msg hook brightness 1
-click-right = light -U 5 && polybar-msg hook brightness 1
+scroll-up = ~/.config/polybar/polysetbright.sh -A 10 
+scroll-down = ~/.config/polybar/polysetbright.sh -U 10 
+click-left = ~/.config/polybar/polysetbright.sh -A 5 
+click-right = ~/.config/polybar/polysetbright.sh -U 5 
 
 initial = 1
 

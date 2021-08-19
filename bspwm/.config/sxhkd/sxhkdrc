@@ -28,6 +28,15 @@ super + ctrl + {u,i}
 super + m
 	~/.config/polybar/polysetvol.sh -m
 
+{XF86AudioLowerVolume, XF86AudioRaiseVolume}
+	~/.config/polybar/polysetvol.sh -i {-,+}3%
+
+XF86AudioMute
+	~/.config/polybar/polysetvol.sh -m
+
+{XF86MonBrightnessUp, XF86MonBrightnessDown}
+	~/.config/polybar/polysetbright.sh {-A 10, -U 10}
+
 super + p
 	playerctl -p "mpd" play-pause
 
