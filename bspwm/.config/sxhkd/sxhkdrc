@@ -156,3 +156,7 @@ super + {Left,Down,Up,Right}
 # Balance nodes
 super + e
 	bspc node @/ -B
+
+# Swap current node and master
+super + space
+	bspc node -s biggest.local
