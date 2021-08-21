@@ -110,7 +110,7 @@ super + {_,shift + }Tab
 	bspc desktop -f {next, prev}
 
 # Rotate the tree from the current nodes parent
-super + alt + {o, shift + o}
+super + {o, shift + o}
 	bspc node @parent --rotate {90, 270}	
 
 #
