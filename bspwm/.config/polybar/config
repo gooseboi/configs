@@ -27,7 +27,7 @@ font-1 = "HackNerdFont:size=10;1"
 font-2 = "NotoSansSymbols2:size=11;1"
 font-3 = "NotoColorEmoji:fontformat=truetype:scale=10"
 
-modules-left = date bspwm xwindow
+modules-left = date bspwm
 modules-center =
 modules-right = weather eth1 wlan volume memory cpu brightness battery
 
