@@ -29,9 +29,9 @@ font-3 = "NotoColorEmoji:fontformat=truetype:scale=10"
 
 modules-left = date bspwm
 modules-center =
-modules-right = weather eth1 wlan volume memory cpu brightness battery
+modules-right = weather pacman-packages eth1 wlan volume memory cpu brightness battery
 
-tray-position = right
+tray-position = left
 tray-padding = 2
 tray-maxsize = 24
 tray-background = ${colors.background-alt}
@@ -52,16 +52,16 @@ enable-click = true
 enable-scroll = false
 
 label-focused = " %name% "
-label-focused-underline = #fba922
+label-focused-underline = ${colors.primary}
 
 label-occupied = " %name% "
 label-occupied-foreground = #ffaa00
 
 label-urgent = " %name% "
-label-urgent-underline = #9b0a20
+label-urgent-underline = ${colors.alert}
 
 label-empty = " %name% "
-label-empty-foreground = #555555
+label-empty-foreground = ${colors.foreground-alt}
 
 [module/cpu]
 type = internal/cpu
@@ -158,7 +158,13 @@ scroll-up = ~/.config/polybar/polysetbright.sh -A 10
 scroll-down = ~/.config/polybar/polysetbright.sh -U 10 
 click-left = ~/.config/polybar/polysetbright.sh -A 5 
 click-right = ~/.config/polybar/polysetbright.sh -U 5 
+initial = 1
 
+[module/pacman-packages]
+type = custom/ipc
+hook-0 = paru -Qu | wc -l
+format-prefix = "📦 "
+click-left = $TERMINAL -e paru -Su && polybar-msg && polybar-msg hook pacman-packages 1	
 initial = 1
 
 [settings]
