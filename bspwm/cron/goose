@@ -1,0 +1,1 @@
+*/30 * * * * polybar-msg hook pacman-packages 1
