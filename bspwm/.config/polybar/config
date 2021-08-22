@@ -164,7 +164,8 @@ initial = 1
 type = custom/ipc
 hook-0 = paru -Qu | wc -l
 format-prefix = "📦 "
-click-left = $TERMINAL -e paru -Su && polybar-msg && polybar-msg hook pacman-packages 1	
+click-left = $TERMINAL -e paru -Su && polybar-msg && polybar-msg hook pacman-packages 1
+click-right = polybar-msg hook pacman-packages 1
 initial = 1
 
 [settings]
