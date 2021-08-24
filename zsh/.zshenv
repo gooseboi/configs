@@ -48,6 +48,9 @@ export COLORTERM="truecolor"
 export OPENER="xdg-open"
 export PAGER="less"
 
+# Other program settings
+export SUDO_ASKPASS="$HOME/.local/bin/rofipass"
+
 # Path
 path=("$HOME/scripts" 
       "$XDG_DATA_HOME/ruby/gems/bin" 

@@ -1,0 +1,41 @@
+@import "gruvbox-dark-hard.rasi"
+
+* {
+	font: "Noto Sans Mono 12";
+	prompt-padding: 2px;
+}
+
+#window {
+	anchor   : north;
+	location : north;
+	width    : 100%;
+	padding  : 0px;
+	children : [ horibox ];
+	height   : 30px;
+}
+
+#horibox {
+	orientation : horizontal;
+	children    : [ prompt, entry, listview ];
+}
+
+#prompt {
+	padding: @prompt-padding;
+	background-color: @prompt-background;
+	font: @prompt-font;
+}
+
+#listview {
+	layout : horizontal;
+	lines  : 100;
+}
+
+#entry {
+	padding : 2px;
+	expand  : false;
+	width   : 10em;
+}
+
+#element {
+	padding: 2px 8px;
+}
