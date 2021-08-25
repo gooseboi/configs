@@ -28,6 +28,8 @@ map L $
 " Bindings to manage splits
 nmap <leader>ca <c-w>v<CR>
 nmap <leader>cq <c-w>q<CR>
+nmap <leader>ch <c-w>h<CR>
+nmap <leader>cl <c-w>l<CR>
 nmap <leader>cc :w \| %bd \| e#<CR>
 
 " Neat X clipboard integration
@@ -47,6 +49,9 @@ inoremap <right> <nop>
 " Left and right switch buffers
 nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
+
+" Quickly switch between buffers
+nnoremap <leader><leader> <c-^>
 
 " Move by line
 nnoremap j gj
