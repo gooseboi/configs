@@ -16,6 +16,10 @@ super + d
 super + shift + d
 	rofi -show drun	-show-icons
 
+# Show emoji pick menu
+super + bracketleft
+	rofi -show emoji -modi emoji
+
 # Show help menu
 super + shift + n
 	sxhkd-help

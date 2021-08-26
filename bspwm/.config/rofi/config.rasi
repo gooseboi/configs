@@ -1,5 +1,5 @@
 configuration {
-	modi: "window,drun,ssh,run";
+	modi: "window,drun,ssh,run,emoji";
 	theme: "gruvbox-dark-hard";
 	font: "hack 10";
 }
