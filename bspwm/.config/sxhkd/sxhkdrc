@@ -32,6 +32,10 @@ super + shift + n
 super + shift + e
 	betterlockscreen -l
 
+# Show calculator
+super + grave
+	bspc rule -a \* -o state=floating && $TERMINAL -o font.size=18 -e qalc
+
 # Launchers for common desktop programs
 ctrl + alt + {e, g, b, d, f}
 	{kdenlive, gimp, $BROWSER, discord, spacefm}
