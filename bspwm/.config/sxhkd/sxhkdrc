@@ -73,7 +73,7 @@ super + shift + x
 
 # Toggle picom
 super + shift + c
-	toggle-program "picom" "--experimental-backends"
+	toggleprogram "picom" "--experimental-backends"
 
 # Take a fullscreen screenshot
 Print 
