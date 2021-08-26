@@ -18,6 +18,7 @@ setxkbmap -option compose:rctrl
 xmodmap ~/.Xmodmap &
 xset -b &
 xset r rate 300 50 &
+[ -x ~/.config/bspwm/bspswallow ] && ~/.config/bspwm/bspswallow &
 [ -x ~/.config/polybar/launch.sh ] && ~/.config/polybar/launch.sh &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
