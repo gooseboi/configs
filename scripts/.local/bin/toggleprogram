@@ -1,0 +1,8 @@
+#!/bin/sh
+# Toggles a program on and off
+
+if [ -z "$(pgrep "$1")" ]; then
+	startandnotify "$1 started" "$@"
+else
+	killandnotify "$1" "$1 killed"
+fi
