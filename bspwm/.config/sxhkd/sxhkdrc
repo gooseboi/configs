@@ -6,7 +6,11 @@
 
 # Start terminal
 super + Return
-	alacritty
+	$TERMINAL
+
+# Start a terminal running tmux
+super + shift + Return
+	$TERMINAL -e tmux
 
 # Run rofi with programs in PATH
 super + d
@@ -111,10 +115,6 @@ super + alt + {q,r}
 super + {_,shift + }q
 	bspc node -{c,k}
 
-# Send the newest marked node to the newest preselected node
-super + y
-	bspc node newest.local -n newest.!automatic.local
-
 #
 # state/flags
 #
@@ -142,6 +142,10 @@ super + {_,shift + }{1-9,0}
 # Go to next or previous desktop
 super + {_,shift + }Tab
 	bspc desktop -f {next, prev}
+
+# Send the newest marked node to the newest preselected node
+super + y
+	bspc node newest.local -n newest.!automatic.local
 
 # Rotate the tree 90 degrees to the left or right
 super + {o, shift + o}
