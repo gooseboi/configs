@@ -81,7 +81,7 @@ super + u
 
 # Reload sxhkd
 super + shift + x
-	killandnotify sxhkd "Key configuration reloaded" && sxhkd &
+	pkill -SIGUSR1 sxhkd && notify-send "sxhkd" "Key configuration reloaded"
 
 # Toggle picom
 super + shift + c
