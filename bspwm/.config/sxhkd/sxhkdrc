@@ -69,7 +69,11 @@ super + u
 
 # Reload sxhkd
 super + shift + x
-	pkill -USR1 -x sxhkd && sxhkd &
+	killandnotify sxhkd "Key configuration reloaded" && sxhkd &
+
+# Toggle picom
+super + shift + c
+	toggle-program "picom" "--experimental-backends"
 
 # Take a fullscreen screenshot
 Print 
