@@ -44,6 +44,9 @@ ctrl + alt + {e, g, b, d, f}
 ctrl + alt + {n, c, h, r}
 	$TERMINAL -e {nvim, calcurse, htop, newsboat}
 
+# Various scripts
+super + p
+	cpcolor
 
 # Media control
 

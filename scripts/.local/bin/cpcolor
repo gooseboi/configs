@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Short script using colorpicker to pick a colour from the screen
+
+colorpicker --short --one-shot --preview | xclip -selection clipboard
