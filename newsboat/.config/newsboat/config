@@ -28,10 +28,7 @@ color info red black bold
 color article white default bold
 
 macro , open-in-browser
-macro a set browser "setsid -f youtube-dl --add-metadata -xic -f bestaudio[ext=m4a]/best[ext=m4a]" -o '$HOME/ytdl/%(title)s-%(id)s.%(ext)s' ; open-in-browser ; set browse
-macro d set browser "setsid -f youtube-dl --add-metadata -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]" -o '$HOME/ytdl/%(title)s-%(id)s.%(ext)s' ; open-in-browser ; set browse
-macro v set browser "setsid -f mpv --really-quiet --no-terminal" ; open-in-browser ; set browse
-macro c set browser "echo %u | xclip -r -sel c" ; open-in-browser ; set browse
+macro c set browser "handlerprompt %u" ; open-in-browser ; set browse
 
 highlight all "---.*---" yellow
 highlight feedlist ".*(0/0))" black

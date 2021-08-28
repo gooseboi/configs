@@ -45,8 +45,8 @@ ctrl + alt + {n, c, h, r}
 	$TERMINAL -e {nvim, calcurse, htop, newsboat}
 
 # Various scripts
-super + p
-	cpcolor
+super + {c, w, p, b}
+	{confprompt, handlerprompt, cpcolor, wallpaperprompt}
 
 # Media control
 
