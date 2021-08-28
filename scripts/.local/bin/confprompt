@@ -1,0 +1,32 @@
+#!/bin/sh
+
+conffile="${XDG_CONFIG_HOME:-$HOME/.config}/conflist"
+delim=":"
+prompt="rofi -dmenu"
+
+getindex() {
+	for i in "${!confnames[@]}"; do
+		if [[ "${confnames[$i]}" = "$1" ]]; then
+			printf "${i}";
+			return 0
+		fi
+	done
+	printf "bad"
+}
+
+openfile() {
+	$TERMINAL -e $EDITOR $1
+}
+
+readfile=$(cat $conffile)
+confnames=($(printf "$readfile" | awk -F $delim '{ print $1 }'))
+conflinks=($(printf "$readfile" | awk -F $delim '{ print $2 }'))
+
+selectedname=$(for i in "${confnames[@]}"; do echo $i; done | $prompt -p "Select a config file")
+[ -z $selectedname ] && exit
+
+index=$(getindex $selectedname)
+[ $index = "bad" ] && exit
+file=$(eval echo -n ${conflinks[$index]})
+echo $file
+openfile $file
