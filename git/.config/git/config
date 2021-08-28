@@ -14,3 +14,4 @@
 	s = status
 	d = diff
 	ap = add -p
+	ds = diff --staged
