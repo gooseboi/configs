@@ -34,6 +34,7 @@ if [ $index = "bad" ]; then
 	option=$(printf "Yes\\nNo" | $prompt -i -p "Would you like to add this bookmark?")
 	[ "$option" = "" ] || [ $option != "Yes" ] && exit
 	newlink=$($prompt -p "Enter new link")
+	[ -z $newlink ] && exit
 	addbookmark $selectedname $newlink
 	openinbrowser $newlink
 else
