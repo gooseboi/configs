@@ -100,7 +100,7 @@ Print + shift
 
 # Reboot and poweroff
 super + shift + {r,s}
-	prompt_user {"Are you sure you would like to reboot?" "reboot", "Are you sure you would like to shutdown" "shutdown"}
+	prompt_user {"Are you sure you would like to reboot?" "reboot", "Are you sure you would like to shutdown" "poweroff"}
 
 # Mount devices
 super + F9
