@@ -30,7 +30,7 @@ super + shift + n
 
 # Lock screen
 super + shift + e
-	betterlockscreen -l
+	betterlockscreen -l blur
 
 # Show calculator
 super + grave
@@ -45,8 +45,8 @@ ctrl + alt + {n, c, h, r}
 	$TERMINAL -e {nvim, calcurse, htop, newsboat}
 
 # Various scripts
-super + {c, w, p, b}
-	{confprompt, handlerprompt, cpcolor, wallpaperprompt}
+super + {v, c, w, p, b}
+	{bmprompt, confprompt, handlerprompt, cpcolor, bgprompt}
 
 # Media control
 

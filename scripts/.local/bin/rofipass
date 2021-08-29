@@ -3,4 +3,4 @@
 # This script is the SUDO_ASKPASS variable, meaning that it will be used as a
 # password prompt if needed.
 
-rofi -dmenu -theme ~/.config/rofi/dmenu.rasi -password -p "$1"
+rofi -dmenu -theme dmenu -password -p "$1"

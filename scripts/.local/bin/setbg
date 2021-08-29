@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# This script does the following:
+#	Run by itself, set the wallpaper (at X start).
+#	If given a file, set that as the new wallpaper.
+#	If given a directory, choose random file in it.
+#	If wal is installed, also generates a colorscheme.
+
+# Location of link to wallpaper link.
+bgloc="${XDG_DATA_HOME:-$HOME/.local/share/}/bg"
+
+updatebetterlock() {
+	notify-send -i "$1" "Lock screen update started..."
+	betterlockscreen -u "$1"
+	notify-send -i "$1" "Lock screen update finished"
+}
+
+if [ ! -z "$1" ]; then
+	rm "$bgloc"
+	if [ "$1" = "-r" ]; then
+		trueloc="$(readlink -f "$2")"
+		ln -sf "$trueloc" "$bgloc" && notify-send -i "$bgloc" "Setting random wallpaper on startup..."
+	else
+		trueloc="$(readlink -f "$1")" && 
+		case "$(file --mime-type -b "$trueloc")" in
+			image/* ) ln -sf "$(readlink -f "$1")" "$bgloc" && notify-send -i "$bgloc" "Changing wallpaper..." ;;
+			inode/directory ) ln -sf "$(find "$trueloc" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)" "$bgloc" && notify-send -i "$bgloc" "Setting random wallpaper..." ;;
+			*) notify-send "Error" "Not a valid image." ; exit 1;;
+		esac
+	fi
+fi
+
+if [ -z "$(find "$bgloc" -type l -xtype f)" ]; then
+	randomfile=$(find -L "$bgloc" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)
+	xwallpaper --stretch "$randomfile"
+	[ ! -z "$1" ] && updatebetterlock "$randomfile"
+else
+	xwallpaper --stretch "$bgloc"
+	[ ! -z "$1" ] && updatebetterlock "$bgloc"
+fi
+

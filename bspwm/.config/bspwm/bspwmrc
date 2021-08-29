@@ -5,7 +5,7 @@ bspc rule -r "*"
 nm-applet &
 killall sxhkd
 sxhkd &
-nitrogen --restore &
+setbg &
 dunst &
 killall lxsession
 lxsession &
