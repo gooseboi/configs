@@ -34,7 +34,7 @@ super + shift + e
 
 # Show calculator
 super + grave
-	bspc rule -a \* -o state=floating && $TERMINAL -o font.size=18 -e qalc
+	tdrop -ma -w 35% -h 50% -x 32% -y 20% alacritty -o font.size=18 -e qalc
 
 # Launchers for common desktop programs
 ctrl + alt + {e, g, b, d, f}
