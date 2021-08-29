@@ -1,6 +1,6 @@
 [colors]
 background = #222
-background-alt = #444
+background-alt = #2d2d2d
 foreground = #dfdfdf
 foreground-alt = #888
 primary = #ffb52a
@@ -10,7 +10,7 @@ alert = #bd2c40
 [bar/main]
 width = 100%
 height = 2.5%
-radius = 6.0
+radius = 0.0
 fixed-center = false
 enable-ipc = true
 
@@ -18,9 +18,11 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 border-size = 0
-line-size = 2
+line-size = 3
 padding = 1
 module-margin = 1
+
+underline-size = 3
 
 font-0 = "NotoSansMono:size=10;1"
 font-1 = "HackNerdFont:size=10;1"
@@ -53,15 +55,19 @@ enable-scroll = false
 
 label-focused = " %name% "
 label-focused-underline = ${colors.primary}
+label-focused-background = ${colors.background-alt}
 
 label-occupied = " %name% "
 label-occupied-foreground = #ffaa00
+label-occupied-background = ${colors.background}
 
 label-urgent = " %name% "
 label-urgent-underline = ${colors.alert}
+label-urgent-background = ${colors.background}
 
 label-empty = " %name% "
 label-empty-foreground = ${colors.foreground-alt}
+label-empty-background = ${colors.background}
 
 [module/cpu]
 type = internal/cpu
@@ -169,3 +175,4 @@ initial = 1
 
 [settings]
 screenchange-reload = true
+format-background = ${colors.background-alt}
