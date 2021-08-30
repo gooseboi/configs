@@ -31,7 +31,7 @@ font-3 = "NotoColorEmoji:fontformat=truetype:scale=10"
 
 modules-left = date bspwm
 modules-center =
-modules-right = weather pacman-packages eth1 wlan volume memory cpu brightness battery
+modules-right = weather pacman-packages eth1 wlan volume xkeyboard memory cpu brightness battery
 
 tray-position = left
 tray-padding = 2
@@ -68,6 +68,17 @@ label-urgent-background = ${colors.background}
 label-empty = " %name% "
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-background = ${colors.background}
+
+[module/xkeyboard]
+type = internal/xkeyboard
+format-prefix = "⌨ "
+
+; List of indicators to ignore
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+
+label-layout = %layout%
+label-layout-padding = 0
 
 [module/cpu]
 type = internal/cpu

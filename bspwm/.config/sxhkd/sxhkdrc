@@ -110,6 +110,12 @@ super + F9
 super + F10
 	umountprompt
 
+# Keyboard layouts
+
+# Set keyboard layout
+shift + alt + {grave,1,2}
+	setkblayout { ,-s us,-s latam}
+
 #
 # bspwm hotkeys
 #
