@@ -15,7 +15,7 @@ updatebetterlock() {
 	notify-send -i "$1" "Lock screen update finished"
 }
 
-if [ ! -z "$1" ]; then
+if [ -n "$1" ]; then
 	rm "$bgloc"
 	if [ "$1" = "-r" ]; then
 		trueloc="$(readlink -f "$2")"
@@ -33,9 +33,9 @@ fi
 if [ -z "$(find "$bgloc" -type l -xtype f)" ]; then
 	randomfile=$(find -L "$bgloc" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)
 	xwallpaper --stretch "$randomfile"
-	[ ! -z "$1" ] && updatebetterlock "$randomfile"
+	[ -n "$1" ] && updatebetterlock "$randomfile"
 else
 	xwallpaper --stretch "$bgloc"
-	[ ! -z "$1" ] && updatebetterlock "$bgloc"
+	[ -n "$1" ] && updatebetterlock "$bgloc"
 fi
 

@@ -5,16 +5,16 @@ delim=":"
 prompt="rofi -dmenu"
 
 openfile() {
-	$TERMINAL -e $EDITOR $1
+	"$TERMINAL" -e "$EDITOR" "$1"
 }
 
-confnames=$(sort $conffile | sed "s/$delim.*//")
+confnames=$(sort "$conffile" | sed "s/$delim.*//")
 
 selectedname=$(echo "$confnames" | $prompt -p "Select a config")
-[ -z $selectedname ] && exit
+[ -z "$selectedname" ] && exit
 
 selectedfile=$(grep "$selectedname$delim" "$conffile" | sed "s/.*$delim//")
-[ -z $selectedfile ] && exit
+[ -z "$selectedfile" ] && exit
 
 file=$(eval echo -n "$selectedfile")
-openfile $file
+openfile "$file"

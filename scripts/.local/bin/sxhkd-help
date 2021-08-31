@@ -1,6 +1,4 @@
 #!/bin/sh
 
-cat ~/.config/sxhkd/sxhkdrc | \
-awk '/^[a-z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' | \
-column -t -s $'\t' | \
+awk '/^[a-z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' ~/.config/sxhkd/sxhkdrc | \
 rofi -dmenu -i 

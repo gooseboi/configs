@@ -5,28 +5,28 @@ delim=":"
 prompt="rofi -dmenu"
 
 addbookmark() {
-	printf "%s$delim%s\n" "$1" "$2" >> $bmfile
+	printf "%s$delim%s\n" "$1" "$2" >> "$bmfile"
 }
 
 openinbrowser() {
-	$BROWSER $1
+	"$BROWSER" "$1"
 }
 
-bmnames=$(sort $bmfile | sed "s/$delim.*//")
+bmnames=$(sort "$bmfile" | sed "s/$delim.*//")
 
-selectedname=$(echo "$bmnames" | $prompt -p "Select a bookmark")
-[ -z $selectedname ] && exit
+selectedname=$(echo "$bmnames" | "$prompt" -p "Select a bookmark")
+[ -z "$selectedname" ] && exit
 
-selectedlink=$(grep "$selectedname" $bmfile | sed "s/.*$delim//")
+selectedlink=$(grep "$selectedname" "$bmfile" | sed "s/.*$delim//")
 
 if [ -z "$selectedlink" ]; then
-	option=$(printf "Yes\\nNo" | $prompt -i -p "Would you like to add this bookmark?")
-	[ -z "$option" ] || [ $option != "Yes" ] && exit
+	option=$(printf "Yes\\nNo" | "$prompt" -i -p "Would you like to add this bookmark?")
+	[ -z "$option" ] || [ ! "$option" = "Yes" ] && exit
 
 	selectedlink=$($prompt -p "Enter new link")
-	[ -z $selectedlink ] && exit
+	[ -z "$selectedlink" ] && exit
 
-	addbookmark $selectedname $selectedlink
+	addbookmark "$selectedname" "$selectedlink"
 fi
 	
-openinbrowser $selectedlink
+openinbrowser "$selectedlink"
