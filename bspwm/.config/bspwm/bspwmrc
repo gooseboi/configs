@@ -12,12 +12,11 @@ lxsession &
 xrdb ~/.config/x11/xresources &
 picom -b --experimental-backends &
 flameshot &
-fcitx -d &
 xsetroot -cursor_name left_ptr &
 xset -b &
 killall imwheel
 imwheel &
-[ -x ~/.local/bin/setxkbalyout ] && ~/.local/bin/setkblayout -s us &
+[ -x ~/.local/bin/setkblayout ] && ~/.local/bin/setkblayout -s us &
 [ -x ~/.config/bspwm/bspswallow ] && ~/.config/bspwm/bspswallow &
 [ -x ~/.config/polybar/launch.sh ] && ~/.config/polybar/launch.sh &
 

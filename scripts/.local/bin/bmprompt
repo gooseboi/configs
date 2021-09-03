@@ -14,13 +14,13 @@ openinbrowser() {
 
 bmnames=$(sort "$bmfile" | sed "s/$delim.*//")
 
-selectedname=$(echo "$bmnames" | "$prompt" -p "Select a bookmark")
+selectedname=$(echo "$bmnames" | $prompt -p "Select a bookmark")
 [ -z "$selectedname" ] && exit
 
 selectedlink=$(grep "$selectedname" "$bmfile" | sed "s/.*$delim//")
 
 if [ -z "$selectedlink" ]; then
-	option=$(printf "Yes\\nNo" | "$prompt" -i -p "Would you like to add this bookmark?")
+	option=$(printf "Yes\\nNo" | $prompt -i -p "Would you like to add this bookmark?")
 	[ -z "$option" ] || [ ! "$option" = "Yes" ] && exit
 
 	selectedlink=$($prompt -p "Enter new link")
