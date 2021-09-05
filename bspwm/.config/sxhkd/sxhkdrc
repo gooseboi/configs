@@ -25,7 +25,7 @@ super + bracketleft
 	rofi -show emoji -modi emoji
 
 # Show help menu
-super + shift + n
+super + F1
 	sxhkd-help
 
 # Lock screen
@@ -37,7 +37,7 @@ super + grave
 	tdrop -ma -w 35% -h 50% -x 32% -y 20% alacritty -o font.size=18 -e qalc
 
 # Launchers for common desktop programs
-ctrl + alt + {e, g, b, d, f}
+ctrl + alt + {e, g, w, d, f}
 	{kdenlive, gimp, $BROWSER, discord, spacefm}
 
 # Launchers for common terminal programs 
@@ -157,7 +157,7 @@ super + {_,shift + }Tab
 	bspc desktop -f {next, prev}
 
 # Send the newest marked node to the newest preselected node
-super + y
+super + a
 	bspc node newest.local -n newest.!automatic.local
 
 # Rotate the tree 90 degrees to the left or right
