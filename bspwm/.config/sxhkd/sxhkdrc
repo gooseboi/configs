@@ -51,7 +51,7 @@ super + {v, c, w, p, b}
 # Media control
 
 # Increase and decrease volume
-super + ctrl + {u,i}
+super + {u,i}
 	~/.config/polybar/polysetvol.sh -i {-,+}3%
 
 # Increase and decrease volume
