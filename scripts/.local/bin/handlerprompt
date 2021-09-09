@@ -2,9 +2,9 @@
 
 # Feed this script a link and it will give dmenu
 # some choice programs to use to open it.
-
-feed=$(xclip -o)
-[ -z "$feed" ] && feed="${1:-$(rofi -dmenu -p 'Enter URL or file path')}"
+feed="$1"
+[ -z "$feed" ] && feed="$(xclip -o)"
+[ -z "$feed" ] && feed="$(rofi -dmenu -p 'Enter URL or file path')"
 [ -z "$feed" ] && exit
 
 case "$(printf "copy url\\nsxiv\\nsetbg\\npdf\\nbrowser\\nlynx\\nvim\\nmpv\\nmpv loop\\nqueue download\\nqueue yt-dl\\nqueue yt-dl audio\\nqueue yt-dlp\\nqueue yt-dlp audio" | rofi -dmenu -i -p "Open it with?")" in
