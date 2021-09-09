@@ -34,7 +34,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " Fuzzy finder
 Plug 'airblade/vim-rooter'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.local/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Semantic language support
 Plug 'neovim/nvim-lspconfig'

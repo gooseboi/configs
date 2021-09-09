@@ -20,7 +20,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set splitright splitbelow
 
 " Permanent undo
-set undodir=~/.vimdid
+set undodir=~/.cache/vimdid
 set undofile
 
 " Decent wildmenu
