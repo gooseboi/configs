@@ -169,7 +169,7 @@ interval = 20
 
 [module/brightness]
 type = custom/ipc
-hook-0 = light -G | sed 's/\.[0-9]*//'
+hook-0 = ~/.config/polybar/polygetbright.sh
 format-prefix = "💡: "
 scroll-up = ~/.config/polybar/polysetbright.sh -A 10 
 scroll-down = ~/.config/polybar/polysetbright.sh -U 10 
