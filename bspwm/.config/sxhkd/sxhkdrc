@@ -66,21 +66,17 @@ super + m
 XF86AudioMute
 	~/.config/polybar/polysetvol.sh -m
 
+# Play next or previous track
+super + ctr + {u,i}
+	playerctl -p "mpd" {previous,next}
+
+# Toggle play-pause
+super + ctrl + m
+	playerctl -p "mpd" play-pause
+
 # Increase and decrease brightness
 {XF86MonBrightnessUp, XF86MonBrightnessDown}
 	~/.config/polybar/polysetbright.sh {-A 10, -U 10}
-
-# Toggle play-pause
-super + p
-	playerctl -p "mpd" play-pause
-
-# Play next track
-super + i
-	playerctl -p "mpd" next
-
-# Play previous track
-super + u
-	playerctl -p "mpd" previous
 
 # Reload sxhkd
 super + shift + x
