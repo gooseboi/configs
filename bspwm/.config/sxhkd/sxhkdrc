@@ -70,8 +70,16 @@ XF86AudioMute
 super + ctr + {u,i}
 	playerctl -p "mpd" {previous,next}
 
+# Play next or prevoius track
+{XF86AudioPrev,XF86AudioNext}
+	playerctl -p "mpd" {previous,next}
+
 # Toggle play-pause
 super + ctrl + m
+	playerctl -p "mpd" play-pause
+
+# Toggle play-pause
+XF86AudioPlay
 	playerctl -p "mpd" play-pause
 
 # Increase and decrease brightness
