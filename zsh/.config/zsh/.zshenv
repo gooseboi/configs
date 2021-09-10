@@ -52,11 +52,10 @@ export PAGER="less"
 export SUDO_ASKPASS="$HOME/.local/bin/rofipass"
 
 # Path
-path=("$HOME/scripts" 
-      "$XDG_DATA_HOME/ruby/gems/bin" 
-      "$HOME/go/bin" 
+path=("${$(find -L ~/.local/bin -type d -printf %p:)%%:}"
+	  "$XDG_DATA_HOME/ruby/gems/bin"
+      "$HOME/go/bin"
       "$HOME/.cargo/bin"
-      "$HOME/.local/bin" 
       "$path[@]")
 export PATH
 
