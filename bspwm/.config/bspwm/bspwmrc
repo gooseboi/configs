@@ -16,6 +16,8 @@ xsetroot -cursor_name left_ptr &
 xset -b &
 killall imwheel
 imwheel &
+killall mpd
+mpd &
 [ -x ~/.local/bin/setkblayout ] && ~/.local/bin/setkblayout -s us &
 [ -x ~/.config/bspwm/bspswallow ] && ~/.config/bspwm/bspswallow &
 [ -x ~/.config/polybar/launch.sh ] && ~/.config/polybar/launch.sh &

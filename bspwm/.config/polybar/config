@@ -31,7 +31,7 @@ font-3 = "NotoSansSymbols2:size=10;1"
 
 modules-left = date bspwm
 modules-center =
-modules-right = weather pacman-packages eth1 wlan volume xkeyboard memory cpu brightness battery
+modules-right = weather pacman-packages eth1 wlan mpd volume xkeyboard memory cpu brightness battery
 
 tray-position = left
 tray-padding = 2
@@ -182,6 +182,15 @@ type = custom/ipc
 hook-0 = pacman -Qu | wc -l
 format-prefix = "📦 "
 click-left = update-packages
+initial = 1
+
+[module/mpd]
+type = custom/ipc
+hook-0 = polygetmusic
+format-prefix = "🎜: "
+click-left = mpc toggle
+scroll-up = mpc prev
+scroll-down = mpc next
 initial = 1
 
 [settings]

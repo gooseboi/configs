@@ -66,21 +66,29 @@ super + m
 XF86AudioMute
 	polysetvol -m
 
-# Play next or previous track
-super + ctr + {u,i}
-	playerctl -p "mpd" {previous,next}
+# Increase or decrease music player volume
+super + shift + {u,i}
+	mpc volume {-,+}5
 
-# Play next or prevoius track
+# Play next or previous track
 {XF86AudioPrev,XF86AudioNext}
-	playerctl -p "mpd" {previous,next}
+	mpc {prev,next}
+
+# Play next or previous track
+super + {comma,period}
+	mpc {prev,next}
+
+# Restart song
+super + shift + comma
+	mpc seek 0%
 
 # Toggle play-pause
-super + ctrl + m
-	playerctl -p "mpd" play-pause
+super + shift + m
+	mpc toggle
 
 # Toggle play-pause
 XF86AudioPlay
-	playerctl -p "mpd" play-pause
+	mpc toggle
 
 # Increase and decrease brightness
 {XF86MonBrightnessUp, XF86MonBrightnessDown}

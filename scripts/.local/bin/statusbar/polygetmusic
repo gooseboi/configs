@@ -1,0 +1,9 @@
+#!/bin/sh
+
+pidof -x mpd >/dev/null 2>&1 || exit
+
+filter() { mpc | sed "/^volume:.*n\/a/d;s/^volume:\s*\([[:digit:]]\+%\).*/ \1/g;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;s/\\[playing\\].*/▶️/g;/^ERROR/Q" | paste -sd ' ' -;}
+
+pidof -x mpdup >/dev/null 2>&1 || mpdup >/dev/null 2>&1 &
+
+mpc status | filter
