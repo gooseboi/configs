@@ -52,19 +52,19 @@ super + {v, c, w, p, b}
 
 # Increase and decrease volume
 super + {u,i}
-	~/.config/polybar/polysetvol.sh -i {-,+}3%
+	polysetvol -i {-,+}3%
 
 # Increase and decrease volume
 {XF86AudioLowerVolume, XF86AudioRaiseVolume}
-	~/.config/polybar/polysetvol.sh -i {-,+}3%
+	polysetvol -i {-,+}3%
 
 # Toggle mute
 super + m
-	~/.config/polybar/polysetvol.sh -m
+	polysetvol -m
 
 # Toggle mute
 XF86AudioMute
-	~/.config/polybar/polysetvol.sh -m
+	polysetvol -m
 
 # Play next or previous track
 super + ctr + {u,i}
@@ -84,7 +84,7 @@ XF86AudioPlay
 
 # Increase and decrease brightness
 {XF86MonBrightnessUp, XF86MonBrightnessDown}
-	~/.config/polybar/polysetbright.sh {-A 10, -U 10}
+	polysetbright {-A 10, -U 10}
 
 # Reload sxhkd
 super + shift + x

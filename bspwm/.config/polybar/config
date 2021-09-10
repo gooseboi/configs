@@ -152,29 +152,29 @@ format-underline = #7f0707
 
 [module/volume]
 type = custom/ipc
-hook-0 = ~/.config/polybar/polygetvol.sh
+hook-0 = polygetvol
 click-left = $TERMINAL -e pulsemixer &
-click-right = ~/.config/polybar/polysetvol.sh -m 
-scroll-up = ~/.config/polybar/polysetvol.sh -i +3%
-scroll-down = ~/.config/polybar/polysetvol.sh -i -3%
+click-right = polysetvol -m
+scroll-up = polysetvol -i +3%
+scroll-down = polysetvol -i -3%
 initial = 1
 
 format-underline = #a8e3f1
 
 [module/battery]
 type = custom/script
-exec = ~/.config/polybar/polygetbat.sh
+exec = polygetbat
 label = "%output%"
 interval = 20
 
 [module/brightness]
 type = custom/ipc
-hook-0 = ~/.config/polybar/polygetbright.sh
+hook-0 = polygetbright
 format-prefix = "💡: "
-scroll-up = ~/.config/polybar/polysetbright.sh -A 10 
-scroll-down = ~/.config/polybar/polysetbright.sh -U 10 
-click-left = ~/.config/polybar/polysetbright.sh -A 5 
-click-right = ~/.config/polybar/polysetbright.sh -U 5 
+scroll-up = polysetbright -A 10
+scroll-down = polysetbright -U 10
+click-left = polysetbright -A 5
+click-right = polysetbright -U 5
 initial = 1
 
 [module/pacman-packages]
