@@ -21,7 +21,7 @@ export LESSHISTFILE=-
 # Fixing Paths
 export GEM_PATH="$XDG_DATA_HOME/ruby/gems"
 export GEM_SPEC_CACHE="$XDG_DATA_HOME/ruby/specs"
-export GEM_HOME="$XDG_DATA_HOME/ruby/gems"
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export GOPATH="$XDG_DATA_HOME"/go
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
@@ -53,7 +53,7 @@ export SUDO_ASKPASS="$HOME/.local/bin/rofipass"
 
 # Path
 path=("${$(find -L ~/.local/bin -type d -printf %p:)%%:}"
-	  "$XDG_DATA_HOME/ruby/gems/bin"
+	  "$GEM_HOME/bin"
       "$HOME/go/bin"
       "$HOME/.cargo/bin"
       "$path[@]")
