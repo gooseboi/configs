@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Shows prompt to choose if you would like to poweroff,
+# reboot, sleep, or sign out
+
+case "$(printf "poweroff\\nreboot\\nsleep\\nsign out\\nlock screen\\nquit" | rofi -dmenu -p "Choose an option")" in
+	poweroff) prompt_user "Are you sure you would like to shutdown?" "poweroff" ;;
+	reboot) prompt_user "Are you sure you would like to reboot?" "poweroff" ;;
+	sleep) prompt_user "Are you sure you would like to sleep?" "poweroff" ;;
+	"sign out") 
+		IFS='\\n'
+		for manager in $(grep 'Name' /usr/share/xsessions/*.desktop | cut -d'=' -f2); do
+			killall "$manager"
+		done
+	;;
+	"lock screen") betterlockscreen -l blur ;;
+	quit) exit ;;
+	*) exit ;;
+esac
