@@ -24,8 +24,8 @@ module-margin = 1
 
 underline-size = 3
 
-font-0 = "NotoSansMono:size=9;1"
-font-1 = "HackNerdFont:size=9;1"
+font-0 = "NotoSansMono:size=8;1"
+font-1 = "mplus Nerd Font:size=9;1"
 font-2 = "JoyPixels:fontformat=truetype:scale=8"
 font-3 = "NotoSansSymbols2:size=10;1"
 
@@ -189,6 +189,7 @@ type = custom/ipc
 hook-0 = polygetmusic
 format-prefix = "🎜: "
 click-left = mpc toggle
+click-right = $TERMINAL -e ncmpcpp
 scroll-up = mpc prev
 scroll-down = mpc next
 initial = 1

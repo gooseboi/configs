@@ -82,9 +82,13 @@ super + {comma,period}
 super + shift + comma
 	mpc seek 0%
 
-# Toggle play-pause
+# Toggle music play-pause
 super + shift + m
 	mpc toggle
+
+# Toggle video play-pause
+super + ctrl + m
+	playerctl -i mpd play-pause
 
 # Toggle play-pause
 XF86AudioPlay
