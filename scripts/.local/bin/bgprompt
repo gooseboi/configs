@@ -2,13 +2,13 @@
 
 walldir="$HOME/wallpapers"
 
-choice="$(ls "$walldir" | rofi -dmenu -i -p "Choose a background")"
+choice="$(printf "%s\\nrandom\\nrandom keep" "$(ls "$walldir")" | rofi -dmenu -i -p "Choose a background")"
 [ -z "$choice" ] && exit
 
-if [ "$choice" = "Random" ]; then
-	choice="$walldir"
+if [ "$choice" = "random" ]; then
+	setbg "$walldir"
+elif [ "$choice" = "random keep" ]; then
+	setbg -r "$walldir"
 else
-	choice=$(printf "$walldir/%s" "$choice")
+	setbg "$(printf "$walldir/%s" "$choice")"
 fi
-
-setbg "$choice"
