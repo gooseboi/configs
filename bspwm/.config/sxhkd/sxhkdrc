@@ -170,7 +170,7 @@ super + {_,shift + }{h,j,k,l}
 
 # Focus or send to the given desktop on the current monitor
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}.local'
+	bspc {desktop -f,node -d} '^{1-9,10}'
 
 # Go to next or previous desktop
 super + {_,shift + }Tab
@@ -231,3 +231,7 @@ super + e
 # Swap current node and master
 super + space
 	bspc node -s biggest.local
+
+# Toggle gaps
+super + g
+	toggleborder

@@ -13,6 +13,7 @@ height = 2.5%
 radius = 0.0
 fixed-center = false
 enable-ipc = true
+monitor = ${env:MONITOR:eDP}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -153,8 +154,8 @@ format-underline = #7f0707
 [module/volume]
 type = custom/ipc
 hook-0 = polygetvol
-click-left = $TERMINAL -e pulsemixer &
-click-right = polysetvol -m
+click-right = $TERMINAL -e pulsemixer &
+click-left = polysetvol -m
 scroll-up = polysetvol -i +3%
 scroll-down = polysetvol -i -3%
 initial = 1
