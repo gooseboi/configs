@@ -40,10 +40,10 @@ stackoverflow - https://stackoverflow.com/search?q=
 
 trimmedlist="$(echo "$list" | grep -v "^\x*#.*$" | grep -v "^$")"
 
-searchengines="$(echo "$trimmedlist" | awk '{print $1}' | sort)"
+searchengines="$(echo "$trimmedlist" | sed "s/ - .*//" | sort)"
 choice="$(echo "$searchengines" | rofi -i -p "Choose a search engine" -dmenu)" || exit 1
 
-engine="$(echo "$trimmedlist" | grep "$choice" | awk '{print $3}')"
+engine="$(echo "$trimmedlist" | grep "$choice" | sed "s/.* - //")"
 query="$(rofi -i -p "Enter search query for $choice" -dmenu | jq -s -R -r @uri)"
 
 $BROWSER "$engine""$query"
