@@ -34,9 +34,9 @@ nmap <leader>cc :w \| %bd \| e#<CR>
 
 " Neat X clipboard integration
 " <leader>p will paste clipboard into buffer
-" <leader>c will copy entire buffer into clipboard
-noremap <leader>p :read !xsel --clipboard --output<cr>
-noremap <leader>c :w !xsel -ib<cr><cr>
+" <leader>c will copy selection into clipboard
+noremap <leader>p "+p<CR>
+noremap <leader>c "+y<CR>
 
 " No arrow keys --- force yourself to use the home row
 nnoremap <up> <nop>
