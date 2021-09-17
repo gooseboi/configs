@@ -27,3 +27,4 @@ else
 fi
 
 alias v="nvim"
+alias sc="du -a ~/.local/bin/ | cut -f2 | fzf | xargs -r $EDITOR"

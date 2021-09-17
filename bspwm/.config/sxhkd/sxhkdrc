@@ -45,8 +45,8 @@ ctrl + alt + {n, c, h, r}
 	$TERMINAL -e {nvim, calcurse, htop, newsboat}
 
 # Various scripts
-super + {v, c, w, p, b}
-	{bmprompt, confprompt, handlerprompt, cpcolor, bgprompt}
+super + {s, v, c, w, p, b}
+	{searchprompt, bmprompt, confprompt, handlerprompt, cpcolor, bgprompt}
 
 # Media control
 
@@ -153,7 +153,7 @@ super + {_,shift + }q
 #
 
 # Set window tiling state
-super + {t,s,f}
+super + {t,y,f}
 	bspc node -t {tiled,floating,fullscreen}
 
 # Set window node flag
