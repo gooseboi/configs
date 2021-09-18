@@ -1,7 +1,6 @@
 #!/bin/sh
 
 desktop="$(bspc query -d)"
-echo "$desktop" >> file
 if [ -f /tmp/bspgap ]; then
 	bspc config border_width 1
 	bspc config window_gap 0
