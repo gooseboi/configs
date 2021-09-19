@@ -1,15 +1,24 @@
 #!/bin/sh
 
-# Common commands
+# Alias vim to nvim if present
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d" v="nvim"
+
+# Common commands that are too long
 alias \
 	cp="cp -iv" \
 	mv="mv -iv" \
 	rm="rm -vI" \
-	mkd="mkdir -pv" 
+	mkd="mkdir -pv" \
+	yta="youtube-dl -f best -icx --add-metadata" \
+	yt="youtube-dl -f best -ic --add-metadata"
+
+# Add some colour
+alias \
+	grep="grep --color=auto" \
+	diff="diff --color=auto"
 
 # ls commands
-if command -v exa &> /dev/null 
-then
+if [ -x $(command -v exa) ]; then
 	alias \
 		l="exa" \
 		ls="exa" \
@@ -23,8 +32,12 @@ else
 		la="ls -a" \
 		ll="ls -l" \
 		lla="ls -la"
-
 fi
+# Some common commands
+alias g="git"
+alias gap="git add -p"
+alias z="zathura"
+alias p="paru"
+alias e="$EDITOR"
 
-alias v="nvim"
 alias sc="du -a ~/.local/bin/ | cut -f2 | fzf | xargs -r $EDITOR"
