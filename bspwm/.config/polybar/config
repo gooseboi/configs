@@ -30,9 +30,9 @@ font-1 = "mplus Nerd Font:size=9;1"
 font-2 = "JoyPixels:fontformat=truetype:scale=8"
 font-3 = "NotoSansSymbols2:size=10;1"
 
-modules-left = date bspwm
+modules-left = date mpd bspwm
 modules-center =
-modules-right = weather pacman-packages eth1 wlan mpd volume xkeyboard memory cpu brightness battery
+modules-right = tasks weather pacman-packages wlan volume xkeyboard memory cpu brightness battery
 
 tray-position = left
 tray-padding = 2
@@ -194,6 +194,15 @@ click-right = $TERMINAL -e ncmpcpp
 scroll-up = mpc prev
 scroll-down = mpc next
 initial = 1
+
+[module/tasks]
+type=custom/ipc
+hook-0 = polygettasks
+format-prefix = "🤖 "
+click-left = setsid -f $TERMINAL -e tsp -l
+click-right = setsid -f $TERMINAL -e tsp -c
+initial = 1
+interval = 20
 
 [settings]
 screenchange-reload = true
