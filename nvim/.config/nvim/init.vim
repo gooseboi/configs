@@ -37,9 +37,9 @@ Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'dir': '~/.local/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Semantic language support
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/lsp_extensions.nvim'
-Plug 'nvim-lua/completion-nvim'
+"Plug 'neovim/nvim-lspconfig'
+"Plug 'nvim-lua/lsp_extensions.nvim'
+"Plug 'nvim-lua/completion-nvim'
 " Syntactic language support
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
