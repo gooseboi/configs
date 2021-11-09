@@ -10,7 +10,8 @@ alias \
 	rm="rm -vI" \
 	mkd="mkdir -pv" \
 	yta="youtube-dl -f best -icx --add-metadata" \
-	yt="youtube-dl -f best -ic --add-metadata"
+	yt="youtube-dl -f best -ic --add-metadata" \
+	ffmpeg="ffmpeg -hide_banner"
 
 # Add some colour
 alias \
@@ -41,3 +42,11 @@ alias p="paru"
 alias e="$EDITOR"
 
 alias sc="du -a ~/.local/bin/ | cut -f2 | fzf | xargs -r $EDITOR"
+alias ralias="source ~/.config/zsh/aliasrc"
+alias psearch="ps aux | grep -v grep | grep $1"
+mkfilename() { 
+	file="$1"
+	ext="${file##*.}"
+	name="$(echo "$file" | iconv -cf UTF-8 -t ASCII//TRANSLIT | tr -d '[:punct:]' | tr '[:upper:]' '[:lower:]' | tr ' ' '_' | sed 's/-\+/-/g;s/\(^-\|-$\)//g')"
+	echo "${name%$ext}.""$ext"
+}

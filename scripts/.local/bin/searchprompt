@@ -1,6 +1,7 @@
 #!/bin/sh
 
 list="
+# Search engines
 bing - https://www.bing.com/search?q=
 brave - https://search.brave.com/search?q=
 duckduckgo - https://duckduckgo.com/?q=
@@ -36,6 +37,10 @@ gitlab - https://gitlab.com/search?search=
 googleOpenSource - https://opensource.google/projects/search?q=
 sourceforge - https://sourceforge.net/directory/?q=
 stackoverflow - https://stackoverflow.com/search?q=
+# Dictionary
+real academia - https://dle.rae.es/
+merriamwebster - https://www.merriam-webster.com/dictionary/
+merriamwebster thesaurus - https://www.merriam-webster.com/thesaurus/
 "
 
 trimmedlist="$(echo "$list" | grep -v "^\x*#.*$" | grep -v "^$")"
