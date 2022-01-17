@@ -106,6 +106,10 @@ super + shift + x
 super + shift + c
 	toggleprogram "picom" "--experimental-backends"
 
+# Toggle window swallow
+super + shift + v
+	toggleprogram "~/.config/bspwm/bspswallow"
+
 # Take a fullscreen screenshot
 Print 
 	flameshot full -p ~/pix/screenshots -c

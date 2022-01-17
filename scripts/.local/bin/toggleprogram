@@ -1,8 +1,9 @@
 #!/bin/sh
 # Toggles a program on and off
 
-if [ -z "$(pgrep "$1")" ]; then
-	startandnotify "$1 started" "$@"
+name="$(echo "$1" | sed "s/^.*\///g")"
+if [ -z "$(pgrep "$name")" ]; then
+	startandnotify "$name started" "$@"
 else
-	killandnotify "$1" "$1 killed"
+	killandnotify "$name" "$name killed"
 fi
