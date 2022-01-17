@@ -233,5 +233,5 @@ super + space
 	bspc node -s biggest.local
 
 # Toggle gaps
-super + g
-	toggleborder
+super + {shift + g,g}
+	toggleborder {nobar, }

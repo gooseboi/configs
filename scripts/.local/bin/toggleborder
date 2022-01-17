@@ -1,20 +1,51 @@
 #!/bin/sh
 
-desktop="$(bspc query -d)"
-if [ -f /tmp/bspgap ]; then
+nobar() {
 	bspc config border_width 1
 	bspc config window_gap 0
-	bspc config top_padding 27.5
+	bspc config top_padding 0
 	bspc config bottom_padding 0
 	bspc config left_padding 0
 	bspc config right_padding 0
-	rm /tmp/bspgap
-else
+	polybar-msg cmd hide
+}
+
+bar() {
+	bspc config border_width 1
+	bspc config window_gap 0
+	bspc config top_padding 24
+	bspc config bottom_padding 0
+	bspc config left_padding 0
+	bspc config right_padding 0
+	polybar-msg cmd show
+}
+
+normal() {
 	bspc config border_width 2
 	bspc config window_gap 3
 	bspc config top_padding 32
 	bspc config bottom_padding 5
 	bspc config left_padding 5
 	bspc config right_padding 5
-	touch /tmp/bspgap
+	polybar-msg cmd show
+}
+
+if [ "$1" = "nobar" ]; then
+	rm /tmp/bspgap
+	if [ -f /tmp/bspgapnobar ]; then
+		rm /tmp/bspgapnobar
+		normal
+	else
+		touch /tmp/bspgapnobar
+		nobar
+	fi
+else
+	rm /tmp/bspgapnobar
+	if [ -f /tmp/bspgap ]; then
+		rm /tmp/bspgap
+		normal
+	else
+		touch /tmp/bspgap
+		bar
+	fi
 fi
