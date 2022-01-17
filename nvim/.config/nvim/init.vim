@@ -25,6 +25,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 Plug 'lukesmithxyz/vimling'
+Plug 'easymotion/vim-easymotion'
 " Vimwiki
 Plug 'vimwiki/vimwiki'
 " GUI enhancements
