@@ -9,8 +9,10 @@ alias \
 	mv="mv -iv" \
 	rm="rm -vI" \
 	mkd="mkdir -pv" \
-	yta="youtube-dl -f best -icx --add-metadata" \
 	yt="youtube-dl -f best -ic --add-metadata" \
+	yta="youtube-dl -f best -icx --add-metadata" \
+	ytp="yt-dlp -f best -ic --add-metadata" \
+	ytap="yt-dlp -f best -icx --add-metadata" \
 	ffmpeg="ffmpeg -hide_banner"
 
 # Add some colour
@@ -37,6 +39,7 @@ fi
 # Some common commands
 alias g="git"
 alias gap="git add -p"
+alias gds="git diff --staged"
 alias z="zathura"
 alias p="paru"
 alias e="$EDITOR"
@@ -50,3 +53,4 @@ mkfilename() {
 	name="$(echo "$file" | iconv -cf UTF-8 -t ASCII//TRANSLIT | tr -d '[:punct:]' | tr '[:upper:]' '[:lower:]' | tr ' ' '_' | sed 's/-\+/-/g;s/\(^-\|-$\)//g')"
 	echo "${name%$ext}.""$ext"
 }
+alias compat-ssh="TERM=rxvt-256color ssh"
