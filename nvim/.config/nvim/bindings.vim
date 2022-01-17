@@ -27,9 +27,12 @@ map L $
 
 " Bindings to manage splits
 nmap <leader>ca <c-w>v<CR>
+nmap <leader>cs <c-w>v<CR>
 nmap <leader>cq <c-w>q<CR>
-nmap <leader>ch <c-w>h<CR>
-nmap <leader>cl <c-w>l<CR>
+nmap <leader>h <c-w>h<CR>
+nmap <leader>l <c-w>l<CR>
+nmap <leader>j <c-w>j<CR>
+nmap <leader>k <c-w>k<CR>
 nmap <leader>cc :w \| %bd \| e#<CR>
 
 " Neat X clipboard integration
@@ -65,7 +68,7 @@ nnoremap K 10k
 nnoremap <c-j> :m .+1<CR>==
 nnoremap <c-k> :m .-2<CR>==
 
-" Keymap for replacing up to next _ or -
+" Keymap for replacing up to next _
 noremap <leader>m ct_
 
 " I can type :help on my own, thanks.

@@ -1,6 +1,6 @@
 " File navigation hotkeys
 nnoremap <leader>jf :Files<CR>
-nnoremap <leader>; :Buffers<CR>
+nnoremap <leader>jb :Buffers<CR>
 
 function! s:list_cmd()
   let base = fnamemodify(expand('%'), ':h:.:S')
