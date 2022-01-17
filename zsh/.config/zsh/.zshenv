@@ -52,6 +52,7 @@ export PAGER="less"
 export SUDO_ASKPASS="$HOME/.local/bin/rofipass"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Path
 path=("${$(find -L ~/.local/bin -type d -printf %p:)%%:}"
