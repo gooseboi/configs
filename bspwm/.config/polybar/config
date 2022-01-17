@@ -32,7 +32,7 @@ font-3 = "NotoSansSymbols2:size=10;1"
 
 modules-left = date mpd bspwm
 modules-center =
-modules-right = tasks weather pacman-packages wlan volume xkeyboard memory cpu brightness battery
+modules-right = tasks pacman-packages wlan volume xkeyboard memory cpu brightness battery
 
 tray-position = left
 tray-padding = 2

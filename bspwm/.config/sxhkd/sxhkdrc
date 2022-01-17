@@ -42,7 +42,7 @@ ctrl + alt + {e, g, w, d, f}
 
 # Launchers for common terminal programs 
 ctrl + alt + {m, n, c, h, r}
-	$TERMINAL -e {ncmpcpp, nvim, calcurse, htop, newsboat}
+	$TERMINAL -e {ncmpcpp, nvim, calcurse, gtop, newsboat}
 
 # Various scripts
 super + {s, v, c, w, p, b}
