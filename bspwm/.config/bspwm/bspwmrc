@@ -15,14 +15,13 @@ xset -b &
 pgrep -x imwheel || imwheel &
 prgep -x mpd || mpd &
 
-[ -x ~/.local/bin/setkblayout ] && ~/.local/bin/setkblayout -s us &
+[ -x ~/.local/bin/setkblayout ] && ~/.local/bin/setkblayout -l us &
 [ -x ~/.config/bspwm/bspswallow ] && ~/.config/bspwm/bspswallow &
 [ -x ~/.config/polybar/launch.sh ] && ~/.config/polybar/launch.sh &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
-rm /tmp/bspgap
-toggleborder
+toggleborder -n
 
 bspc config focused_border_color \#ffb52a
 bspc config normal_border_color  \#1d2021

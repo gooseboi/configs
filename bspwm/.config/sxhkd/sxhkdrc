@@ -137,8 +137,8 @@ super + F10
 # Keyboard layouts
 
 # Set keyboard layout
-shift + alt + {grave,1,2}
-	setkblayout { ,-s us,-s latam}
+shift + alt + {grave,1,2,3}
+	setkblayout { ,-l us,-l latam, -l us -v dvorak}
 
 #
 # bspwm hotkeys
@@ -238,4 +238,4 @@ super + space
 
 # Toggle gaps
 super + {shift + g,g}
-	toggleborder {nobar, }
+	toggleborder -l {nobar, withbar}

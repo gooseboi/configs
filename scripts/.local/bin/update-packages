@@ -4,4 +4,4 @@
 
 paru -Su
 
-polybar-msg hook pacman-packages 1
+polybar-msg action "#pacman-packages.hook.0"

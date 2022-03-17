@@ -78,7 +78,7 @@ format-prefix = "⌨ "
 blacklist-0 = num lock
 blacklist-1 = scroll lock
 
-label-layout = %layout%
+label-layout = %name%
 label-layout-padding = 0
 
 [module/cpu]

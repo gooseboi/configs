@@ -30,22 +30,48 @@ normal() {
 	polybar-msg cmd show
 }
 
-if [ "$1" = "nobar" ]; then
-	rm /tmp/bspgap
-	if [ -f /tmp/bspgapnobar ]; then
+while getopts ":nl:" arg; do
+	case $arg in
+		n)
+			reset=true
+			;;
+		l)
+			layout="$OPTARG"
+			;;
+		*)
+			layout="$OPTARG"
+			;;
+	esac
+done
+
+[ -n "$reset" ] && normal && exit 0
+case "$layout" in
+	withbar)
+		if [ -f /tmp/bspgap ]; then
+			rm /tmp/bspgap
+			normal
+		else
+			if [ -f /tmp/bspgapnobar ]; then
+				rm /tmp/bspgapnobar
+				normal
+			else
+				touch /tmp/bspgap
+				bar
+			fi
+		fi
+		;;
+	nobar)
+		rm /tmp/bspgap
+		if [ -f /tmp/bspgapnobar ]; then
+			rm /tmp/bspgapnobar
+			normal
+		else
+			touch /tmp/bspgapnobar
+			nobar
+		fi
+		;;
+	*)
+		rm /tmp/bspgap
 		rm /tmp/bspgapnobar
 		normal
-	else
-		touch /tmp/bspgapnobar
-		nobar
-	fi
-else
-	rm /tmp/bspgapnobar
-	if [ -f /tmp/bspgap ]; then
-		rm /tmp/bspgap
-		normal
-	else
-		touch /tmp/bspgap
-		bar
-	fi
-fi
+esac
