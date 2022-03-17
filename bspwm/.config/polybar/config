@@ -32,7 +32,7 @@ font-3 = "NotoSansSymbols2:size=10;1"
 
 modules-left = date mpd bspwm
 modules-center =
-modules-right = tasks pacman-packages wlan volume xkeyboard memory cpu brightness battery
+modules-right = pacman-packages wlan volume xkeyboard memory cpu brightness battery
 
 tray-position = left
 tray-padding = 2
@@ -102,7 +102,7 @@ type = internal/network
 interface = wlp2s0
 interval = 5.0
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <label-connected>
 format-connected-underline = #9f78e1
 label-connected = %essid%: %local_ip%
 
