@@ -10,7 +10,7 @@ super + Return
 
 # Start a terminal running tmux
 super + shift + Return
-	$TERMINAL -e tmux attach || tmux
+	$TERMINAL -e ~/.local/bin/tmuxhelper
 
 # Run rofi with programs in PATH
 super + d
