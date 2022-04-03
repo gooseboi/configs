@@ -32,7 +32,7 @@ if [ -f "$archive" ] ; then
 		*.bz2) bunzip2 "$archive" ;;
 		*.rar) unrar x -ad "$archive" ;;
 		*.gz) gunzip "$archive" ;;
-		*.zip) unzip "$archive" ;;
+		*.zip|*.cbz) unzip "$archive" ;;
 		*.Z) uncompress "$archive" ;;
 		*.7z) 7z x "$archive" ;;
 		*.xz) unxz "$archive" ;;
