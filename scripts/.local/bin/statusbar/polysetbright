@@ -2,4 +2,4 @@
 
 light $1 $2
 
-polybar-msg hook brightness 1
+polybar-msg action "#brightness.hook.0"

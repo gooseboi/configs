@@ -11,4 +11,4 @@ then
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 fi
 
-polybar-msg hook volume 1
+polybar-msg action "#volume.hook.0"
