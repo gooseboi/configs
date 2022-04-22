@@ -23,8 +23,8 @@ alias \
 # ls commands
 if [ -x $(command -v exa) ]; then
 	alias \
-		l="exa" \
 		ls="exa" \
+		l="exa" \
 		la="exa -a" \
 		ll="exa -l" \
 		lla="exa -la"
