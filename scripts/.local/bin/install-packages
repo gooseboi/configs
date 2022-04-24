@@ -1,0 +1,7 @@
+#!/bin/sh
+
+infile="$HOME/.config/progs.csv"
+
+while IFS=, read -r tag program comment; do
+	paru -S --noconfirm "$program"
+done < "$infile"
