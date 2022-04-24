@@ -114,9 +114,13 @@ super + shift + v
 Print 
 	flameshot full -p ~/pix/screenshots -c
 
+# Select a region to screenshot and save to clipboard
+Print + shift + ctrl
+	screenshot-try-qr clip
+
 # Select a region to screenshot
 Print + shift
-	flameshot gui -p ~/pix/screenshots 
+	screenshot-try-qr
 
 # Shutdown
 super + shift + s

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+outfile=$(flameshot gui -p /tmp/ $flameshot_args 2>&1 | sed "s/.*\(\/tmp.*png\)/\1/;s/.*flameshot.*//")
+[ -z "$outfile" ] && exit
+
+scanresult=$(zbarimg --quiet --raw "$outfile" | tr -d '\n')
+
+movefile() {
+	mv "$outfile" "$HOME/pix/screenshots"
+}
+
+copyfile() {
+	xclip -selection clipboard -t image/png "$outfile" && notify-send "Flameshot Info" "Capture saved to clipboard"
+}
+
+if [ -z "$scanresult" ]; then
+	[ "$1" = "clip" ] && copyfile
+	movefile
+else
+	sleep 0.5s # Avoid losing focus and closing the rofi window instantly 
+			   # because of clicking the ok button
+	result="$(printf "Yes\\nNo\\n" | rofi -steal-focus -dmenu -p "QR code detected, do you want to copy the scan result?")"
+	if [ "$result" = "Yes" ]; then
+		echo "$scanresult" | xclip -selection clipboard -filter
+		notify-send "Flameshot Info" "QR code contents copied to clipboard"
+	else
+		[ "$1" = "clip" ] && copyfile
+		movefile
+	fi
+fi
