@@ -11,8 +11,8 @@ alias \
 	mkd="mkdir -pv" \
 	yt="youtube-dl -f best -ic --add-metadata" \
 	yta="youtube-dl -f best -icx --add-metadata" \
-	ytp="yt-dlp -f best -ic --add-metadata" \
-	ytap="yt-dlp -f best -icx --add-metadata" \
+	ytp="yt-dlp -ic --add-metadata" \
+	ytap="yt-dlp -icx --add-metadata" \
 	ffmpeg="ffmpeg -hide_banner"
 
 # Add some colour
