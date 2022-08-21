@@ -130,6 +130,9 @@ Print + shift + ctrl
 Print + shift
 	screenshot-try-qr
 
+super + z
+	boomer
+
 # Shutdown
 super + shift + s
 	prompt_user "Are you sure you would like to shutdown" "poweroff"
