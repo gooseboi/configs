@@ -37,7 +37,6 @@ else
 		lla="ls -la"
 fi
 # Some common commands
-alias g="git"
 alias gap="git add -p"
 alias gds="git diff --staged"
 alias z="zathura"
