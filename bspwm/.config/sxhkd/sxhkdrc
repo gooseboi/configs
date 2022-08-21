@@ -112,7 +112,11 @@ super + shift + c
 
 # Toggle window swallow
 super + shift + v
-	toggleprogram "~/.config/bspwm/bspswallow"
+	toggleprogram ~/.config/bspwm/bspswallow
+
+# Toggle screenkey
+super + shift + b
+	toggleprogram screenkey
 
 # Take a fullscreen screenshot
 Print 
