@@ -59,6 +59,7 @@ path=("${$(find -L ~/.local/bin -type d -printf %p:)%%:}"
 	  "$GEM_HOME/bin"
       "$HOME/go/bin"
       "$HOME/.cargo/bin"
+      "$HOME/.ghcup/bin"
       "$path[@]")
 export PATH
 
