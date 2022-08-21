@@ -155,6 +155,9 @@ super + F10
 shift + alt + {grave,1,2,3}
 	setkblayout { ,-l us,-l latam, -l us -v dvorak}
 
+super + F6
+	toggle-touchpad
+
 #
 # bspwm hotkeys
 #
