@@ -5,7 +5,7 @@ usage() {
 }
 
 setup() {
-	setxkbmap -option caps:escape
+	setxkbmap -option caps:escape_shifted_capslock
 	xset r rate 300 50
 }
 
