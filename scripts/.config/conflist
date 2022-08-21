@@ -6,7 +6,7 @@ gitconf:~/.config/git/config
 xresources:~/.config/X11/xresources
 bspwmrc:~/.config/bspwm/bspwmrc
 sxhkdrc:~/.config/sxhkd/sxhkdrc
-polybar:~/.config/polybar/config
+polybar:~/.config/polybar/config.ini
 browserbookmarks:~/.config/bmlist
 configbookmarks:~/.config/conflist
 dunst:~/.config/dunst/dunstrc
