@@ -27,8 +27,6 @@ return require('packer').startup(function(use)
 	use 'airblade/vim-rooter'
 	use { "nvim-telescope/telescope.nvim", requires = {'nvim-lua/plenary.nvim'} }
 	use {"nvim-telescope/telescope-fzf-native.nvim", run = 'make'}
-	-- use { 'junegunn/fzf', run = './install --all' }
-	-- use 'junegunn/fzf.vim'
 	-- Semantic language support
 	use 'neovim/nvim-lspconfig'
 	use 'nvim-lua/lsp_extensions.nvim'
