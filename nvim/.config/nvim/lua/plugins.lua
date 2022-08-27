@@ -33,16 +33,6 @@ return require('packer').startup(function(use)
 	use { "nvim-telescope/telescope.nvim", requires = {'nvim-lua/plenary.nvim'} }
 	use {"nvim-telescope/telescope-fzf-native.nvim", run = 'make'}
 
-	-- LSP
-	use 'neovim/nvim-lspconfig'
-	use 'nvim-lua/lsp_extensions.nvim'
-	-- nvim-cmp
-	use { 'hrsh7th/nvim-cmp', branch = 'main'}
-	use { 'hrsh7th/cmp-buffer', branch = 'main'}
-	use { 'hrsh7th/cmp-path', branch = 'main'}
-	use { 'hrsh7th/cmp-cmdline', branch = 'main'}
-	use { 'hrsh7th/cmp-nvim-lsp', branch = 'main'}
-
 	-- Syntactic language support
 	use 'cespare/vim-toml'
 	use 'stephpy/vim-yaml'
