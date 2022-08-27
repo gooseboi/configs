@@ -13,9 +13,8 @@ return require('packer').startup(function(use)
 	use 'ciaranm/securemodelines'
 	use 'editorconfig/editorconfig-vim'
 	use 'tpope/vim-surround'
+	use 'godlygeek/tabular'
 	use 'alvan/vim-closetag'
-	use 'lukesmithxyz/vimling'
-	use 'easymotion/vim-easymotion'
 	-- Vimwiki
 	use 'vimwiki/vimwiki'
 	-- GUI enhancements
@@ -43,7 +42,6 @@ return require('packer').startup(function(use)
 	use 'cespare/vim-toml'
 	use 'stephpy/vim-yaml'
 	use 'plasticboy/vim-markdown'
-	use 'godlygeek/tabular'
 	use 'rust-lang/rust.vim'
 	use 'rhysd/vim-clang-format'
 	-- Colour scheme
