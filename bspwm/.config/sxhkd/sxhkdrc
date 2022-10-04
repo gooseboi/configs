@@ -153,7 +153,7 @@ super + F10
 
 # Set keyboard layout
 shift + alt + {grave,1,2,3}
-	setkblayout { ,-l us,-l latam, -l us -v dvorak}
+	setkblayout { ,-l us,-l latam, -l us -v colemak}
 
 super + F6
 	toggle-touchpad
