@@ -34,7 +34,8 @@ fi
 if [ -z "$(find "$bgloc" -type l -xtype f)" ]; then
 	randomfile=$(find -L "$bgloc" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)
 	xwallpaper --stretch "$randomfile"
-	[ -n "$1" ] && updatebetterlock "$randomfile" || updatebetterlock "$randomfile" "silent"
+	[ -n "$1" ] && updatebetterlock "$randomfile"
+	[ -n "$1" ] || updatebetterlock "$randomfile" "silent"
 else
 	xwallpaper --stretch "$bgloc"
 	[ -n "$1" ] && updatebetterlock "$bgloc"

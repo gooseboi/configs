@@ -11,4 +11,4 @@ realname="$(echo "$base" | sed "s/?\(source\|dest\).*//;s/%20/ /g")"
 tsp -D "$idnum" mv "$base" "$realname"
 tsp -D "$idnum" notify-send "👍 $realname done."
 
-polybar-msg action "#tasks.hook.0" 1 2>&1 >/dev/null
+polybar-msg action "#tasks.hook.0" 1

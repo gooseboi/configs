@@ -8,8 +8,7 @@ case "$(printf "poweroff\\nreboot\\nsleep\\nsign out\\nlock screen\\nquit" | rof
 	reboot) prompt_user "Are you sure you would like to reboot?" "reboot" ;;
 	sleep) prompt_user "Are you sure you would like to sleep?" "systemctl suspend" ;;
 	"sign out") 
-		IFS='\\n'
-		for manager in $(grep 'Name' /usr/share/xsessions/*.desktop | cut -d'=' -f2); do
+		grep 'Name' /usr/share/xsessions/*.desktop | cut -d'=' -f2 | while IFS= read -r manager; do
 			killall "$manager"
 		done
 	;;
