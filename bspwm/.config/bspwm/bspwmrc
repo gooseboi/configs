@@ -8,7 +8,7 @@ setbg &
 dunst &
 pgrep -x lxsession || lxsession &
 xrdb ~/.config/x11/xresources &
-picom -b --experimental-backends &
+picom -b &
 flameshot &
 xsetroot -cursor_name left_ptr &
 xset -b &

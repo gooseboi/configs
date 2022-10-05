@@ -108,7 +108,7 @@ super + shift + x
 
 # Toggle picom
 super + shift + c
-	toggleprogram "picom" "--experimental-backends"
+	toggleprogram "picom" "-b"
 
 # Toggle window swallow
 super + shift + v
