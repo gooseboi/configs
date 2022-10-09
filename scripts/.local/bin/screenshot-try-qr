@@ -1,6 +1,6 @@
 #!/bin/sh
 
-outfile=$(flameshot gui -p /tmp/ "$flameshot_args" 2>&1 | sed "s/.*\(\/tmp.*png\)/\1/;s/.*flameshot.*//")
+outfile=$(flameshot gui -p /tmp/ 2>&1 | sed "s/.*\(\/tmp.*png\)/\1/;s/.*flameshot.*//")
 [ -z "$outfile" ] && exit
 
 scanresult=$(zbarimg --quiet --raw "$outfile" | tr -d '\n')
