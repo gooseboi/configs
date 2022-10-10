@@ -8,7 +8,5 @@ cmd="$2"
 [ -z "$cmd" ] && cmd="youtube-dl --add-metadata -ic -f best"
 idnum="$(tsp $cmd "$1")"
 realname="$(echo "$base" | sed "s/?\(source\|dest\).*//;s/%20/ /g")"
-tsp -D "$idnum" mv "$base" "$realname"
-tsp -D "$idnum" notify-send "👍 $realname done."
-
-polybar-msg action "#tasks.hook.0" 1
+polybar-msg action "#tasks.hook.0"
+tsp -D "$idnum" tsp-update-on-done $realname

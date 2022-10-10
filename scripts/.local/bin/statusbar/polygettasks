@@ -2,7 +2,4 @@
 
 num=$(tsp -l | awk -v numr=0 -v numq=0 '{if (/running/)numr++; if (/queued/)numq++} END{print numr+numq"("numq")"}')
 
-[ "$num" != "0(0)" ] &&
-	echo "$num"
-
-polybar-msg action "#tasks.hook.0" 1 2>&1 >/dev/null
+[ "$num" != "0(0)" ] && echo "$num"
