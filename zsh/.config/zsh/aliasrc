@@ -39,9 +39,6 @@ fi
 # Some common commands
 alias gap="git add -p"
 alias gds="git diff --staged"
-alias z="zathura"
-alias p="paru"
-alias e="$EDITOR"
 
 alias sc="du -a ~/.local/bin/ | cut -f2 | fzf | xargs -r $EDITOR"
 alias ralias="source ~/.config/zsh/aliasrc"
