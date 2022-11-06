@@ -42,7 +42,7 @@ XF86Calculator
 
 # Launchers for common desktop programs
 ctrl + alt + {e, g, w, d, f}
-	{kdenlive, gimp, $BROWSER, discord, spacefm}
+	{kdenlive, gimp, $BROWSER, discord-canary, spacefm}
 
 # Launchers for common terminal programs 
 ctrl + alt + {m, n, c, h, r}
