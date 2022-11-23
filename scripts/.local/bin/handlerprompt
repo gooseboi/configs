@@ -7,14 +7,12 @@ feed="$1"
 [ -z "$feed" ] && feed="$(rofi -dmenu -p 'Enter URL or file path')"
 [ -z "$feed" ] && exit
 
-case "$(printf "copy url\\nsxiv\\nsetbg\\npdf\\nbrowser\\nlynx\\nvim\\nmpv\\nmpv loop\\nqueue download\\nqueue yt-dl\\nqueue yt-dl audio\\nqueue yt-dlp\\nqueue yt-dlp audio" | rofi -dmenu -i -p "Open it with?")" in
+case "$(printf "copy url\\nsxiv\\nsetbg\\npdf\\nbrowser\\nlynx\\nvim\\nmpv\\nmpv loop\\nqueue download\\nqueue yt-dlp\\nqueue yt-dlp audio" | rofi -dmenu -i -p "Open it with?")" in
 	"copy url") echo "$feed" | xclip -selection clipboard ;;
 	mpv) setsid -f mpv -quiet "$feed" >/dev/null 2>&1 ;;
 	"mpv loop") setsid -f mpv -quiet --loop "$feed" >/dev/null 2>&1 ;;
-	"queue yt-dl") qndl "$feed" >/dev/null 2>&1 ;;
-	"queue yt-dl audio") qndl "$feed" 'youtube-dl --add-metadata -icx -f bestaudio/best' >/dev/null 2>&1 ;;
-	"queue yt-dlp") qndl "$feed" 'yt-dlp --add-metadata -ic -f best' >/dev/null 2>&1 ;;
-	"queue yt-dlp audio") qndl "$feed" 'yt-dlp --add-metadata -icx -f bestaudio/best' >/dev/null 2>&1 ;;
+	"queue yt-dlp") qndl "$feed" "yt-dlp --add-metadata -ic --output $HOME/down/yt/%(title)s.%(ext)s" >/dev/null 2>&1 ;;
+	"queue yt-dlp audio") qndl "$feed" "yt-dlp --add-metadata -icx --output $HOME/down/yt/%(title)s.%(ext)s" >/dev/null 2>&1 ;;
 	"queue download") qndl "$feed" 'curl -LO' >/dev/null 2>&1 ;;
 	pdf) curl -sL "$feed" > "/tmp/$(echo "$feed" | sed "s/.*\///;s/%20/ /g")" && zathura "/tmp/$(echo "$feed" | sed "s/.*\///;s/%20/ /g")"  >/dev/null 2>&1 ;;
 	sxiv) curl -sL "$feed" > "/tmp/$(echo "$feed" | sed "s/.*\///;s/%20/ /g")" && sxiv -a "/tmp/$(echo "$feed" | sed "s/.*\///;s/%20/ /g")"  >/dev/null 2>&1 ;;
