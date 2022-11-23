@@ -81,3 +81,6 @@ set_keymap('c', '%s/', '%sm/', {noremap = true})
 -- I can type :help on my own, thanks
 set_keymap('', '<F1>', '<Esc>', {})
 set_keymap('i', '<F1>', '<Esc>', {})
+
+-- Easymotion
+set_keymap('', '<leader>f', '<Plug>(easymotion-overwin-w)', {})

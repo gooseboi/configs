@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
 	use 'tpope/vim-surround'
 	use 'godlygeek/tabular'
 	use 'alvan/vim-closetag'
+	use 'easymotion/vim-easymotion'
 
 	-- Vimwiki
 	use 'vimwiki/vimwiki'
