@@ -23,11 +23,11 @@ alias \
 # ls commands
 if [ -x $(command -v exa) ]; then
 	alias \
-		ls="exa" \
-		l="exa" \
-		la="exa -a" \
-		ll="exa -l" \
-		lla="exa -la"
+		ls="exa --icons" \
+		l="exa --icons" \
+		la="exa -a --icons" \
+		ll="exa -l --icons" \
+		lla="exa -la --icons"
 
 else
 	alias \
