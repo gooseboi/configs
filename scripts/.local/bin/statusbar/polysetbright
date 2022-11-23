@@ -3,8 +3,8 @@
 # Usage: $0 [-A/-U] [OFFSET]
 
 case $1 in
-	'-A') xbacklight -inc $2;;
-	'-U') xbacklight -dec $2;;
+	'-A') light -A $2;;
+	'-U') light -U $2;;
 	*) echo 'Usage: $0 [-A/-U] [OFFSET]'; exit 1 ;;
 esac
 

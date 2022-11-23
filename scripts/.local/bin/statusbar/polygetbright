@@ -1,4 +1,3 @@
 #!/bin/sh
 
-xbacklight -get 2>/dev/null | sed 's/\..*//g'
-#light -G > /dev/null 2>&1 | grep No || light -G | sed 's/\.[0-9]*//'
+light -G > /dev/null 2>&1 | grep No || light -G | sed 's/\.[0-9]*//'
