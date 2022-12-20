@@ -51,3 +51,8 @@ mkfilename() {
 	echo "${name%$ext}.""$ext"
 }
 alias compat-ssh="TERM=rxvt-256color ssh"
+
+# Aliases for yt-dlp
+alias ytp-playlist="yt-dlp --config-location ~/.config/yt/yt-dl-playlist.conf -a "$1""
+alias ytp-playlist-archive="yt-dlp --config-location ~/.config/yt/yt-dl-playlist.conf -a $1 --download-archive $2"
+alias ytp-vid="yt-dlp --config-location ~/.config/yt/yt-dl-vid.conf"

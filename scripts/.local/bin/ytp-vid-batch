@@ -1,0 +1,8 @@
+#!/bin/sh
+[ -z $1 ] && echo "Must add have at least one argument! Usage $0 <batch file> [archive file]" && exit 1
+
+if [ -z $2 ]; then
+	yt-dlp --config-location ~/.config/yt/yt-dl-vid.conf -a "$1"
+else
+	yt-dlp --config-location ~/.config/yt/yt-dl-vid.conf -a "$1" --download-archive "$2"
+fi
