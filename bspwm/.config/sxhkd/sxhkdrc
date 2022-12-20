@@ -41,8 +41,8 @@ XF86Calculator
 	tdrop -ma -w 35% -h 50% -x 32% -y 20% alacritty -o font.size=16 -e python3
 
 # Launchers for common desktop programs
-ctrl + alt + {e, g, w, d, f}
-	{kdenlive, gimp, $BROWSER, discord-canary, spacefm}
+ctrl + alt + {g, w, d, f}
+	{gimp, $BROWSER, discord-canary, spacefm}
 
 # Launchers for common terminal programs 
 ctrl + alt + {m, n, c, h, r}
