@@ -43,6 +43,7 @@ alias gds="git diff --staged"
 alias sc="du -a ~/.local/bin/ | cut -f2 | fzf | xargs -r $EDITOR"
 alias ralias="source ~/.config/zsh/aliasrc"
 alias psearch="ps aux | grep -v grep | grep $1"
+alias opusedit="opustags --edit --in-place $1"
 mkfilename() { 
 	file="$1"
 	ext="${file##*.}"
