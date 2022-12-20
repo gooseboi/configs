@@ -56,11 +56,11 @@ super + {s, v, c, w, p, b}
 
 # Increase and decrease volume
 super + {u,i}
-	polysetvol -i {-,+}3%
+	polysetvol -i {-,+}5%
 
 # Increase and decrease volume
 {XF86AudioLowerVolume, XF86AudioRaiseVolume}
-	polysetvol -i {-,+}3%
+	polysetvol -i {-,+}5%
 
 # Toggle mute
 super + m
