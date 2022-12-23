@@ -1,86 +1,67 @@
-local set_keymap = vim.api.nvim_set_keymap
+function nnoremap(keys, value)
+	vim.keymap.set('n', keys, value, {silent = true, noremap = true})
+end
 
--- Set leader
-set_keymap('', '<Space>', '<Nop>', {noremap = true, silent = true,})
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
+function vnoremap(keys, value)
+	vim.keymap.set('v', keys, value, {silent = true, noremap = true})
+end
 
--- Change and delete do not change clipboard
-set_keymap('n', 'x', '\"_x', {noremap = true, silent = true,})
-set_keymap('n', 'X', '\"_X', {noremap = true, silent = true,})
-set_keymap('n', 'c', '\"_c', {noremap = true, silent = true,})
+function cnoremap(keys, value)
+	vim.keymap.set('c', keys, value, {silent = true, noremap = true})
+end
 
--- Search results centered in the window
-set_keymap('n', 'n', 'nzz', {noremap = true, silent = true,})
-set_keymap('n', 'N', 'Nzz', {noremap = true, silent = true,})
-set_keymap('n', '*', '*zz', {noremap = true, silent = true,})
-set_keymap('n', '#', '#zz', {noremap = true, silent = true,})
-set_keymap('n', 'g*', 'g*zz', {noremap = true, silent = true,})
+function map(keys, value)
+	vim.keymap.set('', keys, value, {silent = true})
+end
 
--- Use ; as :
-set_keymap('n', ';', ':', {noremap = true, silent = true,})
+-- Set the leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+nnoremap('<Space>', '<Nop')
 
--- Stop highlighting search
-set_keymap('v', '<C-h>', '<cmd>nohlsearch<CR>', {noremap = true, silent = true,})
-set_keymap('n', '<C-h>', '<cmd>nohlsearch<CR>', {noremap = true, silent = true,})
+-- `x` and `c` don't change clipboard
+nnoremap('x', '"_x')
+nnoremap('X', '"_X')
+nnoremap('c', '"_c')
 
--- Jump to start and end of line using the home row keys
-set_keymap('', 'H', '^', {})
-set_keymap('', 'L', '$', {})
+-- Center search results
+nnoremap('n', 'nzz')
+nnoremap('N', 'Nzz')
+nnoremap('*', '*zz')
+nnoremap('#', '#zz')
+nnoremap('g*', 'g*zz')
 
--- Managing splits
-set_keymap('n', '<leader>ca', '<C-w>v<CR>', {})
-set_keymap('n', '<leader>cs', '<C-w>s<CR>', {})
-set_keymap('n', '<leader>cq', '<C-w>q<CR>', {})
-set_keymap('n', '<leader>h',  '<C-w>h<CR>', {})
-set_keymap('n', '<leader>l',  '<C-w>l<CR>', {})
-set_keymap('n', '<leader>j',  '<C-w>j<CR>', {})
-set_keymap('n', '<leader>k',  '<C-w>k<CR>', {})
-set_keymap('n', '<leader>cc', '<cmd>w \\| %bd \\| e#<CR>', {})
-
--- System clipboard integration
-set_keymap('', '<leader>p', '\"+p<CR>', {noremap = true})
-set_keymap('', '<leader>c', '\"+y<CR>', {noremap = true})
-
--- No arrow keys, force yourself to use the home row
-set_keymap('n', '<up>',    '<nop>', {noremap = true})
-set_keymap('n', '<down>',  '<nop>', {noremap = true})
-set_keymap('i', '<up>',    '<nop>', {noremap = true})
-set_keymap('i', '<down>',  '<nop>', {noremap = true})
-set_keymap('i', '<left>',  '<nop>', {noremap = true})
-set_keymap('i', '<right>', '<nop>', {noremap = true})
-
-
--- Left and right arrow keys switch buffers
-set_keymap('n', '<left>',  '<cmd>bp<CR>', {noremap = true})
-set_keymap('n', '<right>', '<cmd>bn<CR>', {noremap = true})
-
--- Switch between current buffer and last used buffer
-set_keymap('n', '<leader><leader>', '<C-^>', {noremap = true})
-
--- Move by visual line, not by actual line
-set_keymap('n', 'j', 'gj', {noremap = true})
-set_keymap('n', 'k', 'gk', {noremap = true})
-
--- Bindings for quick movement
-set_keymap('n', 'J', '10j', {noremap = true})
-set_keymap('n', 'K', '10k', {noremap = true})
+-- Copy to clipboard (by ThePrimeagen)
+nnoremap('<leader>y', '"+y')
+nnoremap('<leader>Y', '"+Y')
+vnoremap('<leader>y', '"+y')
 
 -- Swap lines
-set_keymap('n', '<C-j>', '<cmd>m .+1<CR>==', {noremap = true})
-set_keymap('n', '<C-k>', '<cmd>m .-2<CR>==', {noremap = true})
+nnoremap('<C-j>', ':m .+1<CR>gv=gv')
+nnoremap('<C-k>', ':m .-2<CR>gv=gv')
 
--- Replace up to next _
-set_keymap('n', '<leader>m', 'ct_', {noremap = true})
+-- Move lines in visual mode (by ThePrimeagen)
+vnoremap('<C-k>', ":m '<-2<CR>gv=gv")
+vnoremap('<C-j>', ":m '>+1<CR>gv=gv")
 
--- Very magic by default
-set_keymap('n', '?', '?\\v', {noremap = true})
-set_keymap('n', '/', '/\\v', {noremap = true})
-set_keymap('c', '%s/', '%sm/', {noremap = true})
+-- Go to start and end of line
+map('H', '^')
+map('L', '$')
 
--- I can type :help on my own, thanks
-set_keymap('', '<F1>', '<Esc>', {})
-set_keymap('i', '<F1>', '<Esc>', {})
+-- Switch between current and last used buffers
+nnoremap('<leader><leader>', '<C-^>')
 
--- Easymotion
-set_keymap('', '<leader>f', '<Plug>(easymotion-overwin-w)', {})
+-- Quick movement
+nnoremap('J', '10j')
+nnoremap('K', '10k')
+
+-- Disable useless keys
+map('<F1>', '<Nop>')
+map('<Up>', '<Nop>')
+map('<Left>', '<Nop>')
+map('<Right>', '<Nop>')
+map('<Down>', '<Nop>')
+
+-- Go up and down in command mode
+cnoremap('<C-j>', ':norm nzz')
+cnoremap('<C-k>', '<Up>')

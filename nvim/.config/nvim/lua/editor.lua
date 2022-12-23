@@ -1,29 +1,28 @@
 local options = {
+
 	autoindent = true, -- Copy indent from previous line
 	timeoutlen = 300, -- https://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
 	encoding = 'utf-8', -- Use UTF-8
 	scrolloff = 3, -- Keep 3 lines above and below the cursor when scrolling
 	sidescrolloff = 7, -- Keep 7 lines to both sides when scrolling
-	showmode = false,
+	showmode = false, -- Don't show the editor mode as it is shown by the status bar
 	hidden = true, -- Allow unsaved buffers to be hidden
 	wrap = false, -- No line wrapping
-	joinspaces = false,
-	colorcolumn = '80',
-	printfont = ':h10',
-	printencoding = 'utf-8',
-	printoptions = 'paper:letter',
+	joinspaces = false, -- Don't insert spaces between '.' after joining lines
+	colorcolumn = '80', -- Add a column 80 lines out to mark a limit
 
 	-- Sane splits
-	splitright = true,
-	splitbelow = true,
+	splitright = true, -- Automatically create hsplits right of the current window
+	splitbelow = true, -- Automatically create vsplits below the current window
 
 	-- Permanent undo
-	undofile = true,
-	
+	undofile = true, -- Permanent file for undos
+
 	-- Decent wildmenu
-	wildmenu = true,
-	wildmode = 'list:longest',
-	wildignore = '.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor',
+	wildmenu = true, -- Turn on wildmenu for completion
+	wildmode = 'list:longest', -- `list` lists all matches
+				   --`longest` autocompletes to the longest common string
+	wildignore = '.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor', -- Ignore files that have no use being opened in vim
 
 	-- Wrapping options
 	formatoptions = 'tcrqnbjp',
@@ -33,15 +32,13 @@ local options = {
 	softtabstop = 4,
 	tabstop = 4,
 	expandtab = false,
+	smartindent = true,
 
 	-- Proper search
 	incsearch = true,
 	ignorecase = true,
 	smartcase = true,
 	gdefault = true,
-
-
-	-- Gui options
 
 	-- Better message display
 	cmdheight = 2,
@@ -56,7 +53,6 @@ local options = {
 	number = true,
 	relativenumber = true,
 	ruler = true,
-	diffopt = nil, -- TODO
 	showcmd = true,
 	mouse = 'a',
 	listchars = 'nbsp:¬,extends:»,precedes:«,trail:•'
@@ -66,13 +62,23 @@ for opt, val in pairs(options) do
 	vim.opt[opt] = val
 end
 
+vim.api.nvim_create_autocmd("TextYankPost", { command = "lua vim.highlight.on_yank()" })
+
+-- Courtesy of Lukesmith
+vim.api.nvim_exec([[
+	autocmd BufWritePre * let currPos = getpos(".")
+	autocmd BufWritePre * %s/\s\+$//e
+	autocmd BufWritePre * %s/\n\+\%$//e
+	autocmd BufWritePre *.[ch] %s/\%$/\r/e
+	autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
+]], false)
+
 -- Latex
+vim.g.latex_fold_sections = {}
 vim.g.latex_indent_enabled = 1
 vim.g.latex_fold_envs = 0
-vim.g.latex_fold_sections = {}
 
 -- Rust
 vim.g.rustfmt_autosave = 1
 vim.g.rustfmt_emit_files = 1
 vim.g.rustfmt_fail_silently = 0
-vim.g.rust_clip_command = 'xclip -selection clipboard'

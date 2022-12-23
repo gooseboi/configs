@@ -1,6 +1,11 @@
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>ps', builtin.git_files, {})
+vim.keymap.set('n', '<leader>gs', builtin.live_grep, {})
+
 -- Make sure telescope is installed
-local ok, telescope = pcall(require, "telescope")
-if not ok then
+local telescope_ok, telescope = pcall(require, "telescope")
+if not telescope_ok then
 	vim.notify("Failed to load telescope")
 	return
 end
@@ -53,10 +58,8 @@ telescope.setup{
 telescope.load_extension('fzf')
 
 -- Keymaps
-local telescope_ok, telescope = pcall(require, "telescope")
 if telescope_ok then
-	vim.api.nvim_set_keymap('n', "<leader>jf", "<cmd>Telescope find_files<CR>",                 {noremap = true})
-	vim.api.nvim_set_keymap('n', "<leader>tl", "<cmd>Telescope live_grep<CR>",                  {noremap = true})
-	vim.api.nvim_set_keymap('n', "<leader>jb", "<cmd>Telescope buffers<CR>",                    {noremap = true})
-	vim.api.nvim_set_keymap('n', "<leader>tb", "<cmd>Telescope current_buffer_fuzzy_find<CR>",  {noremap = true})
+	vim.keymap.set('n', '<leader>ff', builtin.find_files, { noremap = true, silent = true })
+	vim.keymap.set('n', '<leader>ps', builtin.git_files, { noremap = true, silent = true })
+	vim.keymap.set('n', '<leader>gs', builtin.live_grep, { noremap = true, silent = true })
 end
