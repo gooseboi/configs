@@ -6,7 +6,7 @@ nm-applet &
 pgrep -x sxhkd || sxhkd &
 setbg &
 dunst &
-pgrep -x lxsession || lxsession &
+pgrep -x polkit-dumb-agent || polkit-dumb-agent &
 xrdb ~/.config/x11/xresources &
 picom -b &
 flameshot &
