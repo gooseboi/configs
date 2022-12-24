@@ -62,7 +62,7 @@ for opt, val in pairs(options) do
 	vim.opt[opt] = val
 end
 
-vim.api.nvim_create_autocmd("TextYankPost", { command = "lua vim.highlight.on_yank()" })
+vim.api.nvim_create_autocmd("TextYankPost", { command = "lua vim.highlight.on_yank({timeout = 400})" })
 
 -- Courtesy of Lukesmith
 vim.api.nvim_exec([[
