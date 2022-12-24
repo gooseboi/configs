@@ -48,6 +48,10 @@ vnoremap('<C-j>', ":m '>+1<CR>gv=gv")
 map('H', '^')
 map('L', '$')
 
+-- Move lines by visual lines
+nnoremap('j', 'gj')
+nnoremap('k', 'gk')
+
 -- Switch between current and last used buffers
 nnoremap('<leader><leader>', '<C-^>')
 
