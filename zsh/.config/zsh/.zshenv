@@ -30,6 +30,7 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export ZDOTDIR=$HOME/.config/zsh
 export HISTFILE="$XDG_DATA_HOME"/zsh/history
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
+export PYTHONPATH="$HOME/.local/bin/pip"
 
 # Scaling
 export QT_AUTO_SCREEN_SCALE_FACTOR=0

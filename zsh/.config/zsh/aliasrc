@@ -40,7 +40,7 @@ fi
 alias gap="git add -p"
 alias gds="git diff --staged"
 
-alias sc="du -a ~/.local/bin/ | cut -f2 | fzf | xargs -r $EDITOR"
+alias sc="du -a ~/.local/bin/ | grep -v pip | cut -f2 | fzf | xargs -r $EDITOR"
 alias ralias="source ~/.config/zsh/aliasrc"
 alias psearch="ps aux | grep -v grep | grep $1"
 alias opusedit="opustags --edit --in-place $1"
