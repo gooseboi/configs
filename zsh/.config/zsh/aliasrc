@@ -13,7 +13,8 @@ alias \
 	yta="youtube-dl -f best -icx --add-metadata" \
 	ytp="yt-dlp --download-archive ~/.config/yt/yt-dl-vid.conf" \
 	ytap="yt-dlp -icx --add-metadata" \
-	ffmpeg="ffmpeg -hide_banner"
+	ffmpeg="ffmpeg -hide_banner" \
+	xclipboard="xclip -selection clipboard"
 
 # Add some colour
 alias \
