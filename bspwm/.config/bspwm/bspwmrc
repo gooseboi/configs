@@ -3,6 +3,7 @@
 bspc rule -r "*"
 
 nm-applet &
+blueman-applet &
 pgrep -x sxhkd || sxhkd &
 setbg &
 dunst &
