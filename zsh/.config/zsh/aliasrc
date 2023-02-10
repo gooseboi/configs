@@ -46,12 +46,6 @@ alias sc="du -a ~/.local/bin/ | grep -v pip | cut -f2 | fzf | xargs -r $EDITOR"
 alias ralias="source ~/.config/zsh/aliasrc"
 alias psearch="ps aux | grep -v grep | grep $1"
 alias opusedit="opustags --edit --in-place $1"
-mkfilename() { 
-	file="$1"
-	ext="${file##*.}"
-	name="$(echo "$file" | iconv -cf UTF-8 -t ASCII//TRANSLIT | tr -d '[:punct:]' | tr '[:upper:]' '[:lower:]' | tr ' ' '_' | sed 's/-\+/-/g;s/\(^-\|-$\)//g')"
-	echo "${name%$ext}.""$ext"
-}
 alias compat-ssh="TERM=rxvt-256color ssh"
 
 # Aliases for yt-dlp
