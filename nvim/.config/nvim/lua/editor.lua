@@ -82,3 +82,6 @@ vim.g.latex_fold_envs = 0
 vim.g.rustfmt_autosave = 1
 vim.g.rustfmt_emit_files = 1
 vim.g.rustfmt_fail_silently = 0
+
+vim.g.vimwiki_list = {{path = '~/.local/share/vimwiki', path_html = '~/.local/share/vimwiki/html'}}
+vim.g.vimwiki_global_ext = 0
