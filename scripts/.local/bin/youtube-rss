@@ -1,0 +1,4 @@
+#!/bin/sh
+[ -z "$1" ] && echo "Usage: $0 <channel url>"
+
+curl -Ls "$1" | grep -oP "\"rssUrl\":\".*?\"" | sed 's/"rssUrl":"\(.*\)"/\1/g' | tr -d '\n'
