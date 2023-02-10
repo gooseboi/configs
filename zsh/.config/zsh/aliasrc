@@ -47,6 +47,7 @@ alias ralias="source ~/.config/zsh/aliasrc"
 alias psearch="ps aux | grep -v grep | grep $1"
 alias opusedit="opustags --edit --in-place $1"
 alias compat-ssh="TERM=rxvt-256color ssh"
+alias mksnap="sudo btrfs subv snapshot /home "/home/@home-$(date +%Y%m%d-%H%M)""
 
 # Aliases for yt-dlp
 alias ytp-vid="yt-dlp --config-location ~/.config/yt/yt-dl-vid.conf "$@""
