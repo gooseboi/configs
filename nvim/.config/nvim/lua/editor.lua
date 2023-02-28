@@ -39,6 +39,7 @@ local options = {
 	ignorecase = true,
 	smartcase = true,
 	gdefault = true,
+	hlsearch = false,
 
 	-- Better message display
 	cmdheight = 2,
