@@ -37,8 +37,8 @@ nnoremap('<leader>Y', '"+Y')
 vnoremap('<leader>y', '"+y')
 
 -- Swap lines
-nnoremap('<C-j>', ':m .+1<CR>gv=gv')
-nnoremap('<C-k>', ':m .-2<CR>gv=gv')
+nnoremap('<C-j>', ':m .+1<CR>==')
+nnoremap('<C-k>', ':m .-2<CR>==')
 
 -- Move lines in visual mode (by ThePrimeagen)
 vnoremap('<C-k>', ":m '<-2<CR>gv=gv")
