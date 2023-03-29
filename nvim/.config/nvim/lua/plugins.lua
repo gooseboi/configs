@@ -25,6 +25,8 @@ return require('packer').startup(function(use)
 
 	use 'vimwiki/vimwiki'
 
+	use 'lervag/vimtex'
+
 	-- Fuzzy finder
 	use {
 		'nvim-telescope/telescope.nvim',
