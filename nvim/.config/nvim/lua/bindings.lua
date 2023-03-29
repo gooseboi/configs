@@ -69,3 +69,6 @@ map('<Down>', '<Nop>')
 -- Go up and down in command mode
 cnoremap('<C-j>', ':norm nzz')
 cnoremap('<C-k>', '<Up>')
+
+-- cd to directory of current file
+nnoremap('<leader>cd', ':cd %:p:h<CR>')
