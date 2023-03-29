@@ -40,4 +40,3 @@ else
 	xwallpaper --stretch "$bgloc"
 	[ -n "$1" ] && updatebetterlock "$bgloc"
 fi
-
