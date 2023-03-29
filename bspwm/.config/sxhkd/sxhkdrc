@@ -14,7 +14,7 @@ super + shift + Return
 
 # Run rofi with programs in PATH
 super + d
-	rofi -show run	
+	rofi -show run
 
 # Run rofi with desktop programs
 super + shift + d
@@ -44,7 +44,7 @@ XF86Calculator
 ctrl + alt + {g, w, d, f}
 	{gimp, $BROWSER, discord-canary, spacefm}
 
-# Launchers for common terminal programs 
+# Launchers for common terminal programs
 ctrl + alt + {m, n, c, h, r}
 	$TERMINAL -e {ncmpcpp, nvim, calcurse, htop, newsboat}
 
@@ -119,7 +119,7 @@ super + shift + b
 	toggleprogram screenkey
 
 # Take a fullscreen screenshot
-Print 
+Print
 	flameshot full -p ~/pix/screenshots -c
 
 # Select a region to screenshot and save to clipboard
@@ -204,7 +204,7 @@ super + a
 
 # Rotate the tree 90 degrees to the left or right
 super + {o, shift + o}
-	bspc node @parent --rotate {90, 270}	
+	bspc node @parent --rotate {90, 270}
 
 # Rotate the tree 180 degrees
 super + alt + o
