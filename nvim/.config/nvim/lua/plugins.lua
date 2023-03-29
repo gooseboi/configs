@@ -18,6 +18,10 @@ return require('packer').startup(function(use)
 	use 'easymotion/vim-easymotion'
 	use 'alvan/vim-closetag'
 	use 'editorconfig/editorconfig-vim'
+	use {
+		'ThePrimeagen/harpoon',
+		requires = {'nvim-lua/plenary.nvim'},
+	}
 
 	use 'vimwiki/vimwiki'
 
