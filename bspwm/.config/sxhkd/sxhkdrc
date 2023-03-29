@@ -34,7 +34,7 @@ super + shift + e
 
 # Show calculator
 super + grave
-	tdrop -ma -w 35% -h 50% -x 32% -y 20% alacritty -o font.size=16 -e python3
+	tdrop -ma -w 35% -h 50% -x 32% -y 20% alacritty -o font.size=16 -e qalc
 
 # Show calculator
 XF86Calculator
