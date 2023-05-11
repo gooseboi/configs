@@ -110,6 +110,10 @@ super + shift + x
 super + shift + c
 	toggleprogram "picom" "-b"
 
+# Toggle fcitx
+super + shift + f
+	toggleprogram "fcitx" "-d"
+
 # Toggle window swallow
 super + shift + v
 	toggleprogram ~/.config/bspwm/bspswallow
