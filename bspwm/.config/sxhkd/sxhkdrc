@@ -90,9 +90,9 @@ super + shift + comma
 super + shift + m
 	mpc toggle
 
-# Toggle video play-pause
+# Pause all video on device
 super + ctrl + m
-	playerctl -i mpd play-pause
+	playerctl -a pause
 
 # Toggle play-pause
 XF86AudioPlay
