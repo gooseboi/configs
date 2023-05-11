@@ -39,3 +39,5 @@ bspc config merge_overlapping_monitors true
 bspc rule -a sxiv state=floating center=true
 bspc rule -a polybar border=off manage=off
 bspc rule -a mpv state=fullscreen
+
+pactl set-sink-mute @DEFAULT_SINK@ true
