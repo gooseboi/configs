@@ -15,5 +15,6 @@
 	d = diff
 	ap = add -p
 	ds = diff --staged
-	rsp = restore --staged -p
 	rp = restore -p
+	rs = restore --staged
+	rsp = restore --staged -p
