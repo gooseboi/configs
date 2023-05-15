@@ -16,6 +16,9 @@ alias \
 	ffmpeg="ffmpeg -hide_banner" \
 	xclipboard="xclip -selection clipboard"
 
+# Remove this file from home directory
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+
 # Add some colour
 alias \
 	grep="grep --color=auto" \
