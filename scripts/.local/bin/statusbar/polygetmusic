@@ -2,7 +2,7 @@
 
 pidof -x mpd >/dev/null 2>&1 || exit
 
-filter() { mpc | sed "s/^volume:\s*\([[:digit:]]\+%\).*/ \1/g;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;s/\\[playing\\].*/▶️/g;/^ERROR/Q;s/^\(.\{40\}\).*$/\1…/" | paste -sd ' ' -;}
+filter() { mpc | sed "s/^volume:\s*\([[:digit:]]\+%\).*/ \1/g;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;s/\\[playing\\].*/▶️/g;/^ERROR/Q;s/^\(.\{40\}\).*$/\1.../" | paste -sd ' ' -;}
 
 pidof -x mpdup 2>&1 >/dev/null || mpdup 2>&1 >/dev/null &
 
