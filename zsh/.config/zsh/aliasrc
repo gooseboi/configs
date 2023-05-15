@@ -16,8 +16,10 @@ alias \
 	ffmpeg="ffmpeg -hide_banner" \
 	xclipboard="xclip -selection clipboard"
 
-# Remove this file from home directory
+# Remove these files from home directory
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias netbeans=netbeans --userdir "${XDG_CONFIG_HOME}"/netbeans
+alias monerod=monerod --data-dir "$XDG_DATA_HOME"/bitmonero
 
 # Add some colour
 alias \

@@ -39,6 +39,15 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 export ZDOTDIR=$HOME/.config/zsh
+export ANDROID_HOME="$XDG_DATA_HOME"/android
+export GHCUP_USE_XDG_DIRS=true
+export WINEPREFIX="$XDG_DATA_HOME"/wine
+export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export STACK_ROOT="$XDG_DATA_HOME"/stack
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
+export CABAL_CONFIG="$XDG_CONFIG_HOME"/cabal/config
+export CABAL_DIR="$XDG_DATA_HOME"/cabal
 
 # Scaling
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
