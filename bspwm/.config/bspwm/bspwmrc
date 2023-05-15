@@ -7,7 +7,7 @@ blueman-applet &
 pgrep -x sxhkd || sxhkd &
 setbg &
 dunst &
-pgrep -x polkit-dumb-agent || polkit-dumb-agent &
+/usr/bin/lxpolkit &
 xrdb ~/.config/x11/xresources &
 picom -b &
 flameshot &
