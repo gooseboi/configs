@@ -175,7 +175,7 @@ super + {_,shift + }q
 	bspc node -{c,k}
 
 # Same, but with mouse
-super + {_, shift + }button1
+super + shift + {_, ctrl + }button1
 	bspc node -{c,k}
 
 #
