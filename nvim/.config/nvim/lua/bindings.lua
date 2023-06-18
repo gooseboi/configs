@@ -17,7 +17,7 @@ end
 -- Set the leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-nnoremap('<Space>', '<Nop')
+nnoremap('<Space>', '<Nop>')
 
 -- `x` and `c` don't change clipboard
 nnoremap('x', '"_x')
@@ -54,10 +54,6 @@ nnoremap('k', 'gk')
 
 -- Switch between current and last used buffers
 nnoremap('<leader><leader>', '<C-^>')
-
--- Quick movement
-nnoremap('J', '10j')
-nnoremap('K', '10k')
 
 -- Disable useless keys
 map('<F1>', '<Nop>')
