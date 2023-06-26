@@ -82,7 +82,8 @@ path=("${$(find -L ~/.local/bin -type d -printf %p:)%%:}"
       "$ZIG_PREFIX/bin"
       "$path[@]")
 export PATH
-[ $(command -v fnm) ] && eval $(fnm env)
+command -v fnm 2>&1 >/dev/null
+[ $? = 0 ] && eval $(fnm env)
 
 # Start blinking
 export LESS_TERMCAP_mb="$(tput bold; tput setaf 2)" # green
