@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # Alias vim to nvim if present
-[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d" v="nvim"
+command -v nvim 2>&1 >/dev/null
+[ $? = 0 ] && alias vim="nvim" vimdiff="nvim -d" v="nvim"
 
 # Common commands that are too long
 alias \
@@ -27,7 +28,8 @@ alias \
 	diff="diff --color=auto"
 
 # ls commands
-if [ -x $(command -v exa) ]; then
+command -v exa 2>&1 >/dev/null
+if [ $? = 0 ]; then
 	alias \
 		ls="exa --icons" \
 		l="exa --icons" \
