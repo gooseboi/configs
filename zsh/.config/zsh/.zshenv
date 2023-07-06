@@ -21,7 +21,7 @@ export LESSHISTFILE=-
 
 # Fixing Paths
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
-command -v ruby 2&>1 1>/dev/null
+command -v ruby 2>&1 1>/dev/null
 [ $? = 0 ] && export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export GEM_PATH="$XDG_DATA_HOME/ruby/gems"
 export GEM_SPEC_CACHE="$XDG_DATA_HOME/ruby/specs"
