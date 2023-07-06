@@ -14,7 +14,6 @@ flameshot &
 xsetroot -cursor_name left_ptr &
 xset -b &
 pgrep -x imwheel || imwheel &
-pgrep -x mpd || mpd &
 
 [ -x ~/.local/bin/setkblayout ] && ~/.local/bin/setkblayout -l us &
 [ -x ~/.config/bspwm/bspswallow ] && ~/.config/bspwm/bspswallow &
