@@ -5,7 +5,7 @@
 case $1 in
 	'-A') light -A $2;;
 	'-U') light -U $2;;
-	*) echo 'Usage: $0 [-A/-U] [OFFSET]'; exit 1 ;;
+	*) echo "Usage: $0 [-A/-U] [OFFSET]"; exit 1 ;;
 esac
 
 polybar-msg action "#brightness.hook.0"
