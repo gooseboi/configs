@@ -85,7 +85,7 @@ vim.g.rustfmt_emit_files = 1
 vim.g.rustfmt_fail_silently = 0
 
 -- Vimwiki
-vimwiki_dir = '~/.local/share/vimwiki/'
+local vimwiki_dir = '~/.local/share/vimwiki/'
 vim.g.vimwiki_list = {{path = vimwiki_dir,
 					   path_html = vimwiki_dir .. 'html',
 					   template_path = vimwiki_dir .. 'public_html/templates',
