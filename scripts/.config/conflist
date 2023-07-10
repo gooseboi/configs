@@ -15,7 +15,7 @@ gtk3rc:~/.config/gtk-3.0/gtk.css
 neofetch:~/.config/neofetch/config.conf
 newsboaturls:~/.config/newsboat/urls
 newsboatconf:~/.config/newsboat/config
-nvim:~/.config/nvim/init.vim
+nvim:~/.config/nvim/init.lua
 shellaliases:~/.config/zsh/aliasrc
 picom:~/.config/picom.conf
 userdirs:~/.config/user-dirs.dirs
