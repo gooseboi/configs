@@ -2,7 +2,7 @@
 # Toggles a program on and off
 
 name="$(echo "$1" | sed "s/^.*\///g")"
-if [ -z "$(pgrep "$name")" ]; then
+if [ -z "$(pgrep -x "$name")" ]; then
 	startandnotify "$name started" "$@"
 else
 	killandnotify "$name" "$name killed"
