@@ -100,7 +100,7 @@ XF86AudioPlay
 
 # Increase and decrease brightness
 {XF86MonBrightnessUp, XF86MonBrightnessDown}
-	polysetbright {-A 10, -U 10}
+	polysetbright {-A 5, -U 5}
 
 # Reload sxhkd
 super + shift + x
