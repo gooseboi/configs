@@ -112,7 +112,7 @@ super + shift + c
 
 # Toggle fcitx
 super + shift + f
-	toggleprogram "fcitx" "-d"
+	toggleprogram "fcitx5" "-d"
 
 # Toggle window swallow
 super + shift + v
