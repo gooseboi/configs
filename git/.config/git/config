@@ -19,3 +19,4 @@
 	rs = restore --staged
 	rsp = restore --staged -p
 	lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	dw = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
