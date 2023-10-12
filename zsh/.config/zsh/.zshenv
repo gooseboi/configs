@@ -25,6 +25,7 @@ export CABAL_CONFIG="$XDG_CONFIG_HOME"/cabal/config
 export CABAL_DIR="$XDG_DATA_HOME"/cabal
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export ELAN_HOME="$XDG_DATA_HOME"/elan
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
 command -v ruby 2>&1 1>/dev/null
 [ $? = 0 ] && export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
@@ -80,6 +81,7 @@ path=("${$(find -L ~/.local/bin -type d -printf %p:)%%:}"
 	  "$GEM_HOME/bin"
       "$HOME/go/bin"
       "$CARGO_HOME/bin"
+      "$ELAN_HOME/bin"
       "$HOME/.ghcup/bin"
       "$ZIG_PREFIX/bin"
       "$path[@]")
