@@ -20,15 +20,16 @@ export ADB_VENDOR_KEY="$XDG_CONFIG_HOME"/android
 export LESSHISTFILE=-
 
 # Fixing Paths
+command -v ruby 2>&1 1>/dev/null
+[ $? = 0 ] && export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export ANDROID_HOME="$XDG_DATA_HOME"/android
 export CABAL_CONFIG="$XDG_CONFIG_HOME"/cabal/config
 export CABAL_DIR="$XDG_DATA_HOME"/cabal
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export DOT_SAGE="$XDG_CONFIG_HOME"/sage
 export ELAN_HOME="$XDG_DATA_HOME"/elan
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
-command -v ruby 2>&1 1>/dev/null
-[ $? = 0 ] && export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export GEM_PATH="$XDG_DATA_HOME/ruby/gems"
 export GEM_SPEC_CACHE="$XDG_DATA_HOME/ruby/specs"
 export GHCUP_USE_XDG_DIRS=true
@@ -40,6 +41,8 @@ export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export _JAVA_OPTIONS="-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java -Dswing.aatext=true -Dawt.useSystemAAFontSettings=on"
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+export MAXIMA_USERDIR="$XDG_CONFIG_HOME"/maxima
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export OPAMROOT="$XDG_DATA_HOME/opam"
 export PYTHONPATH="$HOME/.local/bin/pip"
@@ -48,10 +51,13 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 export STACK_ROOT="$XDG_DATA_HOME"/stack
+export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
+export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
 export WINEPREFIX="$XDG_DATA_HOME"/wine
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export ZDOTDIR=$HOME/.config/zsh
 export ZIG_PREFIX="$HOME/opt/zig"
+
 
 # Scaling
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
