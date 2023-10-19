@@ -28,14 +28,14 @@ alias \
 	diff="diff --color=auto"
 
 # ls commands
-command -v exa 2>&1 >/dev/null
+command -v eza 2>&1 >/dev/null
 if [ $? = 0 ]; then
 	alias \
-		ls="exa --icons" \
-		l="exa --icons" \
-		la="exa -a --icons" \
-		ll="exa -l --icons" \
-		lla="exa -la --icons"
+		ls="eza --icons" \
+		l="eza --icons" \
+		la="eza -a --icons" \
+		ll="eza -l --icons" \
+		lla="eza -la --icons"
 
 else
 	alias \
