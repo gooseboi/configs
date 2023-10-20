@@ -22,7 +22,7 @@ if [ -n "$1" ]; then
 		trueloc="$(readlink -f "$2")"
 		ln -sf "$trueloc" "$bgloc" && notify-send -i "$bgloc" "Setting random wallpaper on startup..."
 	else
-		trueloc="$(readlink -f "$1")" && 
+		trueloc="$(readlink -f "$1")" &&
 		case "$(file --mime-type -b "$trueloc")" in
 			image/* ) ln -sf "$(readlink -f "$1")" "$bgloc" && notify-send -i "$bgloc" "Setting wallpaper..." ;;
 			inode/directory ) ln -sf "$(find "$trueloc" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)" "$bgloc" && notify-send -i "$bgloc" "Setting random wallpaper..." ;;
@@ -33,10 +33,10 @@ fi
 
 if [ -z "$(find "$bgloc" -type l -xtype f)" ]; then
 	randomfile=$(find -L "$bgloc" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)
-	xwallpaper --stretch "$randomfile"
-	[ -n "$1" ] && updatebetterlock "$randomfile"
-	[ -n "$1" ] || updatebetterlock "$randomfile" "silent"
+	killall swaybg; swaybg -i "$randomfile" -o stretch >/dev/null 2>/dev/null &
+	#[ -n "$1" ] && updatebetterlock "$randomfile"
+	#[ -n "$1" ] || updatebetterlock "$randomfile" "silent"
 else
-	xwallpaper --stretch "$bgloc"
-	[ -n "$1" ] && updatebetterlock "$bgloc"
+	killall swaybg; swaybg -i "$bgloc" -o stretch >/dev/null 2>/dev/null &
+	#[ -n "$1" ] && updatebetterlock "$bgloc"
 fi
