@@ -1,0 +1,15 @@
+#!/bin/sh
+
+attrs() {
+	cat "$1" | grep -P '(public|private) .* .*;' | sed 's/private \(.*\) \(.*\);/\2: \1/g' | awk '{$1=$1};1'
+}
+
+methods() {
+	cat "$1" | grep -P '^\s*public' | sed 's/public \(.*\) \(.*\)(\(.*\))\s*{/\2(\3): \1/g'  | sed 's/\(.*\) \(.*\),?/\2: \1,/g' | sed 's/public \(.*\)(\(.*\)) {/\1(\2)/g' | awk '{$1=$1};1' | sed 's/[[:space:]]/: /g' | sed 's/,:/,/g' | sed 's/)::/):/g' | grep -v class
+}
+
+[ -z "$1" ] && exit 1
+
+attrs "$1"
+echo -en '\n\n'
+methods "$1"

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "​" | wl-copy
+notify-send "Copied!" "Successfully copied Zero-width space to clipboard!"
