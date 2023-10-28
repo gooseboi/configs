@@ -45,7 +45,6 @@ export MAXIMA_USERDIR="$XDG_CONFIG_HOME"/maxima
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export OPAMROOT="$XDG_DATA_HOME/opam"
-export PYTHONPATH="$HOME/.local/bin/pip"
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
