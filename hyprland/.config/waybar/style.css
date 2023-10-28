@@ -1,0 +1,173 @@
+* {
+	/* `otf-font-awesome` is required to be installed for icons */
+	font-family: Font Awesome;
+
+	font-size: 16px;
+}
+
+window#waybar {
+	background-color: #1d2021;
+	opacity: 0.75;
+	border-radius: 8px;
+	color: #fbf1c7;
+	transition-property: background-color;
+	transition-duration: .2s;
+}
+
+window > box {
+	border-radius: 8px;
+	opacity: 0.94;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+button {
+	border: none;
+}
+
+#custom-hyprprofile {
+	color: #83a598;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+	background: inherit;
+}
+
+#workspaces button {
+	padding: 0 7px;
+	background-color: transparent;
+	color: #bdae93;
+}
+
+#workspaces button:hover {
+	color: #fbf1c7;
+}
+
+#workspaces button.active {
+	color: #fb4934;
+}
+
+#workspaces button.focused {
+	color: #fabd2f;
+}
+
+#workspaces button.visible {
+	color: #fbf1c7;
+}
+
+#workspaces button.urgent {
+	color: #fe8019;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#mpd {
+	padding: 0 10px;
+	color: #fbf1c7;
+	border: none;
+	border-radius: 8px;
+}
+
+#window,
+#workspaces {
+	margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+	margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+	margin-right: 0;
+}
+
+#clock {
+	color: #83a598;
+}
+
+#battery {
+	color: #b8bb26;
+}
+
+#battery.charging, #battery.plugged {
+	color: #8ec07c;
+}
+
+@keyframes blink {
+	to {
+		background-color: #fbf1c7;
+		color: #1d2021;
+	}
+}
+
+#battery.critical:not(.charging) {
+	background-color: #fb4934;
+	color: #fbf1c7;
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+label:focus {
+	background-color: #1d2021;
+}
+
+#cpu {
+	color: #83a598;
+}
+
+#memory {
+	color: #d3869b;
+}
+
+#disk {
+	color: #d65d0e;
+}
+
+#backlight {
+	color: #fabd2f;
+}
+
+#pulseaudio {
+	color: #8ec07c;
+}
+
+#pulseaudio.muted {
+	color: #bdae93;
+}
+
+#tray > .passive {
+	-gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+	-gtk-icon-effect: highlight;
+}
+
+#idle_inhibitor {
+	color: #bdae93;
+}
+
+#idle_inhibitor.activated {
+	color: #d65d0e;
+}
