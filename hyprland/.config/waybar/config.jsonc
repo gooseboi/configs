@@ -65,7 +65,7 @@
 	},
 
 	"tray":  {
-		  // "icon-size" = 21;
+		  "icon-size": 22,
 		  "spacing": 10
 	},
 
