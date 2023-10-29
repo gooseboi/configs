@@ -33,10 +33,12 @@ fi
 
 if [ -z "$(find "$bgloc" -type l -xtype f)" ]; then
 	randomfile=$(find -L "$bgloc" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)
-	killall swaybg; swaybg -i "$randomfile" -o stretch >/dev/null 2>/dev/null &
+	pidof -x swaybg >/dev/null 2>/dev/null && killall swaybg
+	swaybg -i "$randomfile" -o stretch >/dev/null 2>/dev/null &
 	#[ -n "$1" ] && updatebetterlock "$randomfile"
 	#[ -n "$1" ] || updatebetterlock "$randomfile" "silent"
 else
-	killall swaybg; swaybg -i "$bgloc" -o stretch >/dev/null 2>/dev/null &
+	pidof -x swaybg >/dev/null 2>/dev/null && killall swaybg
+	swaybg -i "$bgloc" -o stretch >/dev/null 2>/dev/null &
 	#[ -n "$1" ] && updatebetterlock "$bgloc"
 fi
