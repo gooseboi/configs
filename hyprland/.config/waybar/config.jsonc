@@ -77,10 +77,14 @@
 	},
 
 	"cpu": {
+		"interval": 1,
 		"format": "{usage}% "
 	},
 
-	"memory": { "format": "{}% " },
+	"memory": {
+		"interval": 1,
+		"format": "{}% "
+	},
 
 	"backlight": {
 		"format": "{percent}% {icon}",
@@ -93,6 +97,7 @@
 			"warning": 30,
 			"critical": 15
 		},
+		"interval": 3,
 		"format": "{capacity}% {icon}",
 		"format-charging": "{capacity}% ",
 		"format-plugged": "{capacity}% ",
