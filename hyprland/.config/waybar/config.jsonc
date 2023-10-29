@@ -11,13 +11,7 @@
 
 	"modules-left": [ "pulseaudio", "cpu", "memory", "backlight", "disk"],
 	"modules-center": [ "hyprland/workspaces" ],
-	"modules-right": [ "clock", "battery", "tray" ],
-
-	"custom/os": {
-		"format": " {} ",
-		"exec": "echo \"\" ",
-		"interval": "once"
-	},
+	"modules-right": [ "network", "sway/language", "clock", "battery", "tray" ],
 
 	"disk": {
 		"interval": 30,
@@ -55,6 +49,19 @@
 			  "9": ["eDP-1"],
 			  "10": ["eDP-1"]
 		}
+	},
+
+	"network": {
+		"format-wifi": "{essid} {ipaddr}({signalStrength}%) ",
+		"format-ethernet": "{ipaddr}/{cidr} ",
+		"tooltip-format": "{ifname} via {gwaddr} ",
+		"format-linked": "{ifname} (No IP) ",
+		"format-disconnected": "Disconnected ⚠",
+		"format-alt": "{ifname}: {ipaddr}/{cidr}"
+	},
+
+	"sway/language": {
+		"format": "{short} {variant}"
 	},
 
 	"tray":  {
