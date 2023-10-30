@@ -58,6 +58,7 @@ alias mksnap="sudo btrfs subv snapshot /home "/home/@home-$(date +%Y%m%d-%H%M)""
 alias docc="docker compose"
 alias cargo="cargo mommy"
 alias open="xdg-open"
+alias tms="tmux-sessionizer"
 
 # Aliases for yt-dlp
 alias ytp-vid="yt-dlp --config-location ~/.config/yt/yt-dl-vid.conf "$@""
