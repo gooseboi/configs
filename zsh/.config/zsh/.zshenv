@@ -87,7 +87,7 @@ path=("${$(find -L ~/.local/bin -type d -printf %p:)%%:}"
       "$HOME/go/bin"
       "$CARGO_HOME/bin"
       "$ELAN_HOME/bin"
-      "$ZIG_PREFIX/bin"
+      "$ZIG_PREFIX"
       "$path[@]")
 export PATH
 command -v fnm 2>&1 >/dev/null
