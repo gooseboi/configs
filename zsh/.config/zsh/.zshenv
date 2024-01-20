@@ -95,6 +95,8 @@ command -v mise 2>&1 >/dev/null
 [ $? = 0 ] && eval $(mise activate zsh)
 command -v mise 2>&1 >/dev/null
 [ $? = 0 ] && eval $(mise completion zsh)
+command -v packwiz 2>&1 >/dev/null
+[ $? = 0 ] && eval $(packwiz completion zsh)
 
 # Start blinking
 export LESS_TERMCAP_mb="$(tput bold; tput setaf 2)" # green
