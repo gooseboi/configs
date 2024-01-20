@@ -88,10 +88,13 @@ path=("${$(find -L ~/.local/bin -type d -printf %p:)%%:}"
       "$CARGO_HOME/bin"
       "$ELAN_HOME/bin"
       "$ZIG_PREFIX"
+      "$GOPATH/bin"
       "$path[@]")
 export PATH
-command -v fnm 2>&1 >/dev/null
-[ $? = 0 ] && eval $(fnm env)
+command -v mise 2>&1 >/dev/null
+[ $? = 0 ] && eval $(mise activate zsh)
+command -v mise 2>&1 >/dev/null
+[ $? = 0 ] && eval $(mise completion zsh)
 
 # Start blinking
 export LESS_TERMCAP_mb="$(tput bold; tput setaf 2)" # green
