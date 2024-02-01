@@ -91,11 +91,13 @@ path=("${$(find -L ~/.local/bin -type d -printf %p:)%%:}"
       "$GOPATH/bin"
       "$path[@]")
 export PATH
-command -v mise 2>&1 >/dev/null
-[ $? = 0 ] && eval $(mise activate zsh)
-command -v mise 2>&1 >/dev/null
-[ $? = 0 ] && eval $(mise completion zsh)
-command -v packwiz 2>&1 >/dev/null
+whence mise >/dev/null
+if [ $? = 0 ]; then
+	eval "$(mise activate zsh)"
+	# Doesn't work
+	#eval "$(mise completions zsh)"
+fi
+whence packwiz >/dev/null
 [ $? = 0 ] && eval $(packwiz completion zsh)
 
 # Start blinking
