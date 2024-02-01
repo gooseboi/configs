@@ -1,5 +1,19 @@
 #!/bin/sh
 
-fname=$(date +%Y-%m-%d_%H-%M).png
+full_fname="$HOME/pix/screenshots/$(date +%Y-%m-%d_%H-%M).png"
 
-grim "$HOME/pix/screenshots/$fname"
+if [ -f "$full_fname" ]; then
+	for i in $(seq -f "%02g" 1 99); do
+		possible_fname="${full_fname%.png}_${i}.png"
+		if [ -f "$possible_fname" ]; then
+			continue
+		else
+			fname="$possible_fname"
+			break
+		fi
+	done
+else
+	fname="$full_fname"
+fi
+
+grim "$fname" && notify-send "Screenshot" "Capture saved to $fname"
