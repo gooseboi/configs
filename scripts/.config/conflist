@@ -21,3 +21,4 @@ picom:~/.config/picom.conf
 userdirs:~/.config/user-dirs.dirs
 mimeapps:~/.config/mimeapps.list
 zathura:~/.config/zathura/zathurarc
+hyprland:~/.config/hypr/hyprland.conf
