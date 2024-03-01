@@ -78,7 +78,7 @@
 
 	"cpu": {
 		"interval": 1,
-		"format": "{usage}% "
+		"format": "{usage}%  - {avg_frequency}GHz"
 	},
 
 	"memory": {
