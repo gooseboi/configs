@@ -1,3 +1,0 @@
-#!/bin/sh
-
-tsp -k && polybar-msg action "#tasks.hook.0"

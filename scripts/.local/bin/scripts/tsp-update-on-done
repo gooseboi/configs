@@ -1,4 +1,0 @@
-#!/bin/sh
-
-notify-send "👍 $1 done."
-polybar-msg action "#tasks.hook.0"

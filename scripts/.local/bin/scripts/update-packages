@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# Update packages and update the status bar
-
-paru -Su
-
-polybar-msg action "#pacman-packages.hook.0"
