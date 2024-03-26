@@ -1,6 +1,6 @@
 alacritty:~/.config/alacritty/alacritty.toml
 zshrc:~/.config/zsh/.zshrc
-zshenv:~/.zshenv
+zshenv:~/.config/zsh/.zshenv
 gitconf:~/.config/git/config
 configbookmarks:~/.config/conflist
 dunst:~/.config/dunst/dunstrc
