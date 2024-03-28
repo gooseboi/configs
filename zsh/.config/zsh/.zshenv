@@ -54,11 +54,11 @@ export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 export STACK_ROOT="$XDG_DATA_HOME"/stack
 export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
 export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export WINEPREFIX="$XDG_DATA_HOME"/wine
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export ZDOTDIR=$HOME/.config/zsh
 export ZIG_PREFIX="$HOME/opt/zig"
-
 
 # Scaling
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
