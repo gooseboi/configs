@@ -59,6 +59,9 @@ alias cargo="cargo mommy"
 alias open="xdg-open"
 alias tms="tmux-sessionizer"
 alias sysuser="systemctl --user"
+diskdive() {
+	gunzip --stdout "$1" > /tmp/image.tar && dive docker-archive:///tmp/image.tar
+}
 
 # Aliases for yt-dlp
 alias ytp-vid="yt-dlp --config-location ~/.config/yt/yt-dl-vid.conf "$@""
