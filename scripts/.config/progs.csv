@@ -43,6 +43,8 @@ A,brave-bin,"is an elegant browser with built-in adblocking, tor and other featu
 ,betterlockscreen,"allows you to lock your computer, and quickly unlock with your password."
 ,swaylock,"allows you to lock your computer on wayland, and quickly unlock with your password."
 ,swayidle,"allows running tasks when computer is idle or sleeps on wayland"
+,grim,"allows taking screenshots on wayland"
+,slurp,"allows taking screen selections for screenshots"
 ,socat,"is a utility which establishes two byte streams and transfers data between them."
 ,moreutils,"is a collection of useful unix tools."
 ,alacritty,"is a terminal emulator"
