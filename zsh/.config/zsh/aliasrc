@@ -62,6 +62,7 @@ alias sysuser="systemctl --user"
 diskdive() {
 	gunzip --stdout "$1" > /tmp/image.tar && dive docker-archive:///tmp/image.tar
 }
+alias dnsquery="resolvectl query "$@""
 
 # Aliases for yt-dlp
 alias ytp-vid="yt-dlp --config-location ~/.config/yt/yt-dl-vid.conf "$@""
