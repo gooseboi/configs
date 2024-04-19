@@ -1,5 +1,4 @@
 local options = {
-
 	autoindent = true, -- Copy indent from previous line
 	timeoutlen = 300, -- https://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
 	encoding = 'utf-8', -- Use UTF-8
@@ -10,6 +9,7 @@ local options = {
 	wrap = false, -- No line wrapping
 	joinspaces = false, -- Don't insert spaces between '.' after joining lines
 	colorcolumn = '80', -- Add a column 80 lines out to mark a limit
+	signcolumn = 'yes',
 
 	-- Sane splits
 	splitright = true, -- Automatically create hsplits right of the current window
@@ -55,8 +55,10 @@ local options = {
 	relativenumber = true,
 	ruler = true,
 	showcmd = true,
-	mouse = 'a',
-	listchars = 'nbsp:¬,extends:»,precedes:«,trail:•'
+	mouse = '',
+	listchars = 'nbsp:¬,extends:»,precedes:«,trail:•',
+
+	vb = true, -- no beeping
 }
 
 for opt, val in pairs(options) do
@@ -66,6 +68,8 @@ end
 vim.api.nvim_create_autocmd("TextYankPost", { command = "lua vim.highlight.on_yank({timeout = 400})" })
 
 -- Courtesy of Lukesmith
+-- Removes trailing whitespace in file before saving
+-- TODO: Convert this to lua
 vim.api.nvim_exec([[
 	autocmd BufWritePre * let currPos = getpos(".")
 	autocmd BufWritePre * %s/\s\+$//e
@@ -74,15 +78,18 @@ vim.api.nvim_exec([[
 	autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
 ]], false)
 
--- Latex
-vim.g.latex_fold_sections = {}
-vim.g.latex_indent_enabled = 1
-vim.g.latex_fold_envs = 0
-
--- Rust
-vim.g.rustfmt_autosave = 1
-vim.g.rustfmt_emit_files = 1
-vim.g.rustfmt_fail_silently = 0
+vim.api.nvim_create_autocmd(
+	'Filetype',
+	{
+		pattern = 'nix',
+		callback = function(ev)
+			vim.opt.shiftwidth = 2
+			vim.opt.softtabstop = 2
+			vim.opt.tabstop = 2
+			vim.opt.expandtab = true
+			vim.opt.smartindent = true
+		end
+	})
 
 -- Vimwiki
 local vimwiki_dir = '~/.local/share/vimwiki/'

@@ -52,9 +52,6 @@ map('L', '$')
 nnoremap('j', 'gj')
 nnoremap('k', 'gk')
 
--- Switch between current and last used buffers
-nnoremap('<leader><leader>', '<C-^>')
-
 -- Disable useless keys
 map('<F1>', '<Nop>')
 map('<Up>', '<Nop>')

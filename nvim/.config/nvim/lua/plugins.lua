@@ -1,60 +1,112 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-	vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function(use)
-	-- Packer can manage itself
-	use 'wbthomason/packer.nvim'
+require("lazy").setup({
+	-- from https://github.com/jonhoo/configs/blob/8ec5767a1c92a58e73f7105447c8fc741b31246e/editor/.config/nvim/init.lua
+	-- colorscheme
+	{
+		"ellisonleao/gruvbox.nvim",
+		lazy = false, -- load at start
+		priority = 1000, -- load first
+		config = function()
+			vim.cmd([[colorscheme gruvbox]])
+			vim.o.background = 'dark'
+		end
+	},
+	-- statusbar
+	{
+		'itchyny/lightline.vim',
+		lazy = false, -- also load at start since it's UI
+		config = function()
+			-- no need to also show mode in cmd line when we have bar
+			vim.o.showmode = false
+			vim.g.lightline = {
+				active = {
+					left = {
+						{ 'mode', 'paste' },
+						{ 'readonly', 'filename', 'modified' }
+					},
+					right = {
+						{ 'lineinfo' },
+						{ 'percent' },
+						{ 'fileencoding', 'filetype' }
+					},
+				},
+				component_function = {
+					filename = 'LightlineFilename'
+				},
+			}
+			function LightlineFilenameInLua(opts)
+				if vim.fn.expand('%:t') == '' then
+					return '[No Name]'
+				else
+					return vim.fn.getreg('%')
+				end
+			end
+			-- https://github.com/itchyny/lightline.vim/issues/657
+			vim.api.nvim_exec(
+				[[
+				function! g:LightlineFilename()
+					return v:lua.LightlineFilenameInLua()
+				endfunction
+				]],
+				true
+			)
+		end
+	},
+	-- add commenting
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			-- sets gc for commenting lines
+			require("Comment").setup()
+		end
+	},
+	"easymotion/vim-easymotion",
 
-	-- Colorscheme
-	use 'chriskempson/base16-vim'
+	{
+		"ThePrimeagen/harpoon",
+		dependencies = "nvim-lua/plenary.nvim",
+	},
 
-	-- Vim enhancements
-	use 'tpope/vim-surround'
-	use 'godlygeek/tabular'
-	use 'easymotion/vim-easymotion'
-	use 'alvan/vim-closetag'
-	use 'editorconfig/editorconfig-vim'
-	use {
-		'ThePrimeagen/harpoon',
-		requires = {'nvim-lua/plenary.nvim'},
-	}
+	"NoahTheDuke/vim-just",
+	"vimwiki/vimwiki",
 
-	use 'NoahTheDuke/vim-just'
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "make",
+			}
+		},
+	},
 
-	use 'vimwiki/vimwiki'
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+	"neovim/nvim-lspconfig",
+	"folke/neodev.nvim",
 
-	use 'lervag/vimtex'
+	{
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'hrsh7th/cmp-nvim-lsp',
+        },
+    },
 
-	-- Fuzzy finder
-	use {
-		'nvim-telescope/telescope.nvim',
-		requires = { {'nvim-lua/plenary.nvim'},
-					 {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
-				   }
-	}
-
-	use {
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v2.x',
-		requires = {
-			-- LSP Support
-			{'neovim/nvim-lspconfig'},             -- Required
-			{                                      -- Optional
-			'williamboman/mason.nvim',
-			run = function()
-				pcall(vim.cmd, 'MasonUpdate')
-			end,
-			},
-			{'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},     -- Required
-			{'hrsh7th/cmp-nvim-lsp'}, -- Required
-			{'L3MON4D3/LuaSnip'},     -- Required
-		}
-	}
-end)
+	{
+		'nvim-treesitter/nvim-treesitter',
+		build = ':TSUpdate',
+	},
+})
