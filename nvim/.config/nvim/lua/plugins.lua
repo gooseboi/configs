@@ -12,14 +12,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	-- from https://github.com/jonhoo/configs/blob/8ec5767a1c92a58e73f7105447c8fc741b31246e/editor/.config/nvim/init.lua
 	-- colorscheme
 	{
 		"ellisonleao/gruvbox.nvim",
 		lazy = false, -- load at start
 		priority = 1000, -- load first
 		config = function()
-			vim.cmd([[colorscheme gruvbox]])
+			require("gruvbox").setup({ contrast = "hard" })
+			vim.cmd.colorscheme("gruvbox")
 			vim.o.background = 'dark'
 		end
 	},
