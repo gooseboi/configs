@@ -1,16 +1,24 @@
-function nnoremap(keys, value)
+--- @param keys string
+--- @param value string
+local nnoremap = function(keys, value)
 	vim.keymap.set('n', keys, value, {silent = true, noremap = true})
 end
 
-function vnoremap(keys, value)
+--- @param keys string
+--- @param value string
+local vnoremap = function(keys, value)
 	vim.keymap.set('v', keys, value, {silent = true, noremap = true})
 end
 
-function cnoremap(keys, value)
+--- @param keys string
+--- @param value string
+local cnoremap = function(keys, value)
 	vim.keymap.set('c', keys, value, {silent = true, noremap = true})
 end
 
-function map(keys, value)
+--- @param keys string
+--- @param value string
+local map = function(keys, value)
 	vim.keymap.set('', keys, value, {silent = true})
 end
 
