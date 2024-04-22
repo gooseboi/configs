@@ -1,0 +1,10 @@
+[pyprland]
+plugins = ["scratchpads"]
+
+[scratchpads.python]
+animation = "fromTop"
+command = "alacritty --class scratchpad -e python"
+class = "scratchpad"
+size = "35% 35%"
+max_size = "75% 60%"
+margin = 200
