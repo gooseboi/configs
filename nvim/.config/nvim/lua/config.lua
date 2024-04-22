@@ -2,11 +2,11 @@ local options = {
 	autoindent = true, -- Copy indent from previous line
 	timeoutlen = 300, -- https://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
 	encoding = 'utf-8', -- Use UTF-8
-	scrolloff = 5, -- Keep 5 lines above and below the cursor when scrolling
+	scrolloff = 5,   -- Keep 5 lines above and below the cursor when scrolling
 	sidescrolloff = 7, -- Keep 7 lines to both sides when scrolling
 	showmode = false, -- Don't show the editor mode as it is shown by the status bar
-	hidden = true, -- Allow unsaved buffers to be hidden
-	wrap = false, -- No line wrapping
+	hidden = true,   -- Allow unsaved buffers to be hidden
+	wrap = false,    -- No line wrapping
 	joinspaces = false, -- Don't insert spaces between '.' after joining lines
 	colorcolumn = '80', -- Add a column 80 lines out to mark a limit
 	signcolumn = 'yes',
@@ -19,10 +19,11 @@ local options = {
 	undofile = true, -- Permanent file for undos
 
 	-- Decent wildmenu
-	wildmenu = true, -- Turn on wildmenu for completion
-	wildmode = 'list:longest', -- `list` lists all matches
-				   --`longest` autocompletes to the longest common string
-	wildignore = '.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor', -- Ignore files that have no use being opened in vim
+	wildmenu = true,                                                                                                            -- Turn on wildmenu for completion
+	wildmode = 'list:longest',                                                                                                  -- `list` lists all matches
+	--`longest` autocompletes to the longest common string
+	wildignore =
+	'.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor',           -- Ignore files that have no use being opened in vim
 
 	-- Wrapping options
 	formatoptions = 'tcrqnbjp',
@@ -69,7 +70,7 @@ vim.api.nvim_create_autocmd(
 	"TextYankPost",
 	{
 		callback = function()
-			vim.highlight.on_yank({timeout = 400})
+			vim.highlight.on_yank({ timeout = 400 })
 		end
 	}
 )
@@ -100,9 +101,11 @@ vim.api.nvim_create_autocmd(
 
 -- Vimwiki
 local vimwiki_dir = '~/.local/share/vimwiki/'
-vim.g.vimwiki_list = {{path = vimwiki_dir,
-					   path_html = vimwiki_dir .. 'html',
-					   template_path = vimwiki_dir .. 'public_html/templates',
-					   template_default = 'default',
-					   template_ext = '.html'}}
+vim.g.vimwiki_list = { {
+	path = vimwiki_dir,
+	path_html = vimwiki_dir .. 'html',
+	template_path = vimwiki_dir .. 'public_html/templates',
+	template_default = 'default',
+	template_ext = '.html'
+} }
 vim.g.vimwiki_global_ext = 0

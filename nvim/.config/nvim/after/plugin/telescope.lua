@@ -13,11 +13,11 @@ end
 local actions = require("telescope.actions")
 
 -- Telescope setup
-telescope.setup{
+telescope.setup({
 	defaults = {
 		prompt_prefix = '> ',
 		selection_caret = ' ',
-		path_display = {truncate = 1},
+		path_display = { truncate = 1 },
 		preview = {
 			msg_bg_fillchar = "#",
 		},
@@ -46,13 +46,13 @@ telescope.setup{
 	},
 	extensions = {
 		fzf = {
-			fuzzy = true,                    -- false will only do exact matching
-			override_generic_sorter = true,  -- override the generic sorter
-			override_file_sorter = true,     -- override the file sorter
-			case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+			fuzzy = true,          -- false will only do exact matching
+			override_generic_sorter = true, -- override the generic sorter
+			override_file_sorter = true, -- override the file sorter
+			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 		}
 	},
-}
+})
 
 -- Load extensions
 telescope.load_extension('fzf')

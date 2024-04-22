@@ -1,25 +1,25 @@
 --- @param keys string
 --- @param value string
 local nnoremap = function(keys, value)
-	vim.keymap.set('n', keys, value, {silent = true, noremap = true})
+	vim.keymap.set('n', keys, value, { silent = true, noremap = true })
 end
 
 --- @param keys string
 --- @param value string
 local vnoremap = function(keys, value)
-	vim.keymap.set('v', keys, value, {silent = true, noremap = true})
+	vim.keymap.set('v', keys, value, { silent = true, noremap = true })
 end
 
 --- @param keys string
 --- @param value string
 local cnoremap = function(keys, value)
-	vim.keymap.set('c', keys, value, {silent = true, noremap = true})
+	vim.keymap.set('c', keys, value, { silent = true, noremap = true })
 end
 
 --- @param keys string
 --- @param value string
 local map = function(keys, value)
-	vim.keymap.set('', keys, value, {silent = true})
+	vim.keymap.set('', keys, value, { silent = true })
 end
 
 -- Set the leader key
