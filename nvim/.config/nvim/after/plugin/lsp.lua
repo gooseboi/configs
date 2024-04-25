@@ -75,6 +75,7 @@ require("mason-lspconfig").setup({
 						cargo = { allFeatures = true, },
 						imports = { group = { enable = false, }, },
 						completion = { postfix = { enable = false, }, },
+						check = { command = "clippy" }
 					}
 				}
 			}
