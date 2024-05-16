@@ -8,3 +8,11 @@ class = "scratchpad"
 size = "35% 35%"
 max_size = "75% 60%"
 margin = 200
+
+[scratchpads.qalc]
+animation = "fromTop"
+command = "alacritty --class scratchpad -e qalc"
+class = "scratchpad"
+size = "35% 35%"
+max_size = "75% 60%"
+margin = 200
