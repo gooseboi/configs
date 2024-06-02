@@ -9,9 +9,9 @@
 	"margin": "7 7 3 7",
 	"spacing": 1,
 
-	"modules-left": [ "pulseaudio", "cpu", "memory", "backlight", "disk"],
+	"modules-left": [ "pulseaudio", "cpu", "memory", "backlight", "mpd"],
 	"modules-center": [ "hyprland/workspaces" ],
-	"modules-right": [ "network", "sway/language", "clock", "battery", "tray" ],
+	"modules-right": [ "disk", "network", "sway/language", "clock", "battery", "tray" ],
 
 	"disk": {
 		"interval": 30,
@@ -108,7 +108,7 @@
 
 	"pulseaudio": {
 		"scroll-step": 1,
-		"format": "{volume}% {icon}  {format_source}",
+		"format": "{volume}% {icon}   {format_source}",
 		"format-bluetooth": "{volume}% {icon}   {format_source}",
 		"format-bluetooth-muted": "󰸈 {icon}   {format_source}",
 		"format-muted": "󰸈 {format_source}",
@@ -124,5 +124,32 @@
 			"default": [ "", "", "" ]
 		},
 		"on-click": "pypr toggle pavucontrol && hyprctl dispatch bringactivetotop"
+	},
+
+	"mpd": {
+		"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+		"format-disconnected": "Disconnected ",
+		"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+		"interval": 10,
+		"max-length": 30,
+		"consume-icons": {
+			"on": " " // Icon shows only when "consume" is on
+		},
+		"random-icons": {
+			"off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+			"on": " "
+		},
+		"repeat-icons": {
+			"on": " "
+		},
+		"single-icons": {
+			"on": "1 "
+		},
+		"state-icons": {
+			"paused": "",
+			"playing": ""
+		},
+		"tooltip-format": "MPD (connected)",
+		"tooltip-format-disconnected": "MPD (disconnected)"
 	}
 }
