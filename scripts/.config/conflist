@@ -15,4 +15,4 @@ mimeapps:~/.config/mimeapps.list
 zathura:~/.config/zathura/zathurarc
 hyprland:~/.config/hypr/hyprland.conf
 waybar:~/.config/waybar/config.jsonc
-swayimg:~/.config/swayimg/config
+imv:~/.config/imv/config
