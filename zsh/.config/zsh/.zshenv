@@ -116,5 +116,5 @@ export LESS_TERMCAP_us="$(tput smul; tput bold; tput setaf 1)" # red
 export LESS_TERMCAP_ue="$(tput sgr0)"
 # End bold, blinking, standout, underline
 export LESS_TERMCAP_me="$(tput sgr0)"
-command -v direnv 2>&1 1>/dev/null
-[ $? = 0 ] && eval "$(direnv hook zsh)"
+whence opam >/dev/null
+[ $? = 0 ] && eval $(opam env)
