@@ -1,8 +1,3 @@
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>pf', builtin.git_files, {})
-vim.keymap.set('n', '<leader>gs', builtin.live_grep, {})
-
 -- Make sure telescope is installed
 local telescope_ok, telescope = pcall(require, "telescope")
 if not telescope_ok then
@@ -57,9 +52,10 @@ telescope.setup({
 -- Load extensions
 telescope.load_extension('fzf')
 
+local builtin = require('telescope.builtin')
 -- Keymaps
 if telescope_ok then
 	vim.keymap.set('n', '<leader>ff', builtin.find_files, { noremap = true, silent = true })
-	vim.keymap.set('n', '<leader>ps', builtin.git_files, { noremap = true, silent = true })
+	vim.keymap.set('n', '<leader>pf', builtin.git_files, { noremap = true, silent = true })
 	vim.keymap.set('n', '<leader>gs', builtin.live_grep, { noremap = true, silent = true })
 end
