@@ -50,7 +50,9 @@ telescope.setup({
 })
 
 -- Load extensions
-telescope.load_extension('fzf')
+if vim.loop.os_uname().sysname ~= "Windows_NT" then
+	telescope.load_extension('fzf')
+end
 
 local builtin = require('telescope.builtin')
 -- Keymaps

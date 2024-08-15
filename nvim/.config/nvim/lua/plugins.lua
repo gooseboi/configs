@@ -93,10 +93,16 @@ require("lazy").setup({
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			{
-				"nvim-telescope/telescope-fzf-native.nvim",
-				build = "make",
-			}
+			(function()
+				if vim.loop.os_uname().sysname == "Windows_NT" then
+					return {}
+				else
+					return {
+						"nvim-telescope/telescope-fzf-native.nvim",
+						build = "make",
+					}
+				end
+			end)()
 		},
 	},
 
