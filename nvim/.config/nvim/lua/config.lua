@@ -19,11 +19,11 @@ local options = {
 	undofile = true, -- Permanent file for undos
 
 	-- Decent wildmenu
-	wildmenu = true,                                                                                                            -- Turn on wildmenu for completion
-	wildmode = 'list:longest',                                                                                                  -- `list` lists all matches
+	wildmenu = true,        -- Turn on wildmenu for completion
+	wildmode = 'list:longest', -- `list` lists all matches
 	--`longest` autocompletes to the longest common string
 	wildignore =
-	'.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor',           -- Ignore files that have no use being opened in vim
+	'.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor', -- Ignore files that have no use being opened in vim
 
 	-- Wrapping options
 	formatoptions = 'tcrqnbjp',
