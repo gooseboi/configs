@@ -99,6 +99,19 @@ vim.api.nvim_create_autocmd(
 		end
 	})
 
+vim.api.nvim_create_autocmd(
+	'Filetype',
+	{
+		pattern = 'cs',
+		callback = function(_)
+			vim.opt.shiftwidth = 4
+			vim.opt.softtabstop = 4
+			vim.opt.tabstop = 4
+			vim.opt.expandtab = true
+			vim.opt.smartindent = true
+		end
+	})
+
 -- Vimwiki
 local vimwiki_dir = '~/.local/share/vimwiki/'
 vim.g.vimwiki_list = { {
