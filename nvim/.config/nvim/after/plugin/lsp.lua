@@ -42,6 +42,7 @@ require("mason-lspconfig").setup({
 		"gopls",
 		"nil_ls",
 		"bashls",
+		"pylsp",
 	},
 
 	handlers = {
@@ -78,6 +79,13 @@ require("mason-lspconfig").setup({
 						check = { command = "clippy" }
 					}
 				}
+			}
+		end,
+
+		["pylsp"] = function()
+			require('lspconfig').pylsp.setup {
+				on_attach = on_attach,
+				capabilities = capabilities,
 			}
 		end,
 	}
