@@ -1,23 +1,34 @@
 require('nvim-treesitter.configs').setup {
 	ensure_installed = {
+		-- Vim
 		'vim',
 		'vimdoc',
 		'lua',
+
+		-- Real shit
 		'cpp',
 		'c',
 		'rust',
 		'go',
-		'nix',
+
+		-- Build
 		'make',
+		'nix',
+
+		-- Webdev
 		'typescript',
 		'javascript',
 		'html',
+
+		-- Typesetting
+		'markdown',
+		'bibtex',
+		-- this needs tree-sitter-cli to be installed through npm
+		'latex',
+		'typst',
 	},
 
-	auto_install = false,
-
 	highlight = { enable = true },
-
 	indent = { enable = true },
 
 	ignore_install = {},
