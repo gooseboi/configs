@@ -93,12 +93,12 @@ path=("${$(find -L ~/.local/bin -type d -printf %p:)%%:}"
       "$GOPATH/bin"
       "$path[@]")
 export PATH
-whence mise >/dev/null
-if [ $? = 0 ]; then
-	eval "$(mise activate zsh)"
-	# Doesn't work
-	#eval "$(mise completions zsh)"
-fi
+# whence mise >/dev/null
+# if [ $? = 0 ]; then
+# 	eval "$(mise activate zsh)"
+# 	# Doesn't work
+# 	#eval "$(mise completions zsh)"
+# fi
 whence packwiz >/dev/null
 [ $? = 0 ] && eval $(packwiz completion zsh)
 
