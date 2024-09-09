@@ -5,9 +5,12 @@
 if [ $1 = "-i" ] && [ ! -z "$2" ]
 then
 	pactl set-sink-volume @DEFAULT_SINK@ "$2"
-elif [ $1 = "-m" ]
+elif [ $1 = "-t" ]
 then
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
+elif [ $1 = "-m" ]
+then
+	pactl set-sink-mute @DEFAULT_SINK@ true
 fi
 
 # polybar-msg action "#volume.hook.0"
