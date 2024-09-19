@@ -1,0 +1,10 @@
+[user]
+	name = Guzman Zugnoni
+	email = guzman.zugnoni@correo.ucu.edu.uy
+	signingkey = ~/.ssh/id_uni.pub
+[core]
+	sshCommand = "ssh -i ~/.ssh/id_uni"
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
