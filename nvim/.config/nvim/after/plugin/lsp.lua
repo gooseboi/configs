@@ -81,12 +81,5 @@ require("mason-lspconfig").setup({
 				}
 			}
 		end,
-
-		["pylsp"] = function()
-			require('lspconfig').pylsp.setup {
-				on_attach = on_attach,
-				capabilities = capabilities,
-			}
-		end,
 	}
 })
