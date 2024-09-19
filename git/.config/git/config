@@ -1,6 +1,7 @@
 [user]
 	name = Guzman Zugnoni
 	email = gooseiman@protonmail.com
+	signingkey = 3FD49C71AD807EBBEF4A2AC74BDA39B3D10B850A
 [color]
 	ui = true
 [core]
@@ -21,3 +22,5 @@
 	lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	dw = diff --word-diff
 	dp = !diff-parent
+[commit]
+	gpgsign = true
