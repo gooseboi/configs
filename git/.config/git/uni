@@ -2,6 +2,8 @@
 	name = Guzman Zugnoni
 	email = guzman.zugnoni@correo.ucu.edu.uy
 	signingkey = ~/.ssh/id_uni.pub
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
 [core]
 	sshCommand = "ssh -i ~/.ssh/id_uni"
 [commit]
