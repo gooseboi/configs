@@ -60,9 +60,7 @@ return {
 		})
 
 		-- Load extensions
-		if vim.loop.os_uname().sysname ~= "Windows_NT" then
-			telescope.load_extension('fzf')
-		end
+		telescope.load_extension('fzf')
 
 		local builtin = require('telescope.builtin')
 		-- Keymaps
