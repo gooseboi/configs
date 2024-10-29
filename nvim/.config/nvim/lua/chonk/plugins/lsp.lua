@@ -1,8 +1,10 @@
 return {
-	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
-	"folke/neodev.nvim",
+	dependencies = {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"folke/neodev.nvim",
+	},
 
 	config = function()
 		--- @param bufnr integer
