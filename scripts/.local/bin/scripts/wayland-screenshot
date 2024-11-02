@@ -1,7 +1,15 @@
 #!/bin/sh
 
+# wayland-screenshot <full|section> [copy]
+# Takes a screenshot, either fullscreen or an interactive selection. If a qr
+# code is detected, it prompts to copy the result into the clipboard.
+# If it doesn't, then move to the screenshots folder, and copy if the argument
+# is passed
+
+outfile=$(mktemp)
 full_fname="$HOME/pix/screenshots/$(date +%Y-%m-%d_%H-%M).png"
 
+# Calculate what the actual filename is to avoid overwriting
 if [ -f "$full_fname" ]; then
 	for i in $(seq -f "%02g" 1 99); do
 		possible_fname="${full_fname%.png}_${i}.png"
@@ -16,4 +24,43 @@ else
 	fname="$full_fname"
 fi
 
-grim "$fname" && notify-send "Screenshot" "Capture saved to $fname"
+
+if [ "$1" = "full" ]; then
+	grim "$outfile"
+elif [ "$1" = "section" ]; then
+	slurp | grim -t png -g - $outfile
+else
+	echo "Command `$1` is invalid" 1>&2
+fi
+
+# True if file exists and has a size greater than zero.
+[ ! -s "$outfile" ] && exit
+
+scanresult=$(zbarimg --quiet --raw "$outfile" | tr -d '\n')
+
+movefile() {
+	mv "$outfile" "$fname" && notify-send "Screenshot" "Capture saved to $fname"
+}
+
+copyfile() {
+	wl-copy -t image/png < "$outfile" && notify-send "Screenshot" "Capture saved to clipboard"
+}
+
+if [ -z "$scanresult" ]; then
+	[ "$2" = "copy" ] && copyfile
+	movefile
+else
+	# Avoid losing focus and closing the rofi window instantly because of
+	# clicking the ok button
+	sleep 0.5s
+
+	result="$(printf "Yes\\nNo\\n" | rofi -steal-focus -dmenu -p "QR code detected, do you want to copy the scan result?")"
+	if [ "$result" = "Yes" ]; then
+		echo "$scanresult" | wl-copy
+		rm "$outfile"
+		notify-send "Screenshot" "QR code contents copied to clipboard"
+	else
+		[ "$2" = "copy" ] && copyfile
+		movefile
+	fi
+fi
