@@ -1,6 +1,7 @@
 return {
 	"vimwiki/vimwiki",
-	config = function()
+	-- https://github.com/LazyVim/LazyVim/discussions/258#discussioncomment-4958269
+	init = function()
 		local vimwiki_dir = '~/.local/share/vimwiki/'
 		vim.g.vimwiki_list = { {
 			path = vimwiki_dir,
@@ -12,4 +13,3 @@ return {
 		vim.g.vimwiki_global_ext = 0
 	end
 }
-
