@@ -66,14 +66,11 @@ for opt, val in pairs(options) do
 	vim.opt[opt] = val
 end
 
-vim.api.nvim_create_autocmd(
-	"TextYankPost",
-	{
-		callback = function()
-			vim.highlight.on_yank({ timeout = 400 })
-		end
-	}
-)
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank({ timeout = 400 })
+	end
+})
 
 -- Courtesy of Lukesmith
 -- Removes trailing whitespace in file before saving
@@ -82,27 +79,5 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 		local currPos = vim.api.nvim_win_get_cursor(0)
 		vim.cmd([[%s/\s\+$//e]])
 		vim.api.nvim_win_set_cursor(0, currPos)
-	end
-})
-
-vim.api.nvim_create_autocmd('Filetype', {
-	pattern = 'nix',
-	callback = function(_)
-		vim.opt.shiftwidth = 2
-		vim.opt.softtabstop = 2
-		vim.opt.tabstop = 2
-		vim.opt.expandtab = true
-		vim.opt.smartindent = true
-	end
-})
-
-vim.api.nvim_create_autocmd('Filetype', {
-	pattern = 'cs',
-	callback = function(_)
-		vim.opt.shiftwidth = 4
-		vim.opt.softtabstop = 4
-		vim.opt.tabstop = 4
-		vim.opt.expandtab = true
-		vim.opt.smartindent = true
 	end
 })
