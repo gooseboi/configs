@@ -6,6 +6,8 @@
 # If it doesn't, then move to the screenshots folder, and copy if the argument
 # is passed
 
+[ -z "$1" ] && echo "doing nothing" && exit
+
 outfile=$(mktemp)
 full_fname="$HOME/pix/screenshots/$(date +%Y-%m-%d_%H-%M).png"
 
