@@ -36,6 +36,7 @@ export GEM_SPEC_CACHE="$XDG_DATA_HOME/ruby/specs"
 export GHCUP_USE_XDG_DIRS=true
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GOPATH="$XDG_DATA_HOME"/go
+export GRIPHOME="$XDG_CONFIG_HOME/grip"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export HISTFILE="$XDG_DATA_HOME"/zsh/history
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
