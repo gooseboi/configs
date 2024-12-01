@@ -2,7 +2,10 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
+		{
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			dependencies = { "williamboman/mason-lspconfig.nvim", },
+		},
 		"folke/neodev.nvim",
 	},
 
@@ -23,9 +26,10 @@ return {
 			bufmap('gI', vim.lsp.buf.implementation)
 			bufmap('<leader>D', vim.lsp.buf.type_definition)
 
-			bufmap('gr', require('telescope.builtin').lsp_references)
-			bufmap('<leader>s', require('telescope.builtin').lsp_document_symbols)
-			bufmap('<leader>S', require('telescope.builtin').lsp_dynamic_workspace_symbols)
+			local telescope = require('telescope.builtin')
+			bufmap('gr', telescope.lsp_references)
+			bufmap('<leader>s', telescope.lsp_document_symbols)
+			bufmap('<leader>S', telescope.lsp_dynamic_workspace_symbols)
 
 			bufmap("[d", vim.diagnostic.goto_prev)
 			bufmap("]d", vim.diagnostic.goto_next)
@@ -43,55 +47,55 @@ return {
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-		require("mason").setup()
-		require("mason-lspconfig").setup({
-			ensure_installed = {
-				"lua_ls",
-				"rust_analyzer",
-				"gopls",
-				"nil_ls",
-				"bashls",
-				"pylsp",
-				"clangd"
+		require("neodev").setup()
+
+		local servers = {
+			lua_ls = {
+				Lua = {
+					workspace = { checkThirdParty = false },
+					telemetry = { enable = false },
+				},
 			},
 
-			handlers = {
-				function(server_name)
-					require("lspconfig")[server_name].setup {
-						on_attach = on_attach,
-						capabilities = capabilities
-					}
-				end,
+			rust_analyzer = {
+				["rust-analyzer"] = {
+					cargo = { allFeatures = true, },
+					imports = { group = { enable = false, }, },
+					completion = { postfix = { enable = false, }, },
+					check = { command = "clippy" }
+				}
+			},
 
-				["lua_ls"] = function()
-					require('neodev').setup()
-					require('lspconfig').lua_ls.setup {
-						on_attach = on_attach,
-						capabilities = capabilities,
-						settings = {
-							Lua = {
-								workspace = { checkThirdParty = false },
-								telemetry = { enable = false },
-							},
-						}
-					}
-				end,
+			gopls = {},
 
-				["rust_analyzer"] = function()
-					require('lspconfig').rust_analyzer.setup {
-						on_attach = on_attach,
-						capabilities = capabilities,
-						settings = {
-							["rust-analyzer"] = {
-								cargo = { allFeatures = true, },
-								imports = { group = { enable = false, }, },
-								completion = { postfix = { enable = false, }, },
-								check = { command = "clippy" }
-							}
-						}
-					}
-				end,
-			}
+			nil_ls = {},
+
+			bashls = {},
+
+			pylsp = {},
+
+			clangd = {},
+		}
+
+		local ensure_installed = vim.tbl_keys(servers)
+		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+
+		require("mason").setup()
+		local lspconfig = require("lspconfig")
+		for name, config in pairs(servers) do
+			if config.settings == nil then
+				config = { settings = config }
+			end
+
+			config = vim.tbl_deep_extend("force", {}, {
+				capabilities = capabilities,
+			}, config)
+
+			lspconfig[name].setup(config)
+		end
+
+		vim.api.nvim_create_autocmd("LspAttach", {
+			callback = on_attach,
 		})
 	end
 }
