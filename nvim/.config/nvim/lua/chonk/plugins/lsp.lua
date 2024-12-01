@@ -68,7 +68,16 @@ return {
 
 			gopls = {},
 
-			nil_ls = {},
+			nixd = {
+				ensure_installed = false,
+				settings = {
+					nixd = {
+						formatting = {
+							command = { "alejandra" },
+						},
+					}
+				},
+			},
 
 			bashls = {},
 
@@ -77,7 +86,15 @@ return {
 			clangd = {},
 		}
 
-		local ensure_installed = vim.tbl_keys(servers)
+		local ensure_installed = vim.tbl_filter(function(key)
+			local t = servers[key]
+			if t.ensure_installed == false then
+				return false
+			else
+				return true
+			end
+		end, vim.tbl_keys(servers))
+
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		require("mason").setup()
