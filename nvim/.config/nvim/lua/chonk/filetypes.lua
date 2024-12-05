@@ -1,34 +1,25 @@
+local opt_local = vim.opt_local;
+
 local filetype_exceptions = {
-	nix = {
-		shiftwidth = 2,
-		softtabstop = 2,
-		tabstop = 2,
-		expandtab = true,
-		smartindent = true,
-	},
-	cs = {
-		shiftwidth = 4,
-		softtabstop = 4,
-		tabstop = 4,
-		expandtab = true,
-		smartindent = true,
-	}
+	nix = function(_)
+		opt_local.shiftwidth = 2
+		opt_local.softtabstop = 2
+		opt_local.tabstop = 2
+		opt_local.expandtab = true
+		opt_local.smartindent = true
+	end,
+	cs = function(_)
+		opt_local.shiftwidth = 8
+		opt_local.softtabstop = 4
+		opt_local.tabstop = 4
+		opt_local.expandtab = true
+		opt_local.smartindent = true
+	end,
 }
 
-for name, config in pairs(filetype_exceptions) do
-	local shiftwidth = config.shiftwidth
-	local softtabstop = config.softtabstop
-	local tabstop = config.tabstop
-	local expandtab = config.expandtab
-	local smartindent = config.smartindent
+for name, callback in pairs(filetype_exceptions) do
 	vim.api.nvim_create_autocmd('Filetype', {
 		pattern = name,
-		callback = function(_)
-			vim.opt.shiftwidth = shiftwidth
-			vim.opt.softtabstop = softtabstop
-			vim.opt.tabstop = tabstop
-			vim.opt.expandtab = expandtab
-			vim.opt.smartindent = smartindent
-		end
+		callback = callback,
 	})
 end
