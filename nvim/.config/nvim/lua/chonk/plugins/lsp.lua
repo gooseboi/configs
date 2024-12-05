@@ -84,6 +84,14 @@ return {
 			pylsp = {},
 
 			clangd = {},
+
+			zls = {
+				settings = {},
+
+				on_attach = function(...)
+					vim.g.zig_fmt_autosave = false
+				end,
+			},
 		}
 
 		local ensure_installed = vim.tbl_filter(function(key)
