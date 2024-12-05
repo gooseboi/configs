@@ -9,7 +9,7 @@
 [ -z "$1" ] && echo "doing nothing" && exit
 
 outfile=$(mktemp)
-full_fname="$HOME/pix/screenshots/$(date +%Y-%m-%d_%H-%M).png"
+full_fname="$HOME/pix/screenshots/$(date +%Y)/$(date +%Y-%m-%d_%H-%M).png"
 
 # Calculate what the actual filename is to avoid overwriting
 if [ -f "$full_fname" ]; then
@@ -41,6 +41,7 @@ fi
 scanresult=$(zbarimg --quiet --raw "$outfile" | tr -d '\n')
 
 movefile() {
+	mkdir $(dirname "$fname")
 	mv "$outfile" "$fname" && notify-send "Screenshot" "Capture saved to $fname"
 }
 
