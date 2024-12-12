@@ -5,7 +5,7 @@ return {
 
 		'L3MON4D3/LuaSnip',
 		'saadparwaiz1/cmp_luasnip',
-		'rafamadriz/friendly-snippets',
+		'hrsh7th/cmp-path',
 	},
 	config = function()
 		local cmp = require('cmp')
