@@ -2,14 +2,21 @@
 	name = Guzman Zugnoni
 	email = gooseiman@protonmail.com
 	signingkey = 3FD49C71AD807EBBEF4A2AC74BDA39B3D10B850A
+
+[init]
+	defaultBranch = master
+
 [color]
 	ui = true
+
 [core]
 	editor = nvim
 	autocrlf = input
 	safecrlf = true
+
 [merge]
 	tool = nvim -d
+
 [alias]
 	c = commit
 	s = status
@@ -22,6 +29,7 @@
 	lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	dw = diff --word-diff
 	dws = diff --word-diff --staged
+
 [commit]
 	gpgsign = true
 
