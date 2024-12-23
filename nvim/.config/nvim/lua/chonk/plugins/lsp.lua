@@ -27,9 +27,9 @@ return {
 			bufmap('<leader>D', vim.lsp.buf.type_definition)
 
 			local telescope = require('telescope.builtin')
-			bufmap('gr', telescope.lsp_references)
-			bufmap('<leader>s', telescope.lsp_document_symbols)
-			bufmap('<leader>S', telescope.lsp_dynamic_workspace_symbols)
+			bufmap('gu', telescope.lsp_references)
+			bufmap('gs', telescope.lsp_document_symbols)
+			bufmap('gS', telescope.lsp_dynamic_workspace_symbols)
 
 			bufmap("[d", vim.diagnostic.goto_prev)
 			bufmap("]d", vim.diagnostic.goto_next)
