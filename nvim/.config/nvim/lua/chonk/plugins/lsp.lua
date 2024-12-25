@@ -92,6 +92,12 @@ return {
 					vim.g.zig_fmt_autosave = false
 				end,
 			},
+
+			ols = {
+				init_options = {
+					checker_args = "-strict-style",
+				},
+			},
 		}
 
 		local ensure_installed = vim.tbl_filter(function(key)

@@ -14,6 +14,8 @@ return {
 				'c',
 				'rust',
 				'go',
+				'odin',
+				'zig',
 
 				-- Build
 				'make',
