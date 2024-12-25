@@ -1,3 +1,5 @@
+vim.cmd('language en_US')
+
 local options = {
 	autoindent = true, -- Copy indent from previous line
 	timeoutlen = 300, -- https://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
