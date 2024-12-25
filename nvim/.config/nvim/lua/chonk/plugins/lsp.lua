@@ -10,8 +10,10 @@ return {
 	},
 
 	config = function()
-		--- @param bufnr integer
-		local on_attach = function(_, bufnr)
+		--- @param args { buf: integer }
+		local on_attach = function(args)
+			local bufnr = args.buf
+
 			--- @param keys string
 			--- @param func function
 			local bufmap = function(keys, func)
