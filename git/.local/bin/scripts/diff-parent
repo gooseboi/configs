@@ -1,8 +1,0 @@
-#!/bin/sh
-
-if [ -z "$1" ]; then
-	echo 'No parent commit was provided!'
-	exit 1
-else
-	git diff "$1"~ "$1"
-fi
