@@ -29,7 +29,7 @@ return {
 			bufmap('<leader>D', vim.lsp.buf.type_definition)
 
 			local telescope = require('telescope.builtin')
-			bufmap('gu', telescope.lsp_references)
+			bufmap('gr', telescope.lsp_references)
 			bufmap('gs', telescope.lsp_document_symbols)
 			bufmap('gS', telescope.lsp_dynamic_workspace_symbols)
 
