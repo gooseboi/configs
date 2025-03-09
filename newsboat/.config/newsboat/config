@@ -28,6 +28,8 @@ color info red black bold
 color article white default bold
 
 macro , open-in-browser
+max-browser-tabs 100
+macro a open-all-unread-in-browser-and-mark-read
 macro c set browser "handlerprompt %u" ; open-in-browser ; set browse
 
 highlight all "---.*---" yellow
